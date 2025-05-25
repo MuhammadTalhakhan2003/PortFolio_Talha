@@ -1,4 +1,5 @@
-#TalhaPortfolio
+# Talha Portfolio
+
 Welcome to TalhaPortfolio – a customizable personal dev portfolio + blog template built using GatsbyJS, TailwindCSS, and enhanced with Sass, JavaScript, and Gulp. It's lightweight, responsive, and production-ready – just plug in your info and you're live! 🚀
 
 🎉 Interested in full-stack Chrome Extension development? Check out my new course – Chrome Extension Mastery!
