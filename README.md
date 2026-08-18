@@ -1,164 +1,76 @@
-# Talha Portfolio
+# Muhammad Talha Khan — Portfolio
 
-Welcome to TalhaPortfolio – a customizable personal dev portfolio + blog template built using GatsbyJS, TailwindCSS, and enhanced with Sass, JavaScript, and Gulp. It's lightweight, responsive, and production-ready – just plug in your info and you're live! 🚀
+Personal portfolio of **Muhammad Talha Khan**, Full Stack Software Engineer (MERN / Node.js).
 
-🎉 Interested in full-stack Chrome Extension development? Check out my new course – Chrome Extension Mastery!
+🔗 **Live:** https://muhammadtalhakhan2003.github.io/PortFolio_Talha/
 
-🚀 Live Demo of TalhaPortfolio [clickHere](https://muhammadtalhakhan2003.github.io/PortFolio_Talha/)
-📁 GitHub Repository(https://github.com/MuhammadTalhakhan2003/PortFolio_Talha.git)
+---
 
-✨ Features
-⚙️ Built with GatsbyJS + TailwindCSS
+## About me
 
-💡 Gulp-ready (compile Sass + minify JS)
+Full Stack Software Engineer with 2+ years of experience building scalable web applications
+using React.js, Node.js, Express.js, MongoDB, PostgreSQL and REST APIs. Focused on backend
+architecture, secure authentication and real-time systems.
 
-🎨 Sass variables for easy theming
+Currently building backend services for **Chatley.ai** at ForthLogic.
 
-📱 Fully responsive
+**Available immediately** — open to full-time or contract roles, remote, hybrid or onsite.
 
-🧱 Bootstrap grid included
+- 📧 Talhakhan050203@gmail.com
+- 📱 +92 304 4292975
+- 💼 [LinkedIn](https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/)
+- 💻 [GitHub](https://github.com/MuhammadTalhakhan2003)
+- 📄 [Resume (PDF)](images/Talha-Khan-Resume.pdf)
 
-🧰 Font Awesome support
+---
 
-🧼 Clean, modular file structure
+## Built with
 
-📦 Folder Structure
-pgsql
-⚙️ Setup and Configuration
-1. 🔧 Customizing the Template
-bash
-Copy
-Edit
-# Clone the repository
+Hand-written, no framework and no build step — the site is a single static page.
+
+| | |
+|---|---|
+| Markup | Semantic HTML5 |
+| Styling | Modern CSS — custom properties, grid, `clamp()` fluid type, light/dark themes |
+| Behaviour | Vanilla JavaScript — theme toggle, mobile nav, scroll-spy, IntersectionObserver reveals |
+| Icons | Font Awesome (self-hosted in `libs/`) |
+| Fonts | Inter (Google Fonts) |
+| Forms | Formspree |
+
+### Features
+
+- Fully responsive — one column on mobile, multi-column from tablet up
+- Light and dark theme, remembered in `localStorage`, defaults to the OS preference
+- Recruiter "quick facts" panel: availability, work setup, employment type, stack
+- Accessible: skip link, focus-visible outlines, ARIA labels, `prefers-reduced-motion` support
+- SEO ready: meta description, Open Graph, Twitter cards, JSON-LD `Person` schema
+
+---
+
+## Run locally
+
+No dependencies, no build. Clone and open `index.html`:
+
+```bash
 git clone https://github.com/MuhammadTalhakhan2003/PortFolio_Talha.git
 cd PortFolio_Talha
+# open index.html in a browser, or serve it:
+npx serve .
+```
 
-# Install dependencies
-npm install
+## Structure
 
-# Run Gulp to compile Sass and minify JS
-npm run watch  # OR gulp watch
-Make edits in:
+```
+index.html                # the entire site — markup, styles and scripts
+images/                   # profile photo, project screenshots, resume PDF
+libs/font-awesome/        # self-hosted icon font
+favicon.ico
+```
 
-sass/styles.scss → compiled to css/styles.css
+## Deploy
 
-js/scripts.js → minified to js/scripts.min.js
+Hosted on GitHub Pages from the `main` branch. Any push updates the live site.
 
-2. 🏃‍♂️ Using the Template As-Is
-Just copy the following to your server or GitHub Pages:
+---
 
-css/, images/, js/, libs/
-
-index.html
-
-Then edit index.html with your info and you're good to go!
-
-🎨 Customization Guide
-🎯 General Styles
-Edit your primary styles in sass/_variables.scss:
-
-scss
-
-$base-color: #3498db;
-$background: #fff;
-$heading: #374054;
-$text: #74808a;
-🖼️ Images
-Background: images/lead-bg.jpg (1920x1080 recommended)
-
-Favicon: /favicon.ico
-
-Project Thumbnails: images/project.jpg
-
-🧩 Page Sections
-🔝 Header
-Add/remove navigation links in the <header> tag.
-
-Sticky Header:
-
-html
-
-<header class="sticky"> ... </header>
-External Links:
-
-html
-
-<a href="https://google.com" class="no-scroll">Google</a>
-👋 Lead Section
-Update your name, title, and resume link:
-
-html
-
-<h1>Muhammad Talha Khan</h1>
-<h2>Software Engineer | Developer</h2>
-<a href="resume.pdf" download="Talha_Resume.pdf" class="btn-rounded-white">Download Resume</a>
-👤 About Section
-Just edit the paragraph with your bio.
-
-💼 Experience Section
-Vertical timeline using #experience-timeline:
-
-html
-
-<div data-date="2023 – Present">
-  <h3>ItSolera</h3>
-  <h4>Backend Developer</h4>
-  <p>Built secure and scalable backend systems...</p>
-</div>
-🎓 Education Section
-html
-Copy
-Edit
-<div class="education-block">
-  <h3>University of South Asia</h3>
-  <span class="education-date">2019 – 2023</span>
-  <h4>Bachelor of Science in Computer Science</h4>
-  <p>CGPA: 3.44</p>
-</div>
-💻 Projects Section
-html
-
-<div class="project">
-  <div class="project-image">
-    <img src="images/project.jpg" />
-  </div>
-  <div class="project-info">
-    <h3>Hifazat App</h3>
-    <p>Community-driven safety app with real-time crime tracking.</p>
-    <a href="https://github.com/yourproject">View Project</a>
-  </div>
-</div>
-Add "Show More Projects" toggle:
-
-html
-
-<a id="view-more-projects" href="#">View More Projects</a>
-<div id="more-projects">...</div>
-🧠 Skills Section
-List your tech stack and tools in this section.
-
-📬 Contact Section
-Includes your email, phone number, and social links.
-
-🔚 Footer Section
-Add copyrights.
-
-🧪 Gulp Tasks
-bash
-
-gulp watch    # watches and compiles SCSS + JS
-gulp sass     # compile Sass manually
-gulp js       # minify JS manually
-📝 License
-This project is licensed under the MIT License – feel free to use and modify it for personal/commercial purposes.
-
-🙌 Acknowledgements
-Inspired by RyanFitzgerald’s portfolio templates
-
-Images from Unsplash
-
-Icons by Font Awesome
-
-Want to collaborate or suggest a feature?
-📧 Contact: Talhakhan050203@gmail.com
-🔗 GitHub Profile
+© Muhammad Talha Khan. Content and images are mine; the code is MIT licensed.

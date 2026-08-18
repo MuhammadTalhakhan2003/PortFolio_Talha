@@ -1,260 +1,1076 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en" data-theme="light">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Talha Khan — Full Stack Software Engineer (MERN, Node.js, Real-time)</title>
+<meta name="description" content="Full Stack Software Engineer with 2+ years building production web applications. React.js, Node.js, Express, MongoDB, PostgreSQL, REST APIs and real-time WebSocket systems. Available immediately for full-time, contract, remote or onsite roles.">
+<meta name="author" content="Muhammad Talha Khan">
+<link rel="canonical" href="https://muhammadtalhakhan2003.github.io/PortFolio_Talha/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Muhammad Talha Khan — Full Stack Software Engineer">
+<meta property="og:description" content="2+ years shipping production MERN and Node.js applications. Real-time systems, secure APIs, database performance. Open to full-time, contract, remote or onsite roles.">
+<meta property="og:url" content="https://muhammadtalhakhan2003.github.io/PortFolio_Talha/">
+<meta property="og:image" content="https://muhammadtalhakhan2003.github.io/PortFolio_Talha/images/profile-opt.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Muhammad Talha Khan — Full Stack Software Engineer">
+<meta name="twitter:description" content="2+ years shipping production MERN and Node.js applications. Real-time systems, secure APIs, database performance.">
+<meta name="twitter:image" content="https://muhammadtalhakhan2003.github.io/PortFolio_Talha/images/profile-opt.jpg">
+<meta name="theme-color" content="#4f46e5">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f46e5'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Segoe UI,Helvetica,Arial,sans-serif' font-size='26' font-weight='700' fill='%23fff' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
+<link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+
+<style>
+/* ============ Tokens ============ */
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --bg:#ffffff; --bg-alt:#f5f6fb; --surface:#ffffff; --border:#e5e8f0;
+  --text:#111420; --muted:#59607a; --accent:#4f46e5; --accent-2:#7c3aed;
+  --accent-soft:#eef0ff; --ok:#15803d; --ok-soft:#e7f6ec;
+  --nav-bg:rgba(255,255,255,.85);
+  --shadow:0 1px 2px rgba(16,24,40,.05), 0 10px 28px rgba(16,24,40,.07);
+  --shadow-lg:0 2px 4px rgba(16,24,40,.05), 0 20px 48px rgba(16,24,40,.12);
+  --radius:16px; --maxw:1140px;
+}
+:root[data-theme="dark"]{
+  --bg:#0a0e18; --bg-alt:#0f1424; --surface:#141b2d; --border:#252d44;
+  --text:#e9ebf3; --muted:#9aa3ba; --accent:#8f90fb; --accent-2:#b58bfa;
+  --accent-soft:#1a2140; --ok:#4ade80; --ok-soft:#12291c;
+  --nav-bg:rgba(10,14,24,.85);
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 28px rgba(0,0,0,.4);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.5), 0 20px 48px rgba(0,0,0,.55);
+}
+html{scroll-behavior:smooth; scroll-padding-top:84px}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+body.nav-open{overflow:hidden}
+img{max-width:100%; display:block}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.22; margin:0 0 .5em; letter-spacing:-.02em; font-weight:700}
+p{margin:0 0 1em}
+ul{margin:0; padding:0}
+:focus-visible{outline:3px solid var(--accent); outline-offset:3px; border-radius:6px}
+
+/* ============ Layout ============ */
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px; width:100%}
+section{padding:clamp(56px,8vw,96px) 0}
+.alt{background:var(--bg-alt)}
+.eyebrow{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:10px}
+.sec-title{font-size:clamp(1.6rem,3.6vw,2.35rem); margin:0 0 12px}
+.sec-sub{color:var(--muted); font-size:clamp(1rem,1.6vw,1.06rem); max-width:72ch; margin:0 0 40px}
+.center{text-align:center}
+.center .sec-sub{margin-left:auto; margin-right:auto}
+.grid{display:grid; gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.gp{grid-template-columns:repeat(auto-fit,minmax(400px,1fr))}
+
+/* ============ Buttons ============ */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:13px 24px; border-radius:999px; font-weight:600; font-size:15px;
+  border:1.5px solid transparent; cursor:pointer; text-decoration:none; white-space:nowrap;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease}
+.btn:hover{text-decoration:none; transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; box-shadow:0 8px 22px rgba(79,70,229,.35)}
+.btn-primary:hover{box-shadow:0 14px 30px rgba(79,70,229,.45); color:#fff}
+.btn-ghost{background:transparent; color:#fff; border-color:rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.15); color:#fff}
+.btn-outline{background:var(--surface); color:var(--text); border-color:var(--border); box-shadow:var(--shadow)}
+.btn-outline:hover{border-color:var(--accent); color:var(--accent)}
+.btn-sm{padding:9px 18px; font-size:14px}
+
+/* ============ Cards ============ */
+.card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:26px; box-shadow:var(--shadow); height:100%;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+.card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg)}
+.card h3{font-size:1.12rem; margin:0 0 10px}
+.card p{color:var(--muted); font-size:.95rem; margin:0}
+.icon-badge{width:46px; height:46px; border-radius:12px; display:grid; place-items:center;
+  background:var(--accent-soft); color:var(--accent); font-size:20px; margin-bottom:16px}
+
+/* ============ Chips ============ */
+.chips{display:flex; flex-wrap:wrap; gap:8px; list-style:none}
+.chip{display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:999px;
+  background:var(--accent-soft); color:var(--accent); font-size:12.5px; font-weight:600;
+  border:1px solid rgba(79,70,229,.18)}
+:root[data-theme="dark"] .chip{border-color:rgba(143,144,251,.28)}
+
+/* ============ Nav ============ */
+.nav{position:sticky; top:0; z-index:60; background:var(--nav-bg);
+  backdrop-filter:saturate(180%) blur(14px); -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--border)}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; height:66px}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; color:var(--text); letter-spacing:-.02em}
+.brand:hover{text-decoration:none}
+.brand-mark{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; color:#fff;
+  background:linear-gradient(135deg,#4f46e5,#7c3aed); font-size:13px; font-weight:800; flex:none}
+.nav-links{display:flex; align-items:center; gap:2px; list-style:none}
+.nav-links a{display:block; padding:9px 12px; border-radius:9px; color:var(--muted);
+  font-size:14.5px; font-weight:600; transition:color .15s ease, background .15s ease}
+.nav-links a:hover{color:var(--text); background:var(--bg-alt); text-decoration:none}
+.nav-links a.active{color:var(--accent); background:var(--accent-soft)}
+.nav-actions{display:flex; align-items:center; gap:10px}
+.icon-btn{width:40px; height:40px; border-radius:10px; display:grid; place-items:center;
+  background:var(--surface); border:1px solid var(--border); color:var(--text);
+  cursor:pointer; font-size:16px; transition:border-color .15s ease, color .15s ease}
+.icon-btn:hover{border-color:var(--accent); color:var(--accent)}
+#nav-toggle{display:none}
+@media (max-width:980px){
+  .nav-links{position:fixed; inset:66px 0 0 0; flex-direction:column; align-items:stretch; gap:4px;
+    background:var(--bg); padding:20px; overflow-y:auto; transform:translateX(100%);
+    transition:transform .28s ease; border-top:1px solid var(--border)}
+  body.nav-open .nav-links{transform:translateX(0)}
+  .nav-links a{padding:14px 16px; font-size:16px}
+  #nav-toggle{display:grid}
+  .nav-cta{display:none}
+}
+
+/* ============ Hero ============ */
+.hero{position:relative; overflow:hidden; color:#fff;
+  background:radial-gradient(1100px 520px at 12% -10%, rgba(124,58,237,.55), transparent 60%),
+             radial-gradient(900px 480px at 88% 6%, rgba(56,189,248,.28), transparent 62%),
+             linear-gradient(160deg,#1b1a3a 0%,#221a4d 45%,#12122b 100%);
+  padding:clamp(56px,8vw,96px) 0 clamp(72px,9vw,104px)}
+.hero-inner{position:relative; z-index:2; display:grid; grid-template-columns:1.4fr .6fr; gap:48px; align-items:center}
+.hero h1{font-size:clamp(2.05rem,5.4vw,3.4rem); margin:16px 0 8px; color:#fff; letter-spacing:-.03em}
+.hero .role{font-size:clamp(1.05rem,2.3vw,1.45rem); font-weight:600; margin:0 0 16px; color:#c7d2fe}
+.hero .lede{color:rgba(255,255,255,.82); font-size:clamp(1rem,1.7vw,1.08rem); max-width:62ch; margin:0 0 26px}
+.hero-avail{display:inline-flex; align-items:center; gap:9px; padding:7px 16px; border-radius:999px;
+  background:rgba(74,222,128,.15); border:1px solid rgba(74,222,128,.45); color:#86efac; font-size:13px; font-weight:700}
+.hero-avail .dot{width:8px; height:8px; border-radius:50%; background:#4ade80; animation:pulse-g 2s infinite}
+@keyframes pulse-g{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px}
+.hero-meta{display:flex; flex-wrap:wrap; gap:10px}
+.meta-item{display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px;
+  background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.92); font-size:13.5px; font-weight:500}
+a.meta-item:hover{background:rgba(255,255,255,.2); color:#fff; text-decoration:none}
+.hero-photo{justify-self:center}
+.hero-photo img{width:min(260px,60vw); height:auto; aspect-ratio:4/5; border-radius:22px; object-fit:cover; object-position:center 12%;
+  border:1px solid rgba(255,255,255,.25); box-shadow:0 24px 60px rgba(0,0,0,.45)}
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr; gap:26px; text-align:center}
+  .hero-photo{order:-1}
+  .hero-photo img{width:min(170px,42vw); border-radius:18px}
+  .hero .lede{margin-left:auto; margin-right:auto}
+  .hero-cta,.hero-meta{justify-content:center}
+}
+
+/* ============ Stats ============ */
+.stats{position:relative; z-index:3; margin:-52px auto 0; max-width:var(--maxw); padding:0 20px}
+.stats-inner{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow-lg); padding:26px 20px;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:18px; text-align:center}
+.stat b{display:block; font-size:clamp(1.45rem,3vw,1.95rem); font-weight:800; letter-spacing:-.03em;
+  color:var(--accent); line-height:1.15}
+.stat span{display:block; font-size:12.5px; color:var(--muted); font-weight:600; margin-top:3px}
+@media (max-width:560px){
+  .stats{margin-top:-34px}
+  .stats-inner{grid-template-columns:repeat(2,1fr); gap:20px 12px; padding:22px 16px}
+  .stat:last-child{grid-column:1 / -1}
+  .stat span{font-size:11.5px}
+}
+
+/* ============ Quick facts ============ */
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden}
+.fact{background:var(--surface); padding:20px 22px}
+.fact dt{font-size:11.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:6px}
+.fact dd{margin:0; font-size:15px; font-weight:600; color:var(--text)}
+.fact dd .sub{display:block; font-size:13px; font-weight:500; color:var(--muted); margin-top:2px}
+
+/* ============ Why hire me ============ */
+.why{position:relative; overflow:hidden}
+.why::before{content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:linear-gradient(180deg,#4f46e5,#7c3aed); opacity:0; transition:opacity .2s ease}
+.why:hover::before{opacity:1}
+.proof{display:inline-flex; align-items:center; gap:7px; margin-top:14px; padding:5px 11px;
+  border-radius:8px; background:var(--ok-soft); color:var(--ok); font-size:12.5px; font-weight:700}
+
+/* ============ Timeline ============ */
+.tl{position:relative; padding-left:34px}
+.tl::before{content:''; position:absolute; left:9px; top:10px; bottom:10px; width:2px; background:var(--border)}
+.tl-item{position:relative; margin-bottom:20px}
+.tl-item:last-child{margin-bottom:0}
+.tl-item::before{content:''; position:absolute; left:-30px; top:28px; width:14px; height:14px; border-radius:50%;
+  background:var(--surface); border:3px solid var(--accent); box-shadow:0 0 0 4px var(--bg)}
+.tl-head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px}
+.tl-head h3{margin:0; font-size:1.12rem}
+.tl-co{color:var(--accent); font-weight:700; font-size:.96rem; margin:2px 0 14px}
+.tl-date{font-size:13px; color:var(--muted); font-weight:600; white-space:nowrap}
+.tl-list{margin:0 0 14px; padding-left:20px; color:var(--muted); font-size:.94rem}
+.tl-list li{margin-bottom:7px}
+.tl-list strong{color:var(--text)}
+.badge{display:inline-block; padding:3px 10px; border-radius:6px; font-size:11.5px; font-weight:700; margin-left:6px; vertical-align:middle}
+.badge-now{background:var(--ok-soft); color:var(--ok)}
+.badge-alt{background:var(--accent-soft); color:var(--accent)}
+@media (max-width:560px){.tl{padding-left:26px}.tl-item::before{left:-24px}}
+
+/* ============ Production work ============ */
+.prod-top{display:flex; align-items:center; gap:14px; margin-bottom:6px}
+.prod-logo{width:48px; height:48px; border-radius:12px; display:grid; place-items:center; font-size:20px;
+  color:#fff; background:linear-gradient(135deg,#4f46e5,#7c3aed); flex:none}
+.prod-top h3{margin:0; font-size:1.22rem}
+.prod-role{font-size:12.5px; color:var(--muted); font-weight:600; margin:2px 0 0}
+.contrib{margin:14px 0 16px; padding-left:20px; color:var(--muted); font-size:.93rem}
+.contrib li{margin-bottom:6px}
+.contrib strong{color:var(--text)}
+.note{font-size:12.5px; color:var(--muted); margin:20px 0 0; text-align:center}
+
+/* ============ Projects ============ */
+.proj{display:flex; flex-direction:column; padding:0; overflow:hidden}
+.proj-img{aspect-ratio:16/9; overflow:hidden; background:var(--bg-alt); border-bottom:1px solid var(--border)}
+.proj-img img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease}
+.proj:hover .proj-img img{transform:scale(1.05)}
+.proj-body{padding:22px; display:flex; flex-direction:column; flex:1}
+.proj-body h3{font-size:1.08rem; margin:0 0 8px}
+.proj-body p{color:var(--muted); font-size:.92rem; margin:0 0 14px}
+.proj-body .chips{margin-bottom:16px}
+.proj-links{display:flex; gap:10px; flex-wrap:wrap; margin-top:auto}
+.featured{border:1.5px solid rgba(79,70,229,.4); margin-bottom:20px}
+:root[data-theme="dark"] .featured{border-color:rgba(143,144,251,.4)}
+.featured-head{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:6px}
+.featured-head h3{margin:0; font-size:1.25rem}
+.feat-cols{display:grid; grid-template-columns:1fr 1fr; gap:8px 28px; margin:16px 0}
+@media (max-width:640px){.feat-cols{grid-template-columns:1fr}}
+.feat-cols li{color:var(--muted); font-size:.93rem; margin-bottom:6px}
+.feat-cols ul{padding-left:20px}
+
+/* ============ Skills ============ */
+.skill-group h3{font-size:.95rem; margin:0 0 14px; display:flex; align-items:center; gap:9px}
+.skill-group h3 i{color:var(--accent); font-size:15px}
+
+/* ============ Education ============ */
+.edu-head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; align-items:baseline}
+.edu-head h3{margin:0; font-size:1.1rem}
+.edu-school{color:var(--accent); font-weight:700; font-size:.95rem; margin:2px 0 12px}
+.fyp{margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--bg-alt); border-left:3px solid var(--accent)}
+.fyp h4{margin:0 0 8px; font-size:.95rem}
+.fyp p{margin:0; color:var(--muted); font-size:.9rem}
+
+/* ============ Contact ============ */
+.contact{background:linear-gradient(160deg,#1b1a3a 0%,#221a4d 50%,#12122b 100%); color:#fff}
+.contact .sec-title{color:#fff}
+.contact .sec-sub{color:rgba(255,255,255,.78)}
+.contact-grid{display:grid; grid-template-columns:1fr 1.05fr; gap:36px; align-items:start}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.c-method{display:flex; align-items:center; gap:14px; padding:15px 18px; border-radius:12px;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); color:#fff;
+  margin-bottom:12px; transition:background .2s ease, transform .2s ease}
+.c-method:hover{background:rgba(255,255,255,.16); text-decoration:none; color:#fff; transform:translateX(4px)}
+.c-method i{font-size:17px; width:40px; height:40px; border-radius:10px; display:grid; place-items:center;
+  background:rgba(255,255,255,.12); flex:none}
+.c-method .k{display:block; font-size:12px; color:rgba(255,255,255,.65); font-weight:600}
+.c-method .v{display:block; font-size:14.5px; font-weight:600; word-break:break-word}
+.form-card{background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); border-radius:var(--radius); padding:28px}
+.form-card h3{color:#fff; font-size:1.15rem; margin:0 0 6px}
+.form-card > p{color:rgba(255,255,255,.7); font-size:.9rem; margin:0 0 20px}
+.field{margin-bottom:14px}
+.field label{display:block; font-size:12.5px; font-weight:700; color:rgba(255,255,255,.82); margin-bottom:6px}
+.field input,.field textarea{width:100%; padding:13px 15px; border-radius:10px; border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.96); color:#111420; font-size:15px; font-family:inherit}
+.field textarea{min-height:118px; resize:vertical}
+.field input:focus,.field textarea:focus{outline:2px solid #a5b4fc; outline-offset:1px}
+.form-card .btn{width:100%; background:#fff; color:#4f46e5}
+.form-card .btn:hover{background:#eef0ff; color:#4338ca}
+#sent-banner{display:flex; align-items:flex-start; gap:12px; padding:14px 16px; margin-bottom:20px;
+  border-radius:12px; background:rgba(74,222,128,.16); border:1px solid rgba(74,222,128,.45);
+  color:#bbf7d0; font-size:14px; line-height:1.5}
+#sent-banner[hidden]{display:none}
+#sent-banner i{font-size:18px; color:#4ade80; margin-top:2px}
+
+/* ============ Footer ============ */
+footer{background:var(--bg-alt); border-top:1px solid var(--border); padding:44px 0 32px; text-align:center}
+.social{display:flex; justify-content:center; gap:12px; margin:20px 0}
+.social a{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-size:17px;
+  background:var(--surface); border:1px solid var(--border); color:var(--muted); transition:all .2s ease}
+.social a:hover{color:#fff; background:linear-gradient(135deg,#4f46e5,#7c3aed); border-color:transparent;
+  transform:translateY(-3px); text-decoration:none}
+footer p{color:var(--muted); font-size:13.5px; margin:6px 0}
+
+/* ============ Reveal / a11y ============ */
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1; transform:none}
+.skip{position:absolute; left:-9999px; top:0; background:var(--accent); color:#fff; padding:12px 20px; z-index:100}
+.skip:focus{left:0}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
+  .reveal{opacity:1; transform:none}
+}
+
+/* ============ Print ============ */
+@media print{
+  .nav,.social,.form-card,.hero-cta,#sent-banner,.proj-links,.note,.skip{display:none!important}
+  html,body{background:#fff!important; color:#000!important; font-size:11pt}
+  .reveal{opacity:1!important; transform:none!important}
+  section{padding:18px 0!important; break-inside:avoid}
+  .hero,.contact{background:#fff!important; color:#000!important}
+  .hero h1,.hero .role,.hero .lede,.contact .sec-title,.contact .sec-sub{color:#000!important}
+  .hero-avail,.meta-item,.c-method{background:#fff!important; border:1px solid #999!important; color:#000!important}
+  .card,.stats-inner,.fact{box-shadow:none!important; border:1px solid #ccc!important; break-inside:avoid}
+  .chip{background:#fff!important; border:1px solid #999!important; color:#000!important}
+  .proj-img{display:none}
+  .stat b,.eyebrow,.tl-co,.edu-school{color:#000!important; -webkit-text-fill-color:#000!important}
+  a{color:#000!important; text-decoration:underline}
+  a[href^="http"]::after{content:" (" attr(href) ")"; font-size:8pt; color:#555}
+}
+</style>
 </head>
 
 <body>
-    <div id="mobile-menu-open" class="shadow-large">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark">MT</span> Talha Khan</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#why">Why hire me</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Live work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm nav-cta" href="images/Talha-Khan-Resume.pdf" target="_blank" rel="noopener">
+        <i class="fa fa-download" aria-hidden="true"></i> Resume
+      </a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <i class="fa fa-moon-o" aria-hidden="true"></i>
+      </button>
+      <button class="icon-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
-    <!-- End #mobile-menu-toggle -->
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ==================== HERO ==================== -->
+<section id="top" class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="hero-avail"><span class="dot"></span> Available immediately — open to new roles</span>
+      <h1>Muhammad Talha Khan</h1>
+      <p class="role">Full Stack Software Engineer · MERN &amp; Node.js</p>
+      <p class="lede">
+        I build production backends and full-stack web apps: secure REST APIs, real-time
+        WebSocket messaging, and databases tuned to stay fast as they grow. 2+ years across
+        four engineering teams — currently shipping backend services for
+        <strong>Chatley.ai</strong> at ForthLogic.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="images/Talha-Khan-Resume.pdf" target="_blank" rel="noopener">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download Resume
+        </a>
+        <a class="btn btn-ghost" href="#contact">
+          <i class="fa fa-paper-plane" aria-hidden="true"></i> Hire me / Get in touch
+        </a>
+      </div>
+      <div class="hero-meta">
+        <a class="meta-item" href="mailto:Talhakhan050203@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> Talhakhan050203@gmail.com</a>
+        <a class="meta-item" href="tel:+923044292975"><i class="fa fa-phone" aria-hidden="true"></i> +92 304 4292975</a>
+        <span class="meta-item"><i class="fa fa-map-marker" aria-hidden="true"></i> Johar Town, Lahore, PK</span>
+        <a class="meta-item" href="https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        <a class="meta-item" href="https://github.com/MuhammadTalhakhan2003" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/profile-opt.jpg" width="600" height="600" alt="Muhammad Talha Khan, Full Stack Software Engineer">
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><b>2+</b><span>Years professional experience</span></div>
+    <div class="stat"><b>4</b><span>Engineering teams shipped with</span></div>
+    <div class="stat"><b>2</b><span>Live production platforms</span></div>
+    <div class="stat"><b>30%</b><span>Fewer API response errors</span></div>
+    <div class="stat"><b>25%</b><span>Faster backend performance</span></div>
+  </div>
+</div>
+
+<!-- ==================== QUICK FACTS ==================== -->
+<section id="facts" style="padding-top:clamp(40px,6vw,64px)">
+  <div class="wrap reveal">
+    <span class="eyebrow">Recruiter quick facts</span>
+    <h2 class="sec-title">Everything you need before the first call</h2>
+    <p class="sec-sub">No guessing, no back-and-forth emails — availability, work setup and stack are all here.</p>
+    <dl class="facts">
+      <div class="fact"><dt>Availability</dt><dd>Immediately<span class="sub">No notice period to serve</span></dd></div>
+      <div class="fact"><dt>Work setup</dt><dd>Remote · Hybrid · Onsite<span class="sub">All three work for me</span></dd></div>
+      <div class="fact"><dt>Employment type</dt><dd>Full-time · Contract<span class="sub">Open to both</span></dd></div>
+      <div class="fact"><dt>Location</dt><dd>Johar Town, Lahore<span class="sub">Pakistan · open to remote worldwide</span></dd></div>
+      <div class="fact"><dt>Experience</dt><dd>2+ years<span class="sub">Professional, since Sep 2024</span></dd></div>
+      <div class="fact"><dt>Current role</dt><dd>Full Stack Developer<span class="sub">ForthLogic (Remote) — Chatley.ai</span></dd></div>
+      <div class="fact"><dt>Core stack</dt><dd>Node.js · React · MongoDB<span class="sub">Express, PostgreSQL, WebSockets</span></dd></div>
+      <div class="fact"><dt>Education</dt><dd>MS Computer Science<span class="sub">FAST-NUCES · coursework completed</span></dd></div>
+      <div class="fact"><dt>Languages</dt><dd>English · Urdu<span class="sub">Professional · Native</span></dd></div>
+      <div class="fact"><dt>Best fit roles</dt><dd>Backend / Full Stack<span class="sub">Node.js, MERN, real-time systems</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ==================== WHY HIRE ME ==================== -->
+<section id="why" class="alt">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Why hire me</span>
+      <h2 class="sec-title">Six reasons I'd be a strong hire</h2>
+      <p class="sec-sub">
+        I'm not looking for my first line of production code — I've been writing it for two years,
+        in Agile teams, through code review, into real deployments. Here's what I bring on day one.
+      </p>
+    </div>
+    <div class="grid g3 reveal">
+      <article class="card why">
+        <div class="icon-badge"><i class="fa fa-rocket" aria-hidden="true"></i></div>
+        <h3>I ship to production, not to localhost</h3>
+        <p>My work runs in front of real users: backend services for Chatley.ai, an AI-powered
+           real-time communication platform, plus B2B integration systems processing live business data.</p>
+        <span class="proof"><i class="fa fa-check" aria-hidden="true"></i> Live production code today</span>
+      </article>
+      <article class="card why">
+        <div class="icon-badge"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
+        <h3>Measurable impact, not just tickets closed</h3>
+        <p>I track what my code changes. Debugging and rebuilding REST endpoints cut response
+           errors by 30%; database optimisation improved backend performance by 25%.</p>
+        <span class="proof"><i class="fa fa-check" aria-hidden="true"></i> 30% fewer errors · 25% faster</span>
+      </article>
+      <article class="card why">
+        <div class="icon-badge"><i class="fa fa-bolt" aria-hidden="true"></i></div>
+        <h3>Real-time systems are my specialty</h3>
+        <p>WebSockets and Socket.io are day-to-day work for me, not a tutorial: low-latency
+           messaging at Chatley.ai, a WhatsApp-style chat app, and live GPS location tracking.</p>
+        <span class="proof"><i class="fa fa-check" aria-hidden="true"></i> 3+ real-time systems built</span>
+      </article>
+      <article class="card why">
+        <div class="icon-badge"><i class="fa fa-database" aria-hidden="true"></i></div>
+        <h3>I tune databases, not just query them</h3>
+        <p>MongoDB schema design for performance, PostgreSQL indexing and query optimisation,
+           ERD-based data pipelines, and PostGIS for geospatial workloads.</p>
+        <span class="proof"><i class="fa fa-check" aria-hidden="true"></i> MongoDB · PostgreSQL · PostGIS</span>
+      </article>
+      <article class="card why">
+        <div class="icon-badge"><i class="fa fa-lock" aria-hidden="true"></i></div>
+        <h3>Security built in, not bolted on</h3>
+        <p>JWT authentication and authorisation, role-based access control, input validation,
+           CORS and structured logging are part of how I build an API — not a later ticket.</p>
+        <span class="proof"><i class="fa fa-check" aria-hidden="true"></i> JWT · RBAC · Validation</span>
+      </article>
+      <article class="card why">
+        <div class="icon-badge"><i class="fa fa-users" aria-hidden="true"></i></div>
+        <h3>Team-ready from day one</h3>
+        <p>Four teams in two years: Agile sprints, peer code reviews, Git workflows, production
+           deployments, and working directly with frontend developers and cross-functional stakeholders.</p>
+        <span class="proof"><i class="fa fa-check" aria-hidden="true"></i> Agile · Code reviews · Git</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+<section id="experience">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Experience</span>
+      <h2 class="sec-title">Where I've worked</h2>
+      <p class="sec-sub">Four engineering teams since September 2024 — backend-heavy full stack work throughout.</p>
+    </div>
+    <div class="tl reveal">
+
+      <article class="tl-item card">
+        <div class="tl-head">
+          <h3>Full Stack Developer <span class="badge badge-now">CURRENT</span></h3>
+          <span class="tl-date">Apr 2026 – Present</span>
         </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#experience">Experience</a>
-            </li>
-            <li>
-                <a href="#education">Education</a>
-            </li>
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
+        <p class="tl-co">ForthLogic · Remote</p>
+        <ul class="tl-list">
+          <li>Developing scalable backend services for <strong>Chatley.ai</strong>, an AI-powered real-time communication platform.</li>
+          <li>Designing and implementing secure <strong>RESTful APIs</strong> with Express.js and Node.js.</li>
+          <li>Building real-time messaging features over <strong>WebSockets</strong> for low-latency communication.</li>
+          <li>Implementing <strong>JWT</strong> authentication and authorisation for secure user management.</li>
+          <li>Designing optimised <strong>MongoDB schemas</strong> to improve application performance.</li>
+          <li>Collaborating with React.js frontend developers in Agile workflows, code reviews and feature deployments.</li>
         </ul>
-    </header>
-    <!-- End header -->
+        <ul class="chips">
+          <li class="chip">MongoDB</li><li class="chip">Express.js</li><li class="chip">React.js</li>
+          <li class="chip">Node.js</li><li class="chip">REST APIs</li><li class="chip">JWT</li><li class="chip">WebSockets</li>
+        </ul>
+      </article>
 
-    <div id="lead">
-        <div id="lead-content">
-            <div>
-                <img src="images/profile.jpg" alt="Muhammad Talha Khan" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
-            </div>
-            <h1>MuhammadTalhaKhan</h1>
-            <h2>Software Engineer</h2>
-            <a href="images/Muhammad Talha Khan_Resume.pdf" target="_blank" class="btn-rounded-white">Download Resume</a>
+      <article class="tl-item card">
+        <div class="tl-head">
+          <h3>Associate Software Engineer <span class="badge badge-alt">CONTRACT ENDED</span></h3>
+          <span class="tl-date">Aug 2025 – Sep 2026</span>
         </div>
+        <p class="tl-co">TechClan</p>
+        <ul class="tl-list">
+          <li>Developed scalable backend services using <strong>Node.js and Express.js</strong>.</li>
+          <li>Built secure authentication systems using <strong>JWT</strong>.</li>
+          <li>Designed and optimised <strong>RESTful APIs</strong> for improved performance.</li>
+          <li>Enhanced <strong>PostgreSQL</strong> performance through indexing and query optimisation.</li>
+          <li>Collaborated with cross-functional teams using Agile methodologies.</li>
+          <li>Participated in production deployments and code reviews.</li>
+        </ul>
+        <ul class="chips">
+          <li class="chip">Node.js</li><li class="chip">React.js</li><li class="chip">JavaScript</li>
+          <li class="chip">PostgreSQL</li><li class="chip">JWT</li>
+        </ul>
+      </article>
 
-        <!-- End #lead-content -->
-
-        <div id="lead-overlay"></div>
-
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
+      <article class="tl-item card">
+        <div class="tl-head">
+          <h3>Associate Software Engineer</h3>
+          <span class="tl-date">Jan 2025 – Jul 2025</span>
         </div>
-        <!-- End #lead-down -->
+        <p class="tl-co">ECOM Specialist LLC</p>
+        <ul class="tl-list">
+          <li>Developed and optimised backend services for <strong>B2B integrations</strong> and automation workflows.</li>
+          <li>Designed efficient <strong>data pipelines and ERD-based systems</strong> for order processing and business operations.</li>
+          <li>Implemented validation, authentication and logging mechanisms.</li>
+          <li>Collaborated with cross-functional teams using version control and Agile practices.</li>
+        </ul>
+        <ul class="chips">
+          <li class="chip">Node.js</li><li class="chip">Express.js</li><li class="chip">PostgreSQL</li>
+          <li class="chip">ERD Design</li><li class="chip">APIs</li>
+        </ul>
+      </article>
+
+      <article class="tl-item card">
+        <div class="tl-head">
+          <h3>Backend Intern</h3>
+          <span class="tl-date">Sep 2024 – Dec 2024</span>
+        </div>
+        <p class="tl-co">Internee.pk</p>
+        <ul class="tl-list">
+          <li>Built and debugged RESTful APIs, <strong>reducing response errors by 30%</strong>.</li>
+          <li>Assisted in database optimisation, <strong>improving backend performance by 25%</strong>.</li>
+          <li>Streamlined internal tools, accelerating deployment cycles.</li>
+        </ul>
+        <ul class="chips">
+          <li class="chip">Node.js</li><li class="chip">RESTful APIs</li><li class="chip">PostgreSQL</li>
+        </ul>
+      </article>
+
     </div>
-    <!-- End #lead -->
+  </div>
+</section>
 
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                        Hello! My name is <strong>Muhammad Talha Khan</strong>. I am a dedicated and detail-oriented Software Engineer with a strong foundation in developing efficient and scalable web and mobile applications. I am passionate about solving complex problems and continuously enhancing my technical skills.
-                    </p>
-                    <p>
-                        I hold a Bachelor's degree in Computer Science from the <strong>University of South Asia</strong>, graduating with a <strong>CGPA of 3.44</strong>. During my final year, I led the mobile development of our capstone project titled <em>"Hifazat"</em> — a community-driven safety awareness application aimed at enhancing public safety through real-time crime reporting and analytics.
-                    </p>
-                    <p>
-                        The app allows users to report incidents by submitting location-based data, time, crime type, and a description. It also features live updates, crime heatmaps, voting mechanisms on authenticity, and visual crime statistics (daily, weekly, and monthly). The project was built using Flutter for the mobile frontend, integrated with a Django REST API backend and PostgreSQL/PostGIS for geospatial data handling. The app empowers communities by promoting transparency and collective awareness.
-                    </p>
-                    <p>
-                        My core expertise includes technologies such as <strong>React, Node.js, and Python</strong>, along with practical experience in <strong>RESTful APIs</strong>, and building end-to-end solutions. I take pride in writing clean, maintainable code and thrive in collaborative, fast-paced environments.
-                    </p>
-                </div>
-            </div>
-        </div>
+<!-- ==================== LIVE WORK ==================== -->
+<section id="work" class="alt">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Live production work</span>
+      <h2 class="sec-title">Products my code runs in</h2>
+      <p class="sec-sub">These are company products, not personal demos — below is exactly what I contributed to each.</p>
     </div>
-    <div id="experience" class="background-alt">
-        <h2 class="heading">Experience</h2>
-        <div id="experience-timeline">
-            <div data-date="September 2024 – December 2024">
-                <h3>Internee.pk</h3>
-                <h4>Backend Intern</h4>
-                <p>
-                    ● Contributed to backend development using Node.js.<br>
-                    ● Built and debugged RESTful APIs, reducing response errors by 30%.<br>
-                    ● Assisted in database design and optimized queries, improving system performance and helping the company increase backend efficiency by 25%.<br>
-                    ● Played a key role in streamlining internal tools, indirectly contributing to 10–15% faster feature deployment.
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- End #experience -->
+    <div class="grid g2 reveal">
 
-    <div id="education">
-        <h2 class="heading">Education</h2>
-        <div class="education-block">
-            <h3>University of South Asia</h3>
-            <span class="education-date">October 2021 – June 2025 (Expected)</span>
-            <h4>Bachelor of Science in Computer Science</h4>
-            <p>
-                Currently pursuing a Bachelor’s degree in Computer Science with a strong academic record, maintaining a CGPA of 3.44. The program provides an in-depth understanding of core computer science concepts including software engineering, data structures, algorithms, databases, and machine learning.
-            </p>
-            <p>
-                Successfully led the mobile application development for the final year project titled “Hifazat,” a community-driven safety awareness platform designed to enhance public safety through real-time crime reporting, geospatial data analytics, and live updates. The project involved collaborating with a multidisciplinary team, utilizing Flutter for the frontend, and integrating with a Django REST API backend supported by PostgreSQL/PostGIS for advanced geolocation features.
-            </p>
-            <p>
-                Developed strong skills in modern web technologies including Node.js and React, which complement my expertise in building scalable and maintainable applications. This technical foundation, combined with my academic training, prepares me to deliver effective software solutions in professional environments.
-            </p>
-        </div>
-    </div>
-    <div id="projects" class="background-alt" style="padding: 20px;">
-        <h2 class="heading" style="text-align: center;">Projects</h2>
-        <div class="container" style="max-width: 900px; margin: 0 auto;">
-          <div class="row">
-      
-            <!-- Project 1: Sage Talk -->
-            <div class="project shadow-large" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; margin-bottom: 20px;">
-              <div class="project-image" style="width: 300px; height: 200px; overflow: hidden; flex-shrink: 0;">
-                <img src="images/sage-talk.png" alt="Sage Talk Project Screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
-              </div>
-              <div class="project-info" style="flex: 1; min-width: 250px; box-sizing: border-box;">
-                <h3>Sage Talk - Real-Time Chat App</h3>
-                <p>
-                  A real-time chat application built with Vanilla JavaScript, Node.js, Express, and Socket.io. Features instant messaging, online status indicators, group and private chats with a clean and user-friendly interface similar to WhatsApp.
-                </p>
-                <a href="https://github.com/MuhammadTalhakhan2003/Real_TimeChat_App" target="_blank" rel="noopener noreferrer">View Project</a>
-              </div>
-            </div>
-      
-            <!-- Project 2: Space Dodge -->
-            <div class="project shadow-large" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; border: 1px solid #ccc; padding: 20px; box-sizing: border-box; margin-bottom: 20px;">
-              <div class="project-image" style="width: 300px; height: 200px; overflow: hidden; flex-shrink: 0;">
-                <img src="images/space-dodge.png" alt="Space Dodge Game Screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
-              </div>
-              <div class="project-info" style="flex: 1; min-width: 250px; box-sizing: border-box;">
-                <h3>Space Dodge - Pygame Arcade Game</h3>
-                <p>
-                  A fun arcade-style game built using Python and Pygame. Dodge incoming asteroids with your spaceship and try to survive as long as possible! Includes smooth controls, increasing difficulty, and real-time scoring.
-                </p>
-                <a href="https://github.com/MuhammadTalhakhan2003/pygame_space_dodge" target="_blank" rel="noopener noreferrer">View Project</a>
-              </div>
-            </div>
-             <!-- Project 3: ReaTime App -->
-
-            <div class="project shadow-large" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; border: 1px solid #ccc; padding: 20px; box-sizing: border-box;">
-                <div class="project-image" style="width: 300px; height: 200px; overflow: hidden; flex-shrink: 0;">
-                  <img src="images/realtime.png" alt="Real-Time Location Tracking Screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
-                </div>
-                <div class="project-info" style="flex: 1; min-width: 250px; box-sizing: border-box;">
-                  <h3>Real-Time Location Tracking</h3>
-                  <p>
-                    A real-time location tracking app built using Leaflet.js, Socket.io, and the Geolocation API. It accurately fetches and updates the user's position on an interactive map with real-time synchronization.
-                  </p>
-                  <a href="https://github.com/MuhammadTalhakhan2003/real_tracking" target="_blank" rel="noopener noreferrer">View Project</a>
-                </div>
-              </div>
-            <!-- Project 4: Translator App -->
-            <div class="project shadow-large" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; border: 1px solid #ccc; padding: 20px; box-sizing: border-box;">
-              <div class="project-image" style="width: 300px; height: 200px; overflow: hidden; flex-shrink: 0;">
-                <img src="images/translator.png" alt="Translator App Screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
-              </div>
-              <div class="project-info" style="flex: 1; min-width: 250px; box-sizing: border-box;">
-                <h3>Translator - Language Conversion Tool</h3>
-                <p>
-                  A lightweight and responsive translator app built using HTML, CSS, and JavaScript. It uses the MyMemory Translation API to convert text between various languages in real-time with copy and swap features.
-                </p>
-                <a href="https://github.com/MuhammadTalhakhan2003/translator" target="_blank" rel="noopener noreferrer">View Project</a>
-              </div>
-            </div>
-      
+      <article class="card">
+        <div class="prod-top">
+          <div class="prod-logo"><i class="fa fa-comments" aria-hidden="true"></i></div>
+          <div>
+            <h3>Chatley.ai</h3>
+            <p class="prod-role">Full Stack Developer @ ForthLogic · Apr 2026 – Present</p>
           </div>
         </div>
-      </div>
-      
-
-    <div id="skills">
-        <h2 class="heading">Skills</h2>
-        <ul>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Ruby</li>
-            <li>Go</li>
-            <li>Node.js</li>
-            <li>React</li>
+        <p style="color:var(--muted); font-size:.95rem; margin:12px 0 0">
+          AI-powered real-time communication platform.
+        </p>
+        <ul class="contrib">
+          <li><strong>Backend services</strong> and secure REST APIs in Node.js / Express.js</li>
+          <li><strong>Real-time messaging</strong> over WebSockets for low-latency delivery</li>
+          <li><strong>JWT auth</strong> and authorisation for secure user management</li>
+          <li><strong>MongoDB schema design</strong> optimised for application performance</li>
         </ul>
-    </div>
-    <!-- End #skills -->
+        <ul class="chips" style="margin-bottom:18px">
+          <li class="chip">Node.js</li><li class="chip">Express</li><li class="chip">MongoDB</li>
+          <li class="chip">WebSockets</li><li class="chip">JWT</li><li class="chip">React</li>
+        </ul>
+        <a class="btn btn-outline btn-sm" href="https://chatley.ai" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i> Visit chatley.ai
+        </a>
+      </article>
 
-    <div id="contact">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/f/mjkwqrrr">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+      <article class="card">
+        <div class="prod-top">
+          <div class="prod-logo" style="background:linear-gradient(135deg,#0ea5e9,#22c55e)"><i class="fa fa-shield" aria-hidden="true"></i></div>
+          <div>
+            <h3>upcover</h3>
+            <p class="prod-role">Backend contributions via TechClan · 2025 – 2026</p>
+          </div>
         </div>
-        <!-- End #contact-form -->
+        <p style="color:var(--muted); font-size:.95rem; margin:12px 0 0">
+          B2B insurance and coverage platform.
+        </p>
+        <ul class="contrib">
+          <li><strong>Backend services</strong> built with Node.js and Express.js</li>
+          <li><strong>RESTful APIs</strong> designed and optimised for performance</li>
+          <li><strong>PostgreSQL tuning</strong> via indexing and query optimisation</li>
+          <li><strong>JWT-secured endpoints</strong> with role-based user management</li>
+        </ul>
+        <ul class="chips" style="margin-bottom:18px">
+          <li class="chip">Node.js</li><li class="chip">Express</li><li class="chip">PostgreSQL</li>
+          <li class="chip">REST APIs</li><li class="chip">JWT</li>
+        </ul>
+        <a class="btn btn-outline btn-sm" href="https://upcover.com" target="_blank" rel="noopener">
+          <i class="fa fa-external-link" aria-hidden="true"></i> Visit upcover.com
+        </a>
+      </article>
+
     </div>
-    <!-- End #contact -->
+    <p class="note">Happy to walk through the architecture and my specific commits in an interview.</p>
+  </div>
+</section>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 copyright">
-                    <p>
-                        Copyright &copy; <span id="current-year">2025</span> MuhammadTalhaKhan
-                    </p>
-                </div>
-                <div class="col-sm-2 top">
-                    <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <div class="col-sm-5 social">
-                    <ul>
-                        <li>
-                            <a href="http://github.com/MuhammadTalhakhan2003" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://medium.com/@talhakhan050203" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://x.com/Khan123455Talha" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </li>
+<!-- ==================== PROJECTS ==================== -->
+<section id="projects">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Projects</span>
+      <h2 class="sec-title">Things I've built end to end</h2>
+      <p class="sec-sub">Source code is public — click through to GitHub and read it.</p>
+    </div>
 
-                    </ul>
-                </div>
-            </div>
+    <article class="card featured reveal">
+      <div class="featured-head">
+        <div class="icon-badge" style="margin:0"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+        <div>
+          <h3>Hifazat — Community Safety Platform</h3>
+          <p class="prod-role">Final Year Project · Aug 2024 – May 2025</p>
         </div>
-    </footer>
-    <!-- End footer -->
+        <span class="badge badge-alt" style="margin-left:auto">CAPSTONE</span>
+      </div>
+      <p style="color:var(--muted); font-size:.95rem; margin:14px 0 0">
+        A location-based community safety application: citizens report incidents in real time,
+        and the platform turns those reports into live crime heatmaps and geospatial analytics.
+      </p>
+      <div class="feat-cols">
+        <ul>
+          <li>Built the mobile application in <strong>Flutter</strong></li>
+          <li>Developed secure <strong>Django REST APIs</strong> with JWT authentication</li>
+        </ul>
+        <ul>
+          <li>Implemented <strong>role-based access control</strong></li>
+          <li>Integrated <strong>PostgreSQL + PostGIS</strong> for geospatial data</li>
+        </ul>
+      </div>
+      <ul class="chips">
+        <li class="chip">Flutter</li><li class="chip">Django</li><li class="chip">PostgreSQL</li>
+        <li class="chip">PostGIS</li><li class="chip">REST APIs</li><li class="chip">JWT</li><li class="chip">Web Scraping</li>
+      </ul>
+    </article>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+    <div class="grid gp reveal">
+
+      <article class="card proj">
+        <div class="proj-img">
+          <img src="images/sage-talk-opt.jpg" loading="lazy" width="1100" height="468" alt="Sage Talk real-time chat application screenshot">
+        </div>
+        <div class="proj-body">
+          <h3>Sage Talk — Real-Time Chat App</h3>
+          <p>WhatsApp-style chat with instant messaging, online status indicators, and both group
+             and private conversations over Socket.io.</p>
+          <ul class="chips">
+            <li class="chip">Node.js</li><li class="chip">Express</li><li class="chip">Socket.io</li><li class="chip">JavaScript</li>
+          </ul>
+          <div class="proj-links">
+            <a class="btn btn-outline btn-sm" href="https://github.com/MuhammadTalhakhan2003/Real_TimeChat_App" target="_blank" rel="noopener">
+              <i class="fa fa-github" aria-hidden="true"></i> View code
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj-img">
+          <img src="images/realtime-opt.jpg" loading="lazy" width="1100" height="407" alt="Real-time location tracking map screenshot">
+        </div>
+        <div class="proj-body">
+          <h3>Real-Time Location Tracking</h3>
+          <p>Live GPS tracking on an interactive map — positions stream over Socket.io and update
+             on every connected client instantly.</p>
+          <ul class="chips">
+            <li class="chip">Socket.io</li><li class="chip">Leaflet.js</li><li class="chip">Geolocation API</li><li class="chip">Node.js</li>
+          </ul>
+          <div class="proj-links">
+            <a class="btn btn-outline btn-sm" href="https://github.com/MuhammadTalhakhan2003/real_tracking" target="_blank" rel="noopener">
+              <i class="fa fa-github" aria-hidden="true"></i> View code
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj-img">
+          <img src="images/translator.png" loading="lazy" width="684" height="432" alt="Translator web app screenshot">
+        </div>
+        <div class="proj-body">
+          <h3>Translator — Language Conversion Tool</h3>
+          <p>Responsive translator built on the MyMemory Translation API, with instant conversion,
+             copy-to-clipboard and language swap.</p>
+          <ul class="chips">
+            <li class="chip">JavaScript</li><li class="chip">HTML/CSS</li><li class="chip">REST API</li>
+          </ul>
+          <div class="proj-links">
+            <a class="btn btn-outline btn-sm" href="https://github.com/MuhammadTalhakhan2003/translator" target="_blank" rel="noopener">
+              <i class="fa fa-github" aria-hidden="true"></i> View code
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card proj">
+        <div class="proj-img">
+          <img src="images/space-dodge-opt.jpg" loading="lazy" width="1100" height="733" alt="Space Dodge arcade game screenshot">
+        </div>
+        <div class="proj-body">
+          <h3>Space Dodge — Arcade Game</h3>
+          <p>Python/Pygame arcade game with smooth controls, progressive difficulty scaling and
+             real-time scoring. Built for the fun of game loops and collision logic.</p>
+          <ul class="chips">
+            <li class="chip">Python</li><li class="chip">Pygame</li><li class="chip">Game Loop</li>
+          </ul>
+          <div class="proj-links">
+            <a class="btn btn-outline btn-sm" href="https://github.com/MuhammadTalhakhan2003/pygame_space_dodge" target="_blank" rel="noopener">
+              <i class="fa fa-github" aria-hidden="true"></i> View code
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <p class="note">
+      <a href="https://github.com/MuhammadTalhakhan2003" target="_blank" rel="noopener">
+        See all repositories on GitHub <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills" class="alt">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Technical skills</span>
+      <h2 class="sec-title">My stack</h2>
+      <p class="sec-sub">Everything listed here I've used in a real project or on the job.</p>
+    </div>
+    <div class="grid g3 reveal">
+      <div class="card skill-group">
+        <h3><i class="fa fa-server" aria-hidden="true"></i> Backend</h3>
+        <ul class="chips">
+          <li class="chip">Node.js</li><li class="chip">Express.js</li><li class="chip">RESTful APIs</li>
+          <li class="chip">Python</li><li class="chip">Django REST</li>
+        </ul>
+      </div>
+      <div class="card skill-group">
+        <h3><i class="fa fa-code" aria-hidden="true"></i> Frontend &amp; Mobile</h3>
+        <ul class="chips">
+          <li class="chip">React.js</li><li class="chip">JavaScript (ES6+)</li><li class="chip">HTML5</li>
+          <li class="chip">CSS3</li><li class="chip">Responsive UI</li><li class="chip">Flutter</li>
+        </ul>
+      </div>
+      <div class="card skill-group">
+        <h3><i class="fa fa-database" aria-hidden="true"></i> Databases</h3>
+        <ul class="chips">
+          <li class="chip">MongoDB</li><li class="chip">PostgreSQL</li><li class="chip">PostGIS</li>
+          <li class="chip">Indexing &amp; Query Tuning</li><li class="chip">ERD Design</li>
+        </ul>
+      </div>
+      <div class="card skill-group">
+        <h3><i class="fa fa-bolt" aria-hidden="true"></i> Real-time &amp; Integrations</h3>
+        <ul class="chips">
+          <li class="chip">WebSockets</li><li class="chip">Socket.io</li><li class="chip">Event-driven Design</li>
+          <li class="chip">Third-party APIs</li><li class="chip">Leaflet.js</li>
+        </ul>
+      </div>
+      <div class="card skill-group">
+        <h3><i class="fa fa-lock" aria-hidden="true"></i> Security &amp; Auth</h3>
+        <ul class="chips">
+          <li class="chip">JWT</li><li class="chip">OAuth</li><li class="chip">RBAC</li>
+          <li class="chip">CORS</li><li class="chip">Input Validation</li>
+        </ul>
+      </div>
+      <div class="card skill-group">
+        <h3><i class="fa fa-wrench" aria-hidden="true"></i> Tools &amp; Practices</h3>
+        <ul class="chips">
+          <li class="chip">Git / GitHub</li><li class="chip">Docker</li><li class="chip">Agile / Scrum</li>
+          <li class="chip">Code Reviews</li><li class="chip">CI/CD</li><li class="chip">Clean Code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EDUCATION ==================== -->
+<section id="education">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Education</span>
+      <h2 class="sec-title">Academic background</h2>
+      <p class="sec-sub">A master's in progress alongside full-time engineering work.</p>
+    </div>
+    <div class="grid g2 reveal">
+
+      <article class="card">
+        <div class="edu-head">
+          <h3>Master of Computer Science</h3>
+          <span class="tl-date">Aug 2025 – Oct 2027</span>
+        </div>
+        <p class="edu-school">FAST – National University of Computer and Emerging Sciences</p>
+        <p style="color:var(--muted); font-size:.94rem; margin:0">
+          <strong style="color:var(--text)">Coursework completed.</strong> Studying advanced software
+          engineering practices and modern computing while working full time.
+        </p>
+        <ul class="chips" style="margin-top:16px">
+          <li class="chip">Coursework completed</li><li class="chip">Part-time alongside work</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="edu-head">
+          <h3>Bachelor of Computer Science</h3>
+          <span class="tl-date">Oct 2021 – Jun 2025</span>
+        </div>
+        <p class="edu-school">University of South Asia</p>
+        <ul class="chips" style="margin-bottom:14px">
+          <li class="chip"><i class="fa fa-trophy" aria-hidden="true"></i> CGPA 3.39 / 4.0</li>
+        </ul>
+        <p style="color:var(--muted); font-size:.94rem; margin:0">
+          <strong style="color:var(--text)">Coursework:</strong> Artificial Intelligence, Data Science,
+          Web Programming, Software Design and Analysis, Advanced Database.
+        </p>
+        <div class="fyp">
+          <h4><i class="fa fa-star" aria-hidden="true" style="color:var(--accent)"></i> Final Year Project — Hifazat</h4>
+          <p>Location-based community safety platform built with Flutter, Django REST, PostgreSQL and
+             PostGIS — real-time incident reporting, geospatial heatmaps, JWT auth and RBAC.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow" style="color:#a5b4fc">Contact</span>
+      <h2 class="sec-title">Let's talk about the role</h2>
+      <p class="sec-sub">
+        Available immediately for full-time or contract work — remote, hybrid or onsite.
+        I reply to every genuine message within 24 hours.
+      </p>
+    </div>
+    <div class="contact-grid reveal">
+      <div>
+        <a class="c-method" href="mailto:Talhakhan050203@gmail.com">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <span><span class="k">Email — fastest way to reach me</span><span class="v">Talhakhan050203@gmail.com</span></span>
+        </a>
+        <a class="c-method" href="tel:+923044292975">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <span><span class="k">Phone / WhatsApp</span><span class="v">+92 304 4292975</span></span>
+        </a>
+        <a class="c-method" href="https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/" target="_blank" rel="noopener">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+          <span><span class="k">LinkedIn</span><span class="v">muhammad-talha-khan</span></span>
+        </a>
+        <a class="c-method" href="https://github.com/MuhammadTalhakhan2003" target="_blank" rel="noopener">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span><span class="k">GitHub</span><span class="v">MuhammadTalhakhan2003</span></span>
+        </a>
+        <a class="c-method" href="images/Talha-Khan-Resume.pdf" target="_blank" rel="noopener">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+          <span><span class="k">Resume</span><span class="v">Download PDF</span></span>
+        </a>
+      </div>
+
+      <div class="form-card">
+        <div id="sent-banner" hidden>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <span><strong>Message sent — thank you!</strong><br>I'll get back to you within 24 hours.</span>
+        </div>
+        <h3>Send me a message</h3>
+        <p>Tell me about the role and I'll get back to you with availability and expectations.</p>
+        <form method="POST" action="https://formspree.io/f/mjkwqrrr">
+          <input type="hidden" name="_subject" value="Job opportunity via portfolio website">
+          <input type="hidden" name="_next" value="https://muhammadtalhakhan2003.github.io/PortFolio_Talha/?sent=1#contact">
+          <div class="field">
+            <label for="c-name">Your name</label>
+            <input id="c-name" type="text" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div class="field">
+            <label for="c-company">Company (optional)</label>
+            <input id="c-company" type="text" name="company" placeholder="Acme Inc.">
+          </div>
+          <div class="field">
+            <label for="c-email">Your email</label>
+            <input id="c-email" type="email" name="_replyto" placeholder="jane@company.com" required>
+          </div>
+          <div class="field">
+            <label for="c-msg">Message</label>
+            <textarea id="c-msg" name="message" placeholder="Role, stack, location and salary range — the more detail the better." required></textarea>
+          </div>
+          <button class="btn" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="font-size:16px; color:var(--text); font-weight:700">Muhammad Talha Khan</p>
+    <p>Full Stack Software Engineer · Available immediately · Full-time, contract, remote or onsite</p>
+    <div class="social">
+      <a href="https://github.com/MuhammadTalhakhan2003" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://medium.com/@talhakhan050203" target="_blank" rel="noopener" aria-label="Medium"><i class="fa fa-medium" aria-hidden="true"></i></a>
+      <a href="https://x.com/Khan123455Talha" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="mailto:Talhakhan050203@gmail.com" aria-label="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    </div>
+    <p>&copy; <span id="year">2026</span> Muhammad Talha Khan · Built from scratch with HTML, CSS &amp; vanilla JavaScript</p>
+    <p style="margin-top:14px"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top</a></p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Muhammad Talha Khan",
+  "jobTitle":"Full Stack Software Engineer",
+  "email":"mailto:Talhakhan050203@gmail.com",
+  "telephone":"+92-304-4292975",
+  "url":"https://muhammadtalhakhan2003.github.io/PortFolio_Talha/",
+  "image":"https://muhammadtalhakhan2003.github.io/PortFolio_Talha/images/profile-opt.jpg",
+  "address":{"@type":"PostalAddress","addressLocality":"Lahore","addressCountry":"PK"},
+  "sameAs":[
+    "https://github.com/MuhammadTalhakhan2003",
+    "https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/",
+    "https://medium.com/@talhakhan050203",
+    "https://x.com/Khan123455Talha"
+  ],
+  "worksFor":{"@type":"Organization","name":"ForthLogic"},
+  "alumniOf":[
+    {"@type":"CollegeOrUniversity","name":"FAST - National University of Computer and Emerging Sciences"},
+    {"@type":"CollegeOrUniversity","name":"University of South Asia"}
+  ],
+  "knowsAbout":["Node.js","Express.js","React.js","MongoDB","PostgreSQL","REST APIs","WebSockets","Socket.io","JWT","Django","Flutter","PostGIS","Docker"]
+}
+</script>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---- Theme ---- */
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var icon = toggle.querySelector('i');
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch(e){}
+  var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(initial);
+
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.className = t === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
+    toggle.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  toggle.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+  });
+
+  /* ---- Mobile nav ---- */
+  var navToggle = document.getElementById('nav-toggle');
+  var navLinks = document.getElementById('nav-links');
+  function closeNav(){
+    document.body.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded','false');
+    navToggle.querySelector('i').className = 'fa fa-bars';
+  }
+  navToggle.addEventListener('click', function(){
+    var open = document.body.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.querySelector('i').className = open ? 'fa fa-times' : 'fa fa-bars';
+  });
+  navLinks.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') closeNav();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeNav();
+  });
+
+  /* ---- Scroll spy ---- */
+  var links = Array.prototype.slice.call(navLinks.querySelectorAll('a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        links.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(s){ spy.observe(s); });
+  }
+
+  /* ---- Reveal on scroll ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var ro = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); obs.unobserve(en.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    Array.prototype.forEach.call(reveals, function(el){ ro.observe(el); });
+  } else {
+    Array.prototype.forEach.call(reveals, function(el){ el.classList.add('in'); });
+  }
+
+  /* ---- Form success banner (Formspree redirects back with ?sent=1) ---- */
+  if (/[?&]sent=1(&|$)/.test(window.location.search)) {
+    var banner = document.getElementById('sent-banner');
+    if (banner) {
+      banner.hidden = false;
+      banner.setAttribute('role', 'status');
+      var form = banner.parentNode.querySelector('form');
+      if (form) form.reset();
+    }
+    if (window.history.replaceState) {
+      window.history.replaceState({}, '', window.location.pathname + '#contact');
+    }
+  }
+
+  /* ---- Year ---- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
-
 </html>

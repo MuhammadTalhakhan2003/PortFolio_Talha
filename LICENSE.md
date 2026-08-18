@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2020 Ryan Fitzgerald
+Copyright (c) 2026 Muhammad Talha Khan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+**Note on content and third-party assets**
+
+The MIT license above covers the source code of this site. Personal content —
+the profile photo, project screenshots, resume and written copy — is not
+covered and remains © Muhammad Talha Khan, all rights reserved.
+
+Font Awesome (in `libs/font-awesome/`) is licensed separately by Fonticons, Inc.
+(SIL OFL 1.1 for the font, MIT for the CSS). Inter is licensed under the SIL
+Open Font License 1.1.
