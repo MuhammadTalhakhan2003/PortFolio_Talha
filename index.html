@@ -249,6 +249,18 @@ a.meta-item:hover{background:rgba(255,255,255,.2); color:#fff; text-decoration:n
 .feat-cols li{color:var(--muted); font-size:.93rem; margin-bottom:6px}
 .feat-cols ul{padding-left:20px}
 
+/* featured project: video + detail */
+.featured-grid{display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:28px; align-items:start; margin-top:18px}
+@media (max-width:860px){.featured-grid{grid-template-columns:1fr; gap:22px}}
+.video-wrap{position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden;
+  border:1px solid var(--border); background:#000; box-shadow:var(--shadow)}
+.video-wrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.video-cap{margin:10px 0 0; font-size:12.8px; color:var(--muted); line-height:1.5}
+.video-cap i{color:#ff0000; margin-right:7px}
+.feat-list{margin:0 0 16px; padding-left:20px}
+.feat-list li{color:var(--muted); font-size:.93rem; margin-bottom:6px}
+.feat-list strong{color:var(--text)}
+
 /* ============ Skills ============ */
 .skill-group h3{font-size:.95rem; margin:0 0 14px; display:flex; align-items:center; gap:9px}
 .skill-group h3 i{color:var(--accent); font-size:15px}
@@ -657,33 +669,48 @@ footer p{color:var(--muted); font-size:13.5px; margin:6px 0}
           <h3>Hifazat — Community Safety Platform</h3>
           <p class="prod-role">Final Year Project · Aug 2024 – May 2025</p>
         </div>
-        <span class="badge badge-alt" style="margin-left:auto">CAPSTONE</span>
+        <span class="badge badge-alt" style="margin-left:auto">
+          <i class="fa fa-play-circle" aria-hidden="true"></i> VIDEO DEMO
+        </span>
       </div>
-      <p style="color:var(--muted); font-size:.95rem; margin:14px 0 0">
-        A location-based community safety application: citizens report incidents in real time,
-        and the platform turns those reports into live crime heatmaps and geospatial analytics.
-      </p>
-      <div class="feat-cols">
-        <ul>
-          <li>Built the mobile application in <strong>Flutter</strong></li>
-          <li>Developed secure <strong>Django REST APIs</strong> with JWT authentication</li>
-        </ul>
-        <ul>
-          <li>Implemented <strong>role-based access control</strong></li>
-          <li>Integrated <strong>PostgreSQL + PostGIS</strong> for geospatial data</li>
-        </ul>
-      </div>
-      <ul class="chips">
-        <li class="chip">Flutter</li><li class="chip">Django</li><li class="chip">PostgreSQL</li>
-        <li class="chip">PostGIS</li><li class="chip">REST APIs</li><li class="chip">JWT</li><li class="chip">Web Scraping</li>
-      </ul>
-      <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap">
-        <a href="https://youtu.be/kRctvhmBFyc?si=F1kymqGjCuPPLWoQ" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-          <i class="fa fa-play-circle"></i> Watch FYP Demo
-        </a>
-        <a href="https://github.com/MuhammadTalhakhan2003" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-          <i class="fa fa-github"></i> View Source
-        </a>
+
+      <div class="featured-grid">
+        <div>
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/kRctvhmBFyc?rel=0"
+                    title="Hifazat: A Community-Driven Crime Alert &amp; Safety App — FYP Demo 2025"
+                    loading="lazy" allowfullscreen
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <p class="video-cap">
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+            Full app walkthrough &mdash;
+            <a href="https://youtu.be/kRctvhmBFyc" target="_blank" rel="noopener noreferrer">watch on YouTube</a>
+          </p>
+        </div>
+
+        <div>
+          <p style="color:var(--muted); font-size:.95rem; margin:0 0 14px">
+            A location-based community safety application: citizens report incidents in real time,
+            and the platform turns those reports into live crime heatmaps and geospatial analytics.
+          </p>
+          <ul class="feat-list">
+            <li>Built the mobile application in <strong>Flutter</strong></li>
+            <li>Developed secure <strong>Django REST APIs</strong> with JWT authentication</li>
+            <li>Implemented <strong>role-based access control</strong></li>
+            <li>Integrated <strong>PostgreSQL + PostGIS</strong> for geospatial data</li>
+          </ul>
+          <ul class="chips">
+            <li class="chip">Flutter</li><li class="chip">Django</li><li class="chip">PostgreSQL</li>
+            <li class="chip">PostGIS</li><li class="chip">REST APIs</li><li class="chip">JWT</li><li class="chip">Web Scraping</li>
+          </ul>
+          <div class="proj-links" style="margin-top:18px">
+            <a href="https://github.com/MuhammadTalhakhan2003" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              <i class="fa fa-github" aria-hidden="true"></i> GitHub profile
+            </a>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -910,6 +937,10 @@ footer p{color:var(--muted); font-size:13.5px; margin:6px 0}
           <i class="fa fa-github" aria-hidden="true"></i>
           <span><span class="k">GitHub</span><span class="v">MuhammadTalhakhan2003</span></span>
         </a>
+        <a class="c-method" href="https://www.youtube.com/@HumSabKaCodingChannel" target="_blank" rel="noopener">
+          <i class="fa fa-youtube-play" aria-hidden="true"></i>
+          <span><span class="k">YouTube — project demos</span><span class="v">@HumSabKaCodingChannel</span></span>
+        </a>
         <a class="c-method" href="images/Talha-Khan-Resume.pdf" target="_blank" rel="noopener">
           <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
           <span><span class="k">Resume</span><span class="v">Download PDF</span></span>
@@ -958,6 +989,7 @@ footer p{color:var(--muted); font-size:13.5px; margin:6px 0}
     <div class="social">
       <a href="https://github.com/MuhammadTalhakhan2003" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
       <a href="https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://www.youtube.com/@HumSabKaCodingChannel" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
       <a href="https://medium.com/@talhakhan050203" target="_blank" rel="noopener" aria-label="Medium"><i class="fa fa-medium" aria-hidden="true"></i></a>
       <a href="https://x.com/Khan123455Talha" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fa fa-twitter" aria-hidden="true"></i></a>
       <a href="mailto:Talhakhan050203@gmail.com" aria-label="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
@@ -981,6 +1013,7 @@ footer p{color:var(--muted); font-size:13.5px; margin:6px 0}
   "sameAs":[
     "https://github.com/MuhammadTalhakhan2003",
     "https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/",
+    "https://www.youtube.com/@HumSabKaCodingChannel",
     "https://medium.com/@talhakhan050203",
     "https://x.com/Khan123455Talha"
   ],
