@@ -1,75 +1,72 @@
-# Muhammad Talha Khan — Portfolio
+# Muhammad Talha Khan · Portfolio
 
-Personal portfolio of **Muhammad Talha Khan**, Full Stack Software Engineer (MERN / Node.js).
+[![Test and deploy](https://github.com/MuhammadTalhakhan2003/PortFolio_Talha/actions/workflows/deploy.yml/badge.svg)](https://github.com/MuhammadTalhakhan2003/PortFolio_Talha/actions/workflows/deploy.yml)
 
-🔗 **Live:** https://muhammadtalhakhan2003.github.io/PortFolio_Talha/
+Portfolio of **Muhammad Talha Khan**, Full Stack Software Engineer (Node.js · MERN · real-time systems · AI integrations).
 
----
+**Live:** https://muhammadtalhakhan2003.github.io/PortFolio_Talha/
 
-## About me
+Share a version written for a specific reader:
 
-Full Stack Software Engineer with 2+ years of experience building scalable web applications
-using React.js, Node.js, Express.js, MongoDB, PostgreSQL and REST APIs. Focused on backend
-architecture, secure authentication and real-time systems.
-
-Currently building backend services for **Chatley.ai** at ForthLogic.
-
-**Available immediately** — open to full-time or contract roles, remote, hybrid or onsite.
-
-- 📧 Talhakhan050203@gmail.com
-- 📱 +92 304 4292975
-- 💼 [LinkedIn](https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/)
-- 💻 [GitHub](https://github.com/MuhammadTalhakhan2003)
-- 📄 [Resume (PDF)](images/Talha-Khan-Resume.pdf)
-
----
-
-## Built with
-
-Hand-written, no framework and no build step — the site is a single static page.
-
-| | |
+| Reader | Link |
 |---|---|
-| Markup | Semantic HTML5 |
-| Styling | Modern CSS — custom properties, grid, `clamp()` fluid type, light/dark themes |
-| Behaviour | Vanilla JavaScript — theme toggle, mobile nav, scroll-spy, IntersectionObserver reveals |
-| Icons | Font Awesome (self-hosted in `libs/`) |
-| Fonts | Inter (Google Fonts) |
-| Forms | Formspree |
-
-### Features
-
-- Fully responsive — one column on mobile, multi-column from tablet up
-- Light and dark theme, remembered in `localStorage`, defaults to the OS preference
-- Recruiter "quick facts" panel: availability, work setup, employment type, stack
-- Accessible: skip link, focus-visible outlines, ARIA labels, `prefers-reduced-motion` support
-- SEO ready: meta description, Open Graph, Twitter cards, JSON-LD `Person` schema
+| Recruiters | https://muhammadtalhakhan2003.github.io/PortFolio_Talha/ |
+| Founders and CEOs | https://muhammadtalhakhan2003.github.io/PortFolio_Talha/?for=ceo |
+| Clients | https://muhammadtalhakhan2003.github.io/PortFolio_Talha/?for=client |
 
 ---
+
+## Stack
+
+| Area | Choice |
+|---|---|
+| UI | React 19, TypeScript (strict) |
+| Build | Vite |
+| Tests | Vitest, Testing Library, jsdom (unit and component tests) |
+| Lint | oxlint |
+| Forms | Formspree JSON API, with honeypot and client-side validation |
+| CI/CD | GitHub Actions: typecheck, lint, test and build on every push and pull request; deploy to GitHub Pages from `main` |
+
+## Features
+
+- **Audience switch.** Recruiter, Founder/CEO and Client views change the pitch, the calls to action and the default inquiry type. `?for=` links preset the view.
+- **Fit check.** Paste a job post and every technology in it is checked against where Talha has used it. Gaps are listed, not hidden. Runs entirely in the browser.
+- **Computed durations.** Role lengths and total experience are calculated from start and end months, so they never go stale.
+- **Contact form** that posts to Formspree with field validation, a spam honeypot and clear success and error states.
+- Light and dark themes, keyboard focus states, reduced-motion support, and SEO metadata with Open Graph and JSON-LD.
+
+## Project structure
+
+```
+src/
+  App.tsx                 page composition
+  components/             Hero, Experience, Services, Projects, Skills, FitCheck, Contact, ...
+  data/profile.ts         all page content, typed
+  hooks/                  useAudience, useTheme, useScrollSpy
+  lib/                    matcher, duration, contact (each with tests)
+  styles/global.css       design tokens and layout
+public/images/            portrait, project screenshots, résumé PDF, link preview card
+design/originals/         full-size source images (not deployed)
+.github/workflows/        CI and GitHub Pages deploy
+```
+
+To change content, edit `src/data/profile.ts`. TypeScript flags any missing fields.
 
 ## Run locally
 
-No dependencies, no build. Clone and open `index.html`:
+Requires Node.js 20 or newer.
 
 ```bash
-git clone https://github.com/MuhammadTalhakhan2003/PortFolio_Talha.git
-cd PortFolio_Talha
-# open index.html in a browser, or serve it:
-npx serve .
-```
-
-## Structure
-
-```
-index.html                # the entire site — markup, styles and scripts
-images/                   # profile photo, project screenshots, resume PDF
-libs/font-awesome/        # self-hosted icon font
-favicon.ico
+npm install
+npm run dev        # http://localhost:5173/PortFolio_Talha/
+npm test           # 22 tests
+npm run lint
+npm run build      # production build in dist/
 ```
 
 ## Deploy
 
-Hosted on GitHub Pages from the `main` branch. Any push updates the live site.
+Pushing to `main` runs the checks and publishes to GitHub Pages. One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 ---
 
