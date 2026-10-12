@@ -23,6 +23,22 @@ describe('App', () => {
     expect(screen.getByText('1 yr 2 mos')).toBeInTheDocument() // TechClan, Aug 2025 – Sep 2026
   })
 
+  it('links the intro video walkthrough from the hero and its own section', () => {
+    render(<App />)
+    const links = screen.getAllByRole('link', { name: /intro video/i }).filter((l) => l.getAttribute('target') === '_blank')
+    expect(links.length).toBeGreaterThanOrEqual(2)
+    for (const l of links) expect(l).toHaveAttribute('href', 'https://www.capcut.com/sv2/ZS9UeFQpb78CJ-kei9b/')
+    expect(screen.getByRole('heading', { level: 3, name: 'Hifazat' })).toBeInTheDocument()
+  })
+
+  it('offers one-tap call and WhatsApp links for recruiters', () => {
+    render(<App />)
+    const calls = screen.getAllByRole('link', { name: /^Call/ })
+    expect(calls.length).toBeGreaterThan(0)
+    for (const c of calls) expect(c).toHaveAttribute('href', 'tel:+923044292975')
+    for (const w of screen.getAllByRole('link', { name: /^WhatsApp/ })) expect(w.getAttribute('href')).toMatch(/^https:\/\/wa\.me\/923044292975/)
+  })
+
   it('switches the pitch and the default inquiry type by audience', async () => {
     const user = userEvent.setup()
     render(<App />)

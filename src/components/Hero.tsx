@@ -1,6 +1,7 @@
 import type { Audience } from '../types'
-import { audienceLabels, experience, metrics, pitches, profile } from '../data/profile'
+import { audienceLabels, employers, experience, introVideo, metrics, pitches, profile } from '../data/profile'
 import { formatDuration, monthsBetween } from '../lib/duration'
+import { QuickContact } from './QuickContact'
 import { Seal } from './Seal'
 
 interface Props {
@@ -38,6 +39,10 @@ export function Hero({ audience, audiences, onAudienceChange }: Props) {
     <section className="title-page" id="top" aria-labelledby="name">
       <div className="title-grid">
         <div className="title-text">
+          <p className="status">
+            <span className="status-dot" aria-hidden="true" />
+            Available now · Full-time, contract or freelance
+          </p>
           <p className="eyebrow">{profile.eyebrow}</p>
           <h1 id="name">{profile.name}</h1>
           <p className="subtitle">{profile.title}</p>
@@ -65,13 +70,23 @@ export function Hero({ audience, audiences, onAudienceChange }: Props) {
               <Action a={pitch.secondary} className="btn" />
               <Action a={pitch.tertiary} className="btn btn-quiet" />
             </div>
+            <a className="watch" href={introVideo.url} target="_blank" rel="noopener">
+              <span className="watch-icon" aria-hidden="true">▶</span>
+              <span>
+                <strong>Watch my intro video</strong>
+                <small>AI apps overview, plus Hifazat and Chatley.ai walkthroughs</small>
+              </span>
+            </a>
           </div>
         </div>
 
-        <figure className="portrait">
-          <img src={profile.portrait} width={600} height={900} alt={`Portrait of ${profile.name}`} />
-          <Seal />
-        </figure>
+        <div className="title-side">
+          <figure className="portrait">
+            <img src={profile.portrait} width={800} height={1200} alt={`Portrait of ${profile.name}`} />
+            <Seal />
+          </figure>
+          <QuickContact />
+        </div>
       </div>
 
       <dl className="facts">
@@ -82,6 +97,15 @@ export function Hero({ audience, audiences, onAudienceChange }: Props) {
           </div>
         ))}
       </dl>
+
+      <div className="shipped">
+        <span className="label">Shipped with</span>
+        <ul>
+          {employers.map((e) => (
+            <li key={e}>{e}</li>
+          ))}
+        </ul>
+      </div>
 
       <ul className="figures" aria-label="Key figures">
         {metrics.map((m) => (
