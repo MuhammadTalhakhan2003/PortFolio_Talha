@@ -1,4 +1,4 @@
-import type { Audience, Link, Pitch, Project, Role, Service } from '../types'
+import type { Audience, IntroVideo, Link, Pitch, Project, Role, Service, Showcase } from '../types'
 
 const base = import.meta.env.BASE_URL
 export const asset = (path: string) => `${base}${path}`
@@ -12,6 +12,9 @@ export const profile = {
   email: 'Talhakhan050203@gmail.com',
   phone: '+92 304 4292975',
   whatsapp: 'https://wa.me/923044292975',
+  tel: 'tel:+923044292975',
+  whatsappHire: `https://wa.me/923044292975?text=${encodeURIComponent("Hi Talha, I saw your portfolio and I'd like to talk about a role.")}`,
+  mailHire: `mailto:Talhakhan050203@gmail.com?subject=${encodeURIComponent('Role opportunity from your portfolio')}`,
   resume: asset('images/Talha-Khan-Resume.pdf'),
   portrait: asset('images/profile-opt.jpg'),
   /** Formspree form that forwards messages to Talha's inbox. */
@@ -65,6 +68,40 @@ export const pitches: Record<Audience, Pitch> = {
     defaultInquiry: 'Freelance project',
   },
 }
+
+/** Recorded walkthrough. CapCut blocks embedding, so it opens in a new tab; set `embed` to a YouTube embed URL to play it inline instead. */
+export const introVideo: IntroVideo = {
+  url: 'https://www.capcut.com/sv2/ZS9UeFQpb78CJ-kei9b/',
+  title: 'See my AI apps in action',
+  blurb: 'A short recorded walkthrough: who I am, the AI products I build, and live demos of Hifazat and Chatley.ai, narrated end to end.',
+  chapters: [
+    { label: 'Introduction', note: 'Who I am and how I work' },
+    { label: 'My AI apps', note: 'A quick tour of what I have shipped' },
+    { label: 'Hifazat walkthrough', note: 'Incident reporting to live crime heatmaps' },
+    { label: 'Chatley.ai walkthrough', note: 'AI receptionist that answers, qualifies and books' },
+  ],
+}
+
+export const showcase: Showcase[] = [
+  {
+    name: 'Chatley.ai',
+    tag: 'In production · ForthLogic',
+    summary: 'AI voice and chat receptionist for small businesses. It answers calls and chats, qualifies leads and books appointments straight into the calendar.',
+    highlights: ['AI agent logic, call recording and sentiment analysis', 'Real-time WebSocket messaging between agents and customers', 'Google Calendar, Calendly, Cal.com and GoHighLevel integrations'],
+    stack: ['Node.js', 'Express', 'MongoDB', 'WebSockets', 'LLMs'],
+    link: { label: 'Visit chatley.ai', url: 'https://chatley.ai' },
+  },
+  {
+    name: 'Hifazat',
+    tag: 'Final year project · 2024–2025',
+    summary: 'Community safety platform. Citizens report incidents in real time and the system turns reports into live crime heatmaps and geospatial analytics.',
+    highlights: ['Flutter app on a Django REST API', 'PostGIS spatial queries power the live heatmap', 'JWT auth with role-based access for citizens and admins'],
+    stack: ['Flutter', 'Django REST', 'PostgreSQL', 'PostGIS'],
+    link: { label: 'Watch the demo', url: 'https://www.youtube.com/watch?v=kRctvhmBFyc' },
+  },
+]
+
+export const employers = ['ForthLogic', 'Chatley.ai', 'TechClan', 'upcover', 'ECOM Specialist', 'Internee.pk']
 
 export const audienceLabels: Record<Audience, string> = {
   recruiter: 'Recruiter',
@@ -171,17 +208,6 @@ export const process = [
 ]
 
 export const projects: Project[] = [
-  {
-    name: 'Hifazat',
-    kind: 'Final year project, 2024–2025',
-    summary: 'Community safety platform. Citizens report incidents in real time and the system turns reports into live crime heatmaps and geospatial analytics.',
-    detail: 'Flutter app on a Django REST API with JWT, role-based access, and PostgreSQL with PostGIS for spatial queries.',
-    stack: ['Flutter', 'Django REST', 'PostgreSQL', 'PostGIS', 'JWT'],
-    links: [
-      { label: 'Watch the demo video', url: 'https://www.youtube.com/watch?v=kRctvhmBFyc' },
-      { label: 'GitHub', url: 'https://github.com/MuhammadTalhakhan2003' },
-    ],
-  },
   {
     name: 'Sage Talk',
     kind: 'Real-time chat',

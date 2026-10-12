@@ -38,6 +38,24 @@ export interface Project {
   image?: { src: string; width: number; height: number; alt: string }
 }
 
+export interface IntroVideo {
+  url: string
+  /** Optional iframe-embeddable URL (e.g. https://www.youtube.com/embed/ID). */
+  embed?: string
+  title: string
+  blurb: string
+  chapters: { label: string; note: string }[]
+}
+
+export interface Showcase {
+  name: string
+  tag: string
+  summary: string
+  highlights: string[]
+  stack: string[]
+  link: Link
+}
+
 export interface Service {
   title: string
   body: string

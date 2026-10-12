@@ -1,7 +1,9 @@
 import { useScrollSpy } from '../hooks/useScrollSpy'
+import { profile } from '../data/profile'
 
 const SECTIONS = [
-  { id: 'record', label: 'Record' },
+  { id: 'intro', label: 'Intro video' },
+  { id: 'record', label: 'Experience' },
   { id: 'services', label: 'Services' },
   { id: 'work', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
@@ -16,7 +18,7 @@ export function Masthead({ onToggleTheme }: { onToggleTheme: () => void }) {
     <header className="masthead">
       <div className="masthead-inner">
         <a className="monogram" href="#top" aria-label="Back to top">
-          M T K
+          Talha<span>Khan</span>
         </a>
         <nav className="toc" aria-label="Sections">
           {SECTIONS.map((s) => (
@@ -25,6 +27,9 @@ export function Masthead({ onToggleTheme }: { onToggleTheme: () => void }) {
             </a>
           ))}
         </nav>
+        <a className="btn small mast-cta mast-resume" href={profile.resume} target="_blank" rel="noopener">
+          Résumé
+        </a>
         <a className="btn btn-primary small mast-cta" href="#contact">
           Hire Talha
         </a>

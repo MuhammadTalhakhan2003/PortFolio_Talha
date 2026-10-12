@@ -4,6 +4,7 @@ import { links, pitches, profile } from '../data/profile'
 import { sendContact, validateContact, type ContactInput, type FieldErrors } from '../lib/contact'
 import { Chapter } from './Chapter'
 import { CopyButton } from './CopyButton'
+import { MailIcon, PhoneIcon, WhatsAppIcon } from './Icons'
 
 type Status = { kind: 'idle' } | { kind: 'sending' } | { kind: 'sent'; email: string } | { kind: 'error'; message: string }
 
@@ -40,7 +41,24 @@ export function Contact({ audience }: { audience: Audience }) {
   const roleLabel = audience === 'client' ? 'Project' : 'Role you are hiring for'
 
   return (
-    <Chapter id="contact" numeral="VI" title="Correspondence" note="Messages go straight to my inbox. I reply within 24 hours.">
+    <Chapter id="contact" numeral="VI" title="Let's talk" note="The fastest way to reach me is a call or a WhatsApp message. The form goes straight to my inbox and I reply within 24 hours.">
+      <div className="callout">
+        <div>
+          <p className="callout-h">Ready to interview this week.</p>
+          <p className="callout-sub">Available immediately · {profile.hours}</p>
+        </div>
+        <div className="callout-actions">
+          <a className="btn btn-primary" href={profile.tel}>
+            <PhoneIcon /> Call {profile.phone}
+          </a>
+          <a className="btn btn-wa" href={profile.whatsappHire} target="_blank" rel="noopener">
+            <WhatsAppIcon /> WhatsApp
+          </a>
+          <a className="btn" href={profile.mailHire}>
+            <MailIcon /> Email
+          </a>
+        </div>
+      </div>
       <div className="contact-layout">
         <form className="contact-form" onSubmit={onSubmit} noValidate aria-label="Contact form">
           <div className="row">
@@ -111,7 +129,8 @@ export function Contact({ audience }: { audience: Audience }) {
             <div>
               <dt>Phone / WhatsApp</dt>
               <dd>
-                <a className="mono" href={profile.whatsapp} target="_blank" rel="noopener">{profile.phone}</a> <CopyButton value={profile.phone} />
+                <a className="mono" href={profile.tel}>{profile.phone}</a> <CopyButton value={profile.phone} />
+                <a href={profile.whatsappHire} target="_blank" rel="noopener">WhatsApp ↗</a>
               </dd>
             </div>
             <div>
