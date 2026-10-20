@@ -1,5 +1,6 @@
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import type { Theme } from '../hooks/useTheme'
+import { profile } from '../data/profile'
 import { SearchIcon } from './Icons'
 import { ThemePicker } from './ThemePicker'
 
@@ -7,6 +8,7 @@ export const SECTIONS = [
   { id: 'fileflip', label: 'FileFlip' },
   { id: 'work', label: 'Work' },
   { id: 'record', label: 'Experience' },
+  { id: 'education', label: 'Education' },
   { id: 'services', label: 'Services' },
   { id: 'skills', label: 'Skills' },
   { id: 'fit', label: 'Stack check' },
@@ -40,6 +42,9 @@ export function Masthead({ theme, onTheme, onOpenPalette }: Props) {
           <kbd>⌘K</kbd>
         </button>
         <ThemePicker theme={theme} onTheme={onTheme} />
+        <a className="btn small mast-cta" href={profile.resume} target="_blank" rel="noopener">
+          Résumé
+        </a>
         <a className="btn btn-primary small mast-cta" href="#contact">
           Let's talk
         </a>

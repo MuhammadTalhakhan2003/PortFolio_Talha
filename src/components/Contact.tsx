@@ -38,7 +38,7 @@ export function Contact() {
   }
 
   return (
-    <Chapter id="contact" numeral="VI" title="Let's build something" note="A job, a startup idea, a freelance project or just a hello. A call or WhatsApp is fastest; the form goes straight to my inbox and I reply within 24 hours.">
+    <Chapter id="contact" numeral="VII" title="Let's build something" note="A job, a startup idea, a freelance project or just a hello. A call or WhatsApp is fastest; the form goes straight to my inbox and I reply within 24 hours.">
       <div className="callout" data-reveal>
         <div>
           <p className="callout-h">Have an idea? Let's make it real.</p>

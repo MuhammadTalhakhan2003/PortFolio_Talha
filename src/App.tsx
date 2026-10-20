@@ -9,6 +9,7 @@ import { Launch } from './components/Launch'
 import { Projects } from './components/Projects'
 import { IntroVideo } from './components/IntroVideo'
 import { Experience } from './components/Experience'
+import { Education } from './components/Education'
 import { Services } from './components/Services'
 import { Skills } from './components/Skills'
 import { FitCheck } from './components/FitCheck'
@@ -60,6 +61,7 @@ export default function App() {
         <Projects />
         <IntroVideo />
         <Experience />
+        <Education />
         <Services />
         <Skills />
         <FitCheck />
@@ -82,7 +84,9 @@ export default function App() {
           <p>
             Press <kbd>⌘K</kbd> to explore from the keyboard, <kbd>T</kbd> to change theme. Built with React, TypeScript and Vite.
           </p>
-          <p>© {YEAR} Muhammad Talha Khan · Made in Lahore</p>
+          <p>
+            <a href={profile.resume} target="_blank" rel="noopener">Résumé (PDF) ↗</a> · © {YEAR} Muhammad Talha Khan · Made in Lahore
+          </p>
         </div>
       </footer>
     </>
