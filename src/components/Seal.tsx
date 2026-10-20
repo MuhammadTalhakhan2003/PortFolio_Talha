@@ -1,4 +1,4 @@
-/** Brass "available" stamp laid over the corner of the portrait. */
+/** Slowly turning brass stamp laid over the corner of the portrait. */
 export function Seal() {
   return (
     <div className="seal" aria-hidden="true">
@@ -9,14 +9,16 @@ export function Seal() {
         <circle cx="60" cy="60" r="57" className="seal-fill" />
         <circle cx="60" cy="60" r="56" className="seal-outer" />
         <circle cx="60" cy="60" r="34" className="seal-inner" />
-        <text className="seal-ring-text">
-          <textPath href="#seal-ring">OPEN TO OFFERS · FULL-TIME · CONTRACT ·</textPath>
+        <g className="seal-spin">
+          <text className="seal-ring-text">
+            <textPath href="#seal-ring">IDEA · BUILD · SHIP · REPEAT · IDEA · BUILD ·</textPath>
+          </text>
+        </g>
+        <text x="60" y="58" textAnchor="middle" className="seal-big">
+          Open
         </text>
-        <text x="60" y="56" textAnchor="middle" className="seal-big">
-          Now
-        </text>
-        <text x="60" y="72" textAnchor="middle" className="seal-small">
-          AVAILABLE
+        <text x="60" y="73" textAnchor="middle" className="seal-small">
+          TO WORK
         </text>
       </svg>
     </div>

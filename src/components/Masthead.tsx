@@ -1,18 +1,26 @@
 import { useScrollSpy } from '../hooks/useScrollSpy'
-import { profile } from '../data/profile'
+import type { Theme } from '../hooks/useTheme'
+import { SearchIcon } from './Icons'
+import { ThemePicker } from './ThemePicker'
 
-const SECTIONS = [
-  { id: 'intro', label: 'Intro video' },
+export const SECTIONS = [
+  { id: 'fileflip', label: 'FileFlip' },
+  { id: 'work', label: 'Work' },
   { id: 'record', label: 'Experience' },
   { id: 'services', label: 'Services' },
-  { id: 'work', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
-  { id: 'fit', label: 'Fit check' },
+  { id: 'fit', label: 'Stack check' },
   { id: 'contact', label: 'Contact' },
 ]
 const IDS = SECTIONS.map((s) => s.id)
 
-export function Masthead({ onToggleTheme }: { onToggleTheme: () => void }) {
+interface Props {
+  theme: Theme
+  onTheme: (t: Theme, origin?: { x: number; y: number }) => void
+  onOpenPalette: () => void
+}
+
+export function Masthead({ theme, onTheme, onOpenPalette }: Props) {
   const active = useScrollSpy(IDS)
   return (
     <header className="masthead">
@@ -27,15 +35,14 @@ export function Masthead({ onToggleTheme }: { onToggleTheme: () => void }) {
             </a>
           ))}
         </nav>
-        <a className="btn small mast-cta mast-resume" href={profile.resume} target="_blank" rel="noopener">
-          Résumé
-        </a>
-        <a className="btn btn-primary small mast-cta" href="#contact">
-          Hire Talha
-        </a>
-        <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label="Switch colour theme">
-          <span aria-hidden="true">◐</span>
+        <button className="kbd-btn" type="button" onClick={onOpenPalette} aria-label="Open command menu" aria-keyshortcuts="Control+K Meta+K">
+          <SearchIcon />
+          <kbd>⌘K</kbd>
         </button>
+        <ThemePicker theme={theme} onTheme={onTheme} />
+        <a className="btn btn-primary small mast-cta" href="#contact">
+          Let's talk
+        </a>
       </div>
     </header>
   )

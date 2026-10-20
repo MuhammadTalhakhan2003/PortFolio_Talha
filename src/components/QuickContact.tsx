@@ -5,7 +5,7 @@ import { MailIcon, PhoneIcon, WhatsAppIcon } from './Icons'
 export function QuickContact() {
   return (
     <div className="quick">
-      <p className="quick-h">Hiring? Let's talk today.</p>
+      <p className="quick-h">Got an idea, a role or a project?</p>
       <div className="quick-actions">
         <a className="quick-btn quick-call" href={profile.tel}>
           <PhoneIcon />

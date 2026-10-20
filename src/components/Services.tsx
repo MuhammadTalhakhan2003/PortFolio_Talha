@@ -5,13 +5,13 @@ export function Services() {
   return (
     <Chapter
       id="services"
-      numeral="II"
-      title="What I can build for you"
-      note="For companies hiring and for businesses that need a project done. Each item is work I already do in production."
+      numeral="III"
+      title="What I can build with you"
+      note="Whether you are hiring, building a startup or need one project done, this is the work I already do in production."
     >
       <div className="services">
         {services.map((s) => (
-          <article className="service" key={s.title}>
+          <article className="service spot" key={s.title} data-reveal>
             <h3>{s.title}</h3>
             <p>{s.body}</p>
             <p className="proof">
@@ -20,8 +20,8 @@ export function Services() {
           </article>
         ))}
       </div>
-      <div className="process">
-        <p className="eyebrow">How a project runs</p>
+      <div className="process" data-reveal>
+        <p className="eyebrow">How we would work together</p>
         <ol>
           {process.map((p) => (
             <li key={p.title}>

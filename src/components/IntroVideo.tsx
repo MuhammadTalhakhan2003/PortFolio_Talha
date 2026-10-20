@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { introVideo, showcase } from '../data/profile'
-import { Stack } from './Stack'
+import { introVideo } from '../data/profile'
 
 function PlayIcon() {
   return (
@@ -10,7 +9,7 @@ function PlayIcon() {
   )
 }
 
-/** Featured walkthrough video plus the two products it demos. */
+/** Featured walkthrough video. */
 export function IntroVideo() {
   const [playing, setPlaying] = useState(false)
   const v = introVideo
@@ -48,7 +47,7 @@ export function IntroVideo() {
 
   return (
     <section className="reel" id="intro" aria-labelledby="intro-h">
-      <div className="reel-grid">
+      <div className="reel-grid" data-reveal>
         <div className="reel-screen">{screen}</div>
         <div className="reel-text">
           <p className="eyebrow">Recorded walkthrough</p>
@@ -69,30 +68,6 @@ export function IntroVideo() {
             ▶ Watch the intro video
           </a>
         </div>
-      </div>
-
-      <div className="showcase">
-        {showcase.map((s) => (
-          <article className="show-card" key={s.name}>
-            <p className="meta">{s.tag}</p>
-            <h3>{s.name}</h3>
-            <p>{s.summary}</p>
-            <ul className="show-points">
-              {s.highlights.map((h) => (
-                <li key={h}>{h}</li>
-              ))}
-            </ul>
-            <Stack items={s.stack} />
-            <p className="show-links">
-              <a href={s.link.url} target="_blank" rel="noopener">
-                {s.link.label} ↗
-              </a>
-              <a href={v.url} target="_blank" rel="noopener">
-                See it in the walkthrough ↗
-              </a>
-            </p>
-          </article>
-        ))}
       </div>
     </section>
   )

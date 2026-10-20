@@ -27,8 +27,8 @@ export function HireBar() {
     <aside className={`hirebar${shown ? ' is-shown' : ''}`} aria-label="Quick contact" aria-hidden={!shown} inert={!shown}>
       <img src={profile.portrait} alt="" width={40} height={40} />
       <p className="hirebar-text">
-        <strong>Talha is available now</strong>
-        <span>Full-time, contract or freelance</span>
+        <strong>Talha is open to work</strong>
+        <span>Roles, projects and collaborations</span>
       </p>
       <div className="hirebar-actions">
         <a className="hb hb-primary" href={profile.tel}>
