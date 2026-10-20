@@ -1,4 +1,4 @@
-import type { Featured, IntroVideo, Launch, Link, Project, Role, Service } from '../types'
+import type { Education, Featured, IntroVideo, Launch, Link, Project, Role, Service } from '../types'
 
 const base = import.meta.env.BASE_URL
 export const asset = (path: string) => `${base}${path}`
@@ -285,17 +285,23 @@ export const skills: { group: string; items: string[] }[] = [
   { group: 'Practice', items: ['Git', 'Docker', 'CI/CD', 'Vercel', 'Agile', 'Automated testing'] },
 ]
 
-export const education = [
+export const education: Education[] = [
   {
     degree: 'MS Computer Science',
-    school: 'FAST National University (FAST-NUCES), Lahore',
+    school: 'FAST National University (FAST-NUCES)',
+    place: 'Lahore',
     years: '2025 – 2027',
-    note: 'Part-time alongside full-time work. Distributed Systems, AI, Software Quality Assurance.',
+    status: 'In progress',
+    note: 'Studying part-time alongside full-time engineering work.',
+    focus: ['Distributed Systems', 'Artificial Intelligence', 'Software Quality Assurance'],
   },
   {
     degree: 'BS Computer Science',
-    school: 'University of South Asia, Lahore',
+    school: 'University of South Asia',
+    place: 'Lahore',
     years: '2021 – 2025',
-    note: 'CGPA 3.39 / 4.0. Capstone: Hifazat.',
+    status: 'Graduated',
+    note: 'CGPA 3.39 / 4.0.',
+    capstone: { label: 'Capstone: Hifazat, community safety app', url: `${GH}/Hifazat-FYP` },
   },
 ]

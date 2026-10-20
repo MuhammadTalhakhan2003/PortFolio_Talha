@@ -71,6 +71,17 @@ export interface IntroVideo {
   chapters: { label: string; note: string }[]
 }
 
+export interface Education {
+  degree: string
+  school: string
+  place: string
+  years: string
+  status: 'In progress' | 'Graduated'
+  note: string
+  focus?: string[]
+  capstone?: Link
+}
+
 export interface Service {
   title: string
   body: string

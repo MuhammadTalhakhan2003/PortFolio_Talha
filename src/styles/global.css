@@ -510,19 +510,40 @@ main { max-width: 1160px; margin: 0 auto; padding-inline: var(--gutter); }
 .process strong { display: block; }
 
 /* ---------- Skills ---------- */
-.skills-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 48px; }
 .toolbox { margin: 0; }
-.toolbox > div { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 16px; padding-block: 12px; border-top: 1px solid var(--rule); align-items: baseline; }
+.toolbox > div { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; padding-block: 12px; border-top: 1px solid var(--rule); align-items: baseline; }
 .toolbox > div:first-child { border-top: 2px solid var(--ink); }
 .toolbox dd { margin: 0; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .tags li { padding: 4px 11px; border-radius: 999px; background: var(--paper-raised); border: 1px solid var(--rule); font-size: 0.88rem; transition: border-color .2s, color .2s, transform .2s; }
 .tags li:hover { border-color: var(--brass); color: var(--brass); transform: translateY(-1px); }
-.edu-label { margin-bottom: 10px; }
-.education h3 { font: 600 var(--step-1)/1.3 var(--body); }
-.school { padding-block: 14px; border-top: 1px solid var(--rule); }
-.school:first-of-type { border-top: 2px solid var(--ink); }
-.school p { color: var(--muted); font-size: 0.94rem; margin-top: 4px; }
+
+/* ---------- Education & résumé ---------- */
+.edu-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.degrees { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.degree { padding: 26px 28px; }
+.degree-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.degree-status { font: 500 0.72rem var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
+.degree-status.is-live { border-color: var(--live); color: var(--live); }
+.degree h3 { font-size: var(--step-3); margin-top: 10px; }
+.degree-school { font-weight: 600; margin-top: 6px; }
+.degree-note { color: var(--muted); margin-top: 6px; }
+.degree .tags { margin-top: 14px; }
+.degree-link { display: inline-block; margin-top: 14px; font-weight: 500; }
+.resume-card {
+  position: sticky; top: 84px; padding: 30px; border-radius: var(--radius-lg); color: #f6f4ef;
+  background: radial-gradient(80% 120% at 100% 0%, rgb(217 180 108 / .35), transparent 60%), var(--stage);
+  box-shadow: var(--shadow-lift);
+}
+.resume-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: rgb(255 255 255 / .12); border: 1px solid rgb(255 255 255 / .2); }
+.resume-icon svg { width: 26px; height: 26px; }
+.resume-card h3 { font-size: var(--step-3); margin-top: 18px; }
+.resume-card p { color: rgb(246 244 239 / .78); margin-top: 8px; }
+.resume-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.resume-card .btn { border-color: rgb(246 244 239 / .4); color: #f6f4ef; }
+.resume-card .btn-primary { background: #f6f4ef; border-color: #f6f4ef; color: #13243b; }
+.resume-card .btn:hover { background: #f6f4ef; color: #0f1a2c; border-color: #f6f4ef; }
+.colophon-meta a { color: inherit; }
 
 /* ---------- Forms ---------- */
 .fit-layout, .contact-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: start; }
@@ -686,7 +707,8 @@ fieldset.field { border: 0; padding: 0; margin: 0 0 8px; }
   .figures { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 24px; }
   .figures li:nth-child(3) { border-right: 0; }
   .figures li:nth-child(4) { padding-left: 0; }
-  .reel-grid, .feat, .skills-layout, .fit-layout, .contact-layout { grid-template-columns: 1fr; }
+  .reel-grid, .feat, .edu-layout, .fit-layout, .contact-layout { grid-template-columns: 1fr; }
+  .resume-card { position: static; }
   .feat-flip .feat-media { order: 0; }
   .launch-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .process ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -716,6 +738,7 @@ fieldset.field { border: 0; padding: 0; margin: 0 0 8px; }
   .js-reveal .browser[data-reveal].is-in { transform: none; }
   .toolbox > div { grid-template-columns: 1fr; gap: 8px; }
   .callout { padding: 22px; }
+  .degree, .resume-card { padding: 22px; }
   .callout-actions, .callout-actions .btn { width: 100%; }
   .actions .btn { flex: 1 1 auto; }
   .hirebar { left: 12px; right: 12px; width: auto; max-width: none; transform: translateY(140%); border-radius: 18px; padding: 8px; }

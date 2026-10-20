@@ -1,10 +1,10 @@
-import { education, skills } from '../data/profile'
+import { skills } from '../data/profile'
 import { Chapter } from './Chapter'
 
 export function Skills() {
   return (
-    <Chapter id="skills" numeral="IV" title="Toolbox & education">
-      <div className="skills-layout" data-reveal>
+    <Chapter id="skills" numeral="V" title="Toolbox" note="The languages, frameworks and tools I reach for, grouped by where they sit in a product.">
+      <div data-reveal>
         <dl className="toolbox">
           {skills.map((g) => (
             <div key={g.group}>
@@ -19,18 +19,6 @@ export function Skills() {
             </div>
           ))}
         </dl>
-        <div className="education">
-          <p className="eyebrow edu-label">Education</p>
-          {education.map((e) => (
-            <div className="school" key={e.degree}>
-              <h3>{e.degree}</h3>
-              <p>
-                {e.school} · {e.years}
-              </p>
-              <p>{e.note}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </Chapter>
   )

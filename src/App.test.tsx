@@ -26,6 +26,18 @@ describe('App', () => {
     expect(screen.getByText('1 yr 2 mos')).toBeInTheDocument() // TechClan, Aug 2025 – Sep 2026
   })
 
+  it('has an education section and résumé links people can find', () => {
+    render(<App />)
+    const edu = screen.getByRole('region', { name: 'Education & résumé' })
+    expect(within(edu).getByRole('heading', { name: 'MS Computer Science' })).toBeInTheDocument()
+    expect(within(edu).getByRole('heading', { name: 'BS Computer Science' })).toBeInTheDocument()
+    expect(within(edu).getByRole('link', { name: 'Download PDF' })).toHaveAttribute('download')
+    const resumes = screen.getAllByRole('link', { name: /Résumé/i })
+    expect(resumes.length).toBeGreaterThanOrEqual(4)
+    for (const r of resumes) expect(r.getAttribute('href')).toMatch(/Talha-Khan-Resume\.pdf$/)
+    expect(screen.getByRole('link', { name: 'Education' })).toHaveAttribute('href', '#education')
+  })
+
   it('features the FileFlip launch with a live link, code link and screenshot', () => {
     render(<App />)
     const launch = screen.getByRole('region', { name: 'FileFlip' })

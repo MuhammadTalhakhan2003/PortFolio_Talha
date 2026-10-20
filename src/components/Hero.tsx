@@ -14,7 +14,7 @@ export function Hero() {
     ['Core stack', 'Node.js, TypeScript, React, Next.js, PostgreSQL, MongoDB'],
     ['Based in', `${profile.location} · remote-friendly`],
     ['Hours', profile.hours],
-    ['Studying', 'MS Computer Science, FAST-NUCES'],
+    ['Education', 'MS CS, FAST-NUCES (in progress) · BS CS, University of South Asia'],
   ]
 
   return (
@@ -45,8 +45,8 @@ export function Hero() {
             <a className="btn" href="#work">
               See my work
             </a>
-            <a className="btn btn-quiet" href="#contact">
-              Let's talk
+            <a className="btn btn-quiet" href={profile.resume} target="_blank" rel="noopener">
+              Résumé (PDF)
             </a>
           </div>
           <a className="watch" href={introVideo.url} target="_blank" rel="noopener">

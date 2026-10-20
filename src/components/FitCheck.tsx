@@ -21,7 +21,7 @@ export function FitCheck() {
   return (
     <Chapter
       id="fit"
-      numeral="V"
+      numeral="VI"
       title="Stack check"
       note="Hiring, or planning a project? Paste the requirements and each technology is checked against where I have actually used it. Gaps are listed, not hidden. Nothing you paste leaves your browser."
     >

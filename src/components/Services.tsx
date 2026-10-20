@@ -5,7 +5,7 @@ export function Services() {
   return (
     <Chapter
       id="services"
-      numeral="III"
+      numeral="IV"
       title="What I can build with you"
       note="Whether you are hiring, building a startup or need one project done, this is the work I already do in production."
     >
