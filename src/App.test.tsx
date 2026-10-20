@@ -7,11 +7,14 @@ beforeAll(() => {
   window.matchMedia ??= ((q: string) => ({ matches: false, media: q, addEventListener() {}, removeEventListener() {} })) as never
   window.IntersectionObserver ??= class {
     observe() {}
+    unobserve() {}
     disconnect() {}
   } as never
+  Element.prototype.scrollIntoView ??= () => {}
 })
 beforeEach(() => {
   localStorage.clear()
+  document.documentElement.removeAttribute('data-theme')
   window.history.replaceState(null, '', '/')
 })
 
@@ -23,15 +26,58 @@ describe('App', () => {
     expect(screen.getByText('1 yr 2 mos')).toBeInTheDocument() // TechClan, Aug 2025 – Sep 2026
   })
 
+  it('features the FileFlip launch with a live link, code link and screenshot', () => {
+    render(<App />)
+    const launch = screen.getByRole('region', { name: 'FileFlip' })
+    expect(within(launch).getByRole('link', { name: /Try FileFlip live/ })).toHaveAttribute('href', 'https://fileflip-gules.vercel.app/')
+    expect(within(launch).getByRole('link', { name: /Read the code/ })).toHaveAttribute('href', 'https://github.com/MuhammadTalhakhan2003/fileflip')
+    expect(within(launch).getByAltText(/FileFlip home page in light mode/)).toBeInTheDocument()
+  })
+
+  it('shows the FileFlip screenshot that matches a dark theme', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Choose a theme' }))
+    await user.click(screen.getByRole('menuitemradio', { name: /Mughal/ }))
+    expect(document.documentElement).toHaveAttribute('data-theme', 'mughal')
+    expect(localStorage.getItem('theme')).toBe('mughal')
+    expect(screen.getByAltText(/FileFlip home page in dark mode/)).toBeInTheDocument()
+  })
+
+  it('links code for Paperly and Hifazat and the Paperly live demo', () => {
+    render(<App />)
+    const codes = screen.getAllByRole('link', { name: /^Code/ }).map((l) => l.getAttribute('href'))
+    expect(codes).toContain('https://github.com/MuhammadTalhakhan2003/Paperly')
+    expect(codes).toContain('https://github.com/MuhammadTalhakhan2003/Hifazat-FYP')
+    expect(screen.getByRole('link', { name: /Live demo/ })).toHaveAttribute('href', 'https://paperly-ashen.vercel.app')
+  })
+
+  it('has one pitch for everyone, with no audience switch', () => {
+    render(<App />)
+    expect(screen.queryByRole('button', { name: 'Recruiter' })).not.toBeInTheDocument()
+    expect(screen.getByRole('radio', { name: 'Job opportunity' })).toBeChecked()
+  })
+
+  it('opens the command menu with Ctrl+K and switches theme from it', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    await user.keyboard('{Control>}k{/Control}')
+    const box = screen.getByRole('combobox', { name: /command/i })
+    await user.type(box, 'terminal')
+    expect(screen.getAllByRole('option')).toHaveLength(1)
+    await user.keyboard('{Enter}')
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(document.documentElement).toHaveAttribute('data-theme', 'terminal')
+  })
+
   it('links the intro video walkthrough from the hero and its own section', () => {
     render(<App />)
     const links = screen.getAllByRole('link', { name: /intro video/i }).filter((l) => l.getAttribute('target') === '_blank')
     expect(links.length).toBeGreaterThanOrEqual(2)
     for (const l of links) expect(l).toHaveAttribute('href', 'https://www.capcut.com/sv2/ZS9UeFQpb78CJ-kei9b/')
-    expect(screen.getByRole('heading', { level: 3, name: 'Hifazat' })).toBeInTheDocument()
   })
 
-  it('offers one-tap call and WhatsApp links for recruiters', () => {
+  it('offers one-tap call and WhatsApp links', () => {
     render(<App />)
     const calls = screen.getAllByRole('link', { name: /^Call/ })
     expect(calls.length).toBeGreaterThan(0)
@@ -39,35 +85,16 @@ describe('App', () => {
     for (const w of screen.getAllByRole('link', { name: /^WhatsApp/ })) expect(w.getAttribute('href')).toMatch(/^https:\/\/wa\.me\/923044292975/)
   })
 
-  it('switches the pitch and the default inquiry type by audience', async () => {
-    const user = userEvent.setup()
-    render(<App />)
-    expect(screen.getByRole('link', { name: 'Download résumé (PDF)' })).toBeInTheDocument()
-    expect(screen.getByRole('radio', { name: 'Interview request' })).toBeChecked()
-
-    await user.click(screen.getByRole('button', { name: 'Client' }))
-    expect(screen.getByRole('link', { name: 'Get a fixed-price quote' })).toBeInTheDocument()
-    expect(screen.getByRole('radio', { name: 'Freelance project' })).toBeChecked()
-    expect(window.location.search).toBe('?for=client')
-    expect(localStorage.getItem('audience')).toBe('client')
-  })
-
-  it('opens on the audience named in the link', () => {
-    window.history.replaceState(null, '', '/?for=ceo')
-    render(<App />)
-    expect(screen.getByRole('button', { name: 'Founder / CEO' })).toHaveAttribute('aria-pressed', 'true')
-  })
-
-  it('runs the fit check on pasted text', async () => {
+  it('runs the stack check on pasted text', async () => {
     const user = userEvent.setup()
     render(<App />)
     const box = screen.getByLabelText(/Job post or brief/)
     await user.clear(box)
-    await user.type(box, 'Looking for Node.js, Express, MongoDB, Redis and Kubernetes engineers.')
+    await user.type(box, 'Looking for Node.js, Express, MongoDB, GraphQL and Kubernetes engineers.')
     await user.click(screen.getByRole('button', { name: 'Check fit' }))
     const result = screen.getByTestId('fit-result')
     expect(within(result).getByText('60%')).toBeInTheDocument()
-    expect(within(result).getByText('Redis')).toBeInTheDocument()
+    expect(within(result).getByText('GraphQL')).toBeInTheDocument()
   })
 
   it('shows field errors instead of sending an incomplete message', async () => {

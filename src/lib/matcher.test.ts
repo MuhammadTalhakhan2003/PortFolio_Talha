@@ -2,12 +2,18 @@ import { contains, matchJob, yearsAsked } from './matcher'
 
 describe('matchJob', () => {
   it('reports matches with evidence and lists gaps honestly', () => {
-    const r = matchJob('We need 3+ years Node.js, PostgreSQL, React, TypeScript and AWS experience.')
+    const r = matchJob('We need 3+ years Node.js, PostgreSQL, React, GraphQL and AWS experience.')
     expect(r.matched.map((m) => m.name)).toEqual(['Node.js', 'React', 'PostgreSQL'])
-    expect(r.missing.map((m) => m.name).sort()).toEqual(['AWS', 'TypeScript'])
+    expect(r.missing.map((m) => m.name).sort()).toEqual(['AWS', 'GraphQL'])
     expect(r.score).toBe(60)
     expect(r.yearsNote).toMatch(/stretch/)
     expect(r.matched[0].where).toContain('ForthLogic')
+  })
+
+  it('credits the stack behind FileFlip and Paperly', () => {
+    const r = matchJob('Next.js, TypeScript, Tailwind and FastAPI')
+    expect(r.score).toBe(100)
+    expect(r.matched.find((m) => m.name === 'FastAPI')?.where).toContain('FileFlip')
   })
 
   it('does not count Node.js as a separate JavaScript hit', () => {

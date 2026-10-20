@@ -3,19 +3,22 @@ import { Chapter } from './Chapter'
 
 export function Skills() {
   return (
-    <Chapter id="skills" numeral="IV" title="Skills & education">
-      <div className="skills-layout">
-        <table className="skills-table">
-          <caption className="visually-hidden">Skills by area</caption>
-          <tbody>
-            {skills.map((g) => (
-              <tr key={g.group}>
-                <th scope="row">{g.group}</th>
-                <td>{g.items.join(', ')}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <Chapter id="skills" numeral="IV" title="Toolbox & education">
+      <div className="skills-layout" data-reveal>
+        <dl className="toolbox">
+          {skills.map((g) => (
+            <div key={g.group}>
+              <dt>{g.group}</dt>
+              <dd>
+                <ul className="tags">
+                  {g.items.map((s) => (
+                    <li key={s}>{s}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
+        </dl>
         <div className="education">
           <p className="eyebrow edu-label">Education</p>
           {education.map((e) => (

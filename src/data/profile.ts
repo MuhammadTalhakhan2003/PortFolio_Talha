@@ -1,73 +1,127 @@
-import type { Audience, IntroVideo, Link, Pitch, Project, Role, Service, Showcase } from '../types'
+import type { Featured, IntroVideo, Launch, Link, Project, Role, Service } from '../types'
 
 const base = import.meta.env.BASE_URL
 export const asset = (path: string) => `${base}${path}`
 
+const GH = 'https://github.com/MuhammadTalhakhan2003'
+
 export const profile = {
   name: 'Muhammad Talha Khan',
   title: 'Full Stack Software Engineer',
-  eyebrow: 'Node.js · MERN · Real-time systems · AI integrations',
+  eyebrow: 'Full stack engineer · Product builder · Lahore',
   location: 'Johar Town, Lahore, Pakistan',
   hours: 'US Eastern overlap, PKT 6 PM – 3 AM',
   email: 'Talhakhan050203@gmail.com',
   phone: '+92 304 4292975',
   whatsapp: 'https://wa.me/923044292975',
   tel: 'tel:+923044292975',
-  whatsappHire: `https://wa.me/923044292975?text=${encodeURIComponent("Hi Talha, I saw your portfolio and I'd like to talk about a role.")}`,
-  mailHire: `mailto:Talhakhan050203@gmail.com?subject=${encodeURIComponent('Role opportunity from your portfolio')}`,
+  whatsappHire: `https://wa.me/923044292975?text=${encodeURIComponent("Hi Talha, I saw your portfolio and I'd love to talk.")}`,
+  mailHire: `mailto:Talhakhan050203@gmail.com?subject=${encodeURIComponent('Hello from your portfolio')}`,
   resume: asset('images/Talha-Khan-Resume.pdf'),
   portrait: asset('images/profile-opt.jpg'),
+  github: GH,
   /** Formspree form that forwards messages to Talha's inbox. */
   formEndpoint: 'https://formspree.io/f/mjkwqrrr',
   careerStart: '2024-09',
 }
 
+/** Words the hero headline cycles through: "I build …". */
+export const builds = [
+  'free tools anyone can use.',
+  'AI receptionists that book jobs.',
+  'real-time apps that feel instant.',
+  'maps that help keep cities safe.',
+  'products people love to use.',
+]
+
+export const lede =
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+
 export const links: Link[] = [
+  { label: 'GitHub', url: GH },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/muhammad-talha-khan-5849a5220/' },
-  { label: 'GitHub', url: 'https://github.com/MuhammadTalhakhan2003' },
   { label: 'YouTube', url: 'https://www.youtube.com/@HumSabKaCodingChannel' },
   { label: 'Medium', url: 'https://medium.com/@talhakhan050203' },
   { label: 'X', url: 'https://x.com/Khan123455Talha' },
 ]
 
-export const pitches: Record<Audience, Pitch> = {
-  recruiter: {
-    lede: 'Full stack engineer with 2+ years in production across four engineering teams. I build secure REST APIs, real-time WebSocket systems and well-indexed databases, and I currently ship backend features for Chatley.ai.',
-    points: [
-      'Available immediately, for full-time or contract roles',
-      'Already works US Eastern hours, fully remote',
-      'Node.js, Express, React, PostgreSQL and MongoDB in production',
+export const launch: Launch = {
+  name: 'FileFlip',
+  tagline: 'Flip any file. Free.',
+  summary:
+    'Every tool you need for PDFs and images in one place. Merge, split, compress, convert, edit, sign and redact without an account, a watermark or a daily limit. Files are deleted automatically after an hour. Designed, built and shipped end to end by me.',
+  url: 'https://fileflip-gules.vercel.app/',
+  code: `${GH}/fileflip`,
+  host: 'fileflip-gules.vercel.app',
+  stats: [
+    { value: '61', label: 'PDF & image tools' },
+    { value: '0', label: 'sign-ups or watermarks' },
+    { value: '1 hr', label: 'until files auto-delete' },
+    { value: '47', label: 'backend tests (pytest)' },
+  ],
+  features: [
+    { group: 'Organize', items: 'Merge, split, reorder, extract and remove pages. Scan to PDF.' },
+    { group: 'Convert', items: 'Word, Excel, PowerPoint, HTML and images to PDF and back, plus PDF/A.' },
+    { group: 'Edit', items: 'Full editor for text, shapes, highlights and images. Crop, watermark, number.' },
+    { group: 'Secure', items: 'AES-256 protect, unlock, sign, redact and compare documents.' },
+    { group: 'AI', items: 'Summarize, translate with layout kept, and PDF to Markdown, on Claude.' },
+    { group: 'Images', items: '26 image tools: JPG, PNG, WEBP, HEIC, SVG, TIFF and more.' },
+  ],
+  stack: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind 4', 'FastAPI', 'PyMuPDF', 'Docker', 'Vercel'],
+  underTheHood: [
+    '“Continue with…” chains a result straight into the next tool with no re-upload',
+    'OCR in English, Urdu, Arabic and Hindi with Tesseract',
+    'Per-IP rate limiting and magic-byte file checks on every upload',
+    'Installable PWA with a WebGL particle hero and dark and light modes',
+  ],
+  shots: {
+    light: { src: asset('images/fileflip-light.webp'), width: 1200, height: 717, alt: 'FileFlip home page in light mode with the headline “Every tool you need for PDFs & images” and a tool search box' },
+    dark: { src: asset('images/fileflip-dark.webp'), width: 1200, height: 717, alt: 'FileFlip home page in dark mode with the headline “Every tool you need for PDFs & images” and a particle animation' },
+    extra: [
+      { src: asset('images/fileflip-split.webp'), width: 1200, height: 750, alt: 'FileFlip visual split editor showing page thumbnails grouped into ranges', caption: 'Visual split editor' },
+      { src: asset('images/fileflip-sign.webp'), width: 1200, height: 750, alt: 'FileFlip sign PDF editor with a signature placed on a page', caption: 'Sign PDF editor' },
     ],
-    primary: { label: 'Download résumé (PDF)', href: profile.resume, external: true },
-    secondary: { label: 'Check fit against your job post', href: '#fit' },
-    tertiary: { label: 'Book an interview', href: '#contact' },
-    defaultInquiry: 'Interview request',
-  },
-  ceo: {
-    lede: 'I build the parts of a product that touch revenue: the API that books the appointment, the webhook that syncs the CRM, the real-time channel that keeps a customer from leaving. At Chatley.ai that means an AI receptionist that answers calls and books jobs for small businesses.',
-    points: [
-      'Owns a feature end to end: schema, API, auth, tests, deploy, UI',
-      'Works your hours (US Eastern overlap) with written async updates',
-      'Comfortable in a small team where nobody hands you a ticket',
-    ],
-    primary: { label: 'Start a conversation', href: '#contact' },
-    secondary: { label: 'See shipped work', href: '#record' },
-    tertiary: { label: 'Résumé (PDF)', href: profile.resume, external: true },
-    defaultInquiry: 'Contract role',
-  },
-  client: {
-    lede: 'Missed calls, slow follow-ups and data copied by hand between tools all cost you customers. I build the software that fixes that: AI receptionists and lead follow-up, CRM and calendar integrations, and custom web apps, quoted at a fixed price before work starts.',
-    points: [
-      'Fixed-price quote after a free 30-minute call',
-      'Weekly demos, so you see progress instead of hearing about it',
-      'Built on tools I already run in production: GoHighLevel, Cal.com, Calendly, Google Calendar',
-    ],
-    primary: { label: 'Get a fixed-price quote', href: '#contact' },
-    secondary: { label: 'See services', href: '#services' },
-    tertiary: { label: 'Past projects', href: '#work' },
-    defaultInquiry: 'Freelance project',
   },
 }
+
+export const featured: Featured[] = [
+  {
+    name: 'Chatley.ai',
+    kind: 'AI receptionist · In production',
+    credit: 'Team build · ForthLogic',
+    summary: 'An AI voice and chat receptionist for small businesses. It answers calls and chats, qualifies the lead and books the appointment straight into the calendar. I build its backend at ForthLogic.',
+    highlights: ['AI agent logic, call recording and sentiment analysis', 'Real-time WebSocket messaging between agents and customers', 'Google Calendar, Calendly, Cal.com and GoHighLevel integrations'],
+    stack: ['Node.js', 'Express', 'MongoDB', 'WebSockets', 'LLMs'],
+    links: [{ label: 'Visit chatley.ai', url: 'https://chatley.ai' }],
+    poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
+  },
+  {
+    name: 'Paperly',
+    kind: 'Collaborative docs',
+    credit: 'Solo build',
+    summary: 'A lightweight Google Docs. Write rich text with autosave, import .docx and Markdown, share with teammates as editor or viewer, and export to PDF.',
+    highlights: ['TipTap rich-text editor with autosave, star, duplicate and search', 'Per-document sharing with Editor and Viewer roles, checked on every endpoint', 'JWT session cookies, bcrypt, Zod validation and server-side HTML sanitizing'],
+    stack: ['Next.js 16', 'TypeScript', 'TipTap', 'Prisma', 'Turso', 'Tailwind'],
+    links: [
+      { label: 'Live demo', url: 'https://paperly-ashen.vercel.app' },
+      { label: 'Code', url: `${GH}/Paperly` },
+    ],
+    image: { src: asset('images/paperly.webp'), width: 1200, height: 750, alt: 'Paperly sign-in page with the headline “Write, organize, and share documents, together.”' },
+  },
+  {
+    name: 'Hifazat حفاظت',
+    kind: 'Community safety app',
+    credit: 'Final year project',
+    summary: 'Citizens across Pakistan report incidents, the community verifies them, and the app turns 100,498 historical incidents across 109 cities into live heatmaps and predicted hotspots.',
+    highlights: ['Kernel density estimation predicts crime hotspots on the map', 'Votes, comments and a reputation system from Newcomer to Champion', 'JWT with rotating refresh tokens and citizen and admin roles'],
+    stack: ['Flutter', 'Django REST', 'PostGIS', 'Redis', 'scikit-learn'],
+    links: [
+      { label: 'Code', url: `${GH}/Hifazat-FYP` },
+      { label: 'Watch demo', url: 'https://www.youtube.com/watch?v=kRctvhmBFyc' },
+    ],
+    image: { src: asset('images/hifazat.webp'), width: 1200, height: 675, alt: 'Hifazat banner showing the app’s incident analytics screen with 100,498 incidents across 109 cities' },
+  },
+]
 
 /** Recorded walkthrough. CapCut blocks embedding, so it opens in a new tab; set `embed` to a YouTube embed URL to play it inline instead. */
 export const introVideo: IntroVideo = {
@@ -82,40 +136,18 @@ export const introVideo: IntroVideo = {
   ],
 }
 
-export const showcase: Showcase[] = [
-  {
-    name: 'Chatley.ai',
-    tag: 'In production · ForthLogic',
-    summary: 'AI voice and chat receptionist for small businesses. It answers calls and chats, qualifies leads and books appointments straight into the calendar.',
-    highlights: ['AI agent logic, call recording and sentiment analysis', 'Real-time WebSocket messaging between agents and customers', 'Google Calendar, Calendly, Cal.com and GoHighLevel integrations'],
-    stack: ['Node.js', 'Express', 'MongoDB', 'WebSockets', 'LLMs'],
-    link: { label: 'Visit chatley.ai', url: 'https://chatley.ai' },
-  },
-  {
-    name: 'Hifazat',
-    tag: 'Final year project · 2024–2025',
-    summary: 'Community safety platform. Citizens report incidents in real time and the system turns reports into live crime heatmaps and geospatial analytics.',
-    highlights: ['Flutter app on a Django REST API', 'PostGIS spatial queries power the live heatmap', 'JWT auth with role-based access for citizens and admins'],
-    stack: ['Flutter', 'Django REST', 'PostgreSQL', 'PostGIS'],
-    link: { label: 'Watch the demo', url: 'https://www.youtube.com/watch?v=kRctvhmBFyc' },
-  },
-]
-
 export const employers = ['ForthLogic', 'Chatley.ai', 'TechClan', 'upcover', 'ECOM Specialist', 'Internee.pk']
 
-export const audienceLabels: Record<Audience, string> = {
-  recruiter: 'Recruiter',
-  ceo: 'Founder / CEO',
-  client: 'Client',
-}
-
 export const metrics = [
-  { value: '2+', label: 'years in production engineering' },
-  { value: '4', label: 'engineering teams shipped with' },
-  { value: '2', label: 'live platforms with real users' },
-  { value: '30%', label: 'fewer API response errors (Internee.pk)' },
-  { value: '25%', label: 'faster backend after database tuning' },
+  { value: '2+', label: 'years shipping production code' },
+  { value: '4', label: 'products live, from AI agents to PDF tools' },
+  { value: '61', label: 'free tools in FileFlip' },
+  { value: '100K+', label: 'incidents mapped by Hifazat' },
+  { value: '30%', label: 'fewer API errors at Internee.pk' },
 ]
+
+/** Scrolling ticker under the hero. */
+export const ticker = ['Node.js', 'TypeScript', 'React', 'Next.js', 'Express', 'FastAPI', 'Django', 'MongoDB', 'PostgreSQL', 'PostGIS', 'Redis', 'WebSockets', 'Socket.io', 'Flutter', 'Docker', 'AI agents', 'LLMs', 'Tailwind', 'Prisma', 'Vercel']
 
 export const experience: Role[] = [
   {
@@ -179,32 +211,32 @@ export const experience: Role[] = [
 
 export const services: Service[] = [
   {
-    title: 'AI receptionist & lead follow-up',
-    body: 'An AI agent that answers calls and chats, qualifies the lead, books the appointment and sends the follow-up, so no inquiry waits until morning.',
-    proof: 'Chatley.ai, ForthLogic',
+    title: 'Products, from zero to live',
+    body: 'Idea, schema, API, interface, tests and deploy. FileFlip and Paperly were built this way, solo, and shipped to real users.',
+    proof: 'FileFlip, Paperly',
   },
   {
-    title: 'CRM & calendar integrations',
-    body: 'Two-way sync between your website, CRM and calendar. Webhooks, OAuth and retries handled, so data stops being copied by hand.',
-    proof: 'GoHighLevel, Cal.com, Calendly, Google Calendar',
+    title: 'AI agents & automation',
+    body: 'Agents that answer, qualify, summarize and book, wired into the tools a business already runs on.',
+    proof: 'Chatley.ai, FileFlip AI tools',
   },
   {
-    title: 'Backend & API development',
-    body: 'Secure REST APIs with JWT and role-based access, indexed PostgreSQL or MongoDB, tests, and a deploy you can roll back.',
-    proof: 'upcover, ECOM Specialist',
+    title: 'APIs & integrations',
+    body: 'Secure REST APIs with JWT and role-based access, indexed PostgreSQL or MongoDB, and webhooks to CRMs and calendars that never drop data.',
+    proof: 'upcover, GoHighLevel, Cal.com',
   },
   {
-    title: 'Real-time features',
+    title: 'Real-time experiences',
     body: 'Live chat, presence, notifications and live maps over WebSockets and Socket.io, built to clean up after every disconnect.',
-    proof: 'Chatley.ai messaging, Sage Talk, Live Location Tracker',
+    proof: 'Chatley.ai, Hifazat, Sage Talk',
   },
 ]
 
 export const process = [
-  { title: '30-minute call.', body: 'Free. We agree the problem, the outcome and how we will measure it.' },
-  { title: 'Fixed-price quote.', body: 'Written scope, price and timeline within 48 hours. No hourly surprises.' },
-  { title: 'Build with weekly demos.', body: 'A working link every week, so you can change direction early.' },
-  { title: 'Launch and handover.', body: 'Deployed, documented, with the source code in your repository.' },
+  { title: 'Talk.', body: 'A free 30-minute call to agree the problem, the outcome and how we will measure it.' },
+  { title: 'Plan.', body: 'A written scope, timeline and price within 48 hours. No surprises.' },
+  { title: 'Build in the open.', body: 'A working link every week, so you can steer early.' },
+  { title: 'Ship & hand over.', body: 'Deployed, documented, with the source in your repository.' },
 ]
 
 export const projects: Project[] = [
@@ -213,7 +245,7 @@ export const projects: Project[] = [
     kind: 'Real-time chat',
     summary: 'WhatsApp-style messaging with online presence, private chats and group rooms on an event-driven Socket.io server.',
     stack: ['Node.js', 'Express', 'Socket.io'],
-    links: [{ label: 'Source', url: 'https://github.com/MuhammadTalhakhan2003/Real_TimeChat_App' }],
+    links: [{ label: 'Code', url: `${GH}/Real_TimeChat_App` }],
     image: { src: asset('images/sage-talk-opt.jpg'), width: 1100, height: 468, alt: 'Sage Talk chat interface with a conversation list and message thread' },
   },
   {
@@ -221,7 +253,7 @@ export const projects: Project[] = [
     kind: 'Real-time maps',
     summary: "GPS positions stream over Socket.io and update on every connected client's Leaflet map, with cleanup on disconnect.",
     stack: ['Node.js', 'Socket.io', 'Leaflet.js'],
-    links: [{ label: 'Source', url: 'https://github.com/MuhammadTalhakhan2003/real_tracking' }],
+    links: [{ label: 'Code', url: `${GH}/real_tracking` }],
     image: { src: asset('images/realtime-opt.jpg'), width: 1100, height: 407, alt: 'Live location tracker showing markers on a map' },
   },
   {
@@ -229,7 +261,7 @@ export const projects: Project[] = [
     kind: 'Web tool',
     summary: 'Responsive translator on the MyMemory API with language swap and copy to clipboard.',
     stack: ['JavaScript', 'REST API', 'HTML/CSS'],
-    links: [{ label: 'Source', url: 'https://github.com/MuhammadTalhakhan2003/translator' }],
+    links: [{ label: 'Code', url: `${GH}/translator` }],
     image: { src: asset('images/translator.png'), width: 684, height: 432, alt: 'Translator tool with source and target language boxes' },
   },
   {
@@ -237,19 +269,20 @@ export const projects: Project[] = [
     kind: 'Arcade game',
     summary: 'Python and Pygame arcade game with progressive difficulty, collision logic and live scoring.',
     stack: ['Python', 'Pygame'],
-    links: [{ label: 'Source', url: 'https://github.com/MuhammadTalhakhan2003/pygame_space_dodge' }],
+    links: [{ label: 'Code', url: `${GH}/pygame_space_dodge` }],
     image: { src: asset('images/space-dodge-opt.jpg'), width: 1100, height: 733, alt: 'Space Dodge game screen with a ship avoiding falling objects' },
   },
 ]
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: 'Backend', items: ['Node.js', 'Express.js', 'REST APIs', 'Python', 'Django REST'] },
-  { group: 'Frontend & mobile', items: ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Flutter'] },
-  { group: 'Data', items: ['MongoDB', 'PostgreSQL', 'PostGIS', 'Indexing & query tuning', 'ERD design'] },
+  { group: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'Dart', 'SQL'] },
+  { group: 'Backend', items: ['Node.js', 'Express', 'FastAPI', 'Django REST', 'REST APIs'] },
+  { group: 'Frontend & mobile', items: ['React', 'Next.js', 'Tailwind CSS', 'Flutter', 'HTML & CSS'] },
+  { group: 'Data', items: ['MongoDB', 'PostgreSQL', 'PostGIS', 'Redis', 'Prisma', 'SQLite / Turso'] },
   { group: 'Real-time & integrations', items: ['WebSockets', 'Socket.io', 'Webhooks', 'GoHighLevel', 'Cal.com', 'Calendly', 'Google Calendar'] },
-  { group: 'AI', items: ['AI agents', 'LLM integration', 'Sentiment analysis'] },
-  { group: 'Security', items: ['JWT', 'OAuth', 'RBAC', 'CORS', 'Input validation'] },
-  { group: 'Practice', items: ['Git', 'Docker', 'CI/CD', 'Agile/Scrum', 'Code review', 'Automated testing'] },
+  { group: 'AI', items: ['AI agents', 'LLM integration', 'Claude API', 'Sentiment analysis', 'OCR'] },
+  { group: 'Security', items: ['JWT', 'OAuth', 'RBAC', 'Rate limiting', 'Input validation'] },
+  { group: 'Practice', items: ['Git', 'Docker', 'CI/CD', 'Vercel', 'Agile', 'Automated testing'] },
 ]
 
 export const education = [

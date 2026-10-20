@@ -6,10 +6,11 @@ Portfolio of **Muhammad Talha Khan**, Full Stack Software Engineer (Node.js · M
 
 **Live:** https://muhammadtalhakhan2003.github.io/PortFolio_Talha/
 
-Share a version written for a specific reader:
+Featuring **[FileFlip](https://fileflip-gules.vercel.app/)**, a free toolkit of 61 PDF and image tools ([code](https://github.com/MuhammadTalhakhan2003/fileflip)), plus [Paperly](https://github.com/MuhammadTalhakhan2003/Paperly), [Hifazat](https://github.com/MuhammadTalhakhan2003/Hifazat-FYP) and Chatley.ai.
 
-| Reader | Link |
-|---|---|
+Open it in a specific theme: `?theme=light`, `?theme=dark`, `?theme=terminal` or `?theme=mughal`.
+
+---|---|
 | Recruiters | https://muhammadtalhakhan2003.github.io/PortFolio_Talha/ |
 | Founders and CEOs | https://muhammadtalhakhan2003.github.io/PortFolio_Talha/?for=ceo |
 | Clients | https://muhammadtalhakhan2003.github.io/PortFolio_Talha/?for=client |
@@ -29,11 +30,13 @@ Share a version written for a specific reader:
 
 ## Features
 
-- **Audience switch.** Recruiter, Founder/CEO and Client views change the pitch, the calls to action and the default inquiry type. `?for=` links preset the view.
-- **Fit check.** Paste a job post and every technology in it is checked against where Talha has used it. Gaps are listed, not hidden. Runs entirely in the browser.
+- **Four themes.** Paper, Midnight, Terminal and Mughal (emerald and gold, with a jaali lattice). Switching grows the new theme out of the click with the View Transitions API. `?theme=` links preset one.
+- **Command menu.** ⌘K / Ctrl+K (or `/`) to jump to a section, switch theme, open a project or copy contact details. `T` cycles themes.
+- **Product launch spotlight** for FileFlip, with a theme-matched screenshot, stats, features and links to the live app and the source.
+- **Stack check.** Paste a job post or project brief and every technology in it is checked against where Talha has used it. Gaps are listed, not hidden. Runs entirely in the browser.
 - **Computed durations.** Role lengths and total experience are calculated from start and end months, so they never go stale.
 - **Contact form** that posts to Formspree with field validation, a spam honeypot and clear success and error states.
-- Light and dark themes, keyboard focus states, reduced-motion support, and SEO metadata with Open Graph and JSON-LD.
+- Scroll reveals, a pointer spotlight on cards, keyboard focus states, reduced-motion support, and SEO metadata with Open Graph and JSON-LD.
 
 ## Project structure
 

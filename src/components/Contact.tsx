@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from 'react'
-import { INQUIRY_KINDS, type Audience, type InquiryKind } from '../types'
-import { links, pitches, profile } from '../data/profile'
+import { INQUIRY_KINDS, type InquiryKind } from '../types'
+import { links, profile } from '../data/profile'
 import { sendContact, validateContact, type ContactInput, type FieldErrors } from '../lib/contact'
 import { Chapter } from './Chapter'
 import { CopyButton } from './CopyButton'
@@ -10,14 +10,13 @@ type Status = { kind: 'idle' } | { kind: 'sending' } | { kind: 'sent'; email: st
 
 const empty = (): Omit<ContactInput, 'kind'> => ({ name: '', email: '', company: '', roleOrProject: '', message: '', gotcha: '' })
 
-export function Contact({ audience }: { audience: Audience }) {
+export function Contact() {
   const [fields, setFields] = useState<Omit<ContactInput, 'kind'>>(empty)
-  // Until the visitor picks a type, the audience switch decides the most likely one.
-  const [chosenKind, setChosenKind] = useState<InquiryKind | null>(null)
+  const [kind, setKind] = useState<InquiryKind>(INQUIRY_KINDS[0])
   const [errors, setErrors] = useState<FieldErrors>({})
   const [status, setStatus] = useState<Status>({ kind: 'idle' })
 
-  const form: ContactInput = { ...fields, kind: chosenKind ?? pitches[audience].defaultInquiry }
+  const form: ContactInput = { ...fields, kind }
   const set = <K extends keyof typeof fields>(key: K, value: (typeof fields)[K]) => setFields((f) => ({ ...f, [key]: value }))
 
   async function onSubmit(e: FormEvent) {
@@ -38,14 +37,12 @@ export function Contact({ audience }: { audience: Audience }) {
     }
   }
 
-  const roleLabel = audience === 'client' ? 'Project' : 'Role you are hiring for'
-
   return (
-    <Chapter id="contact" numeral="VI" title="Let's talk" note="The fastest way to reach me is a call or a WhatsApp message. The form goes straight to my inbox and I reply within 24 hours.">
-      <div className="callout">
+    <Chapter id="contact" numeral="VI" title="Let's build something" note="A job, a startup idea, a freelance project or just a hello. A call or WhatsApp is fastest; the form goes straight to my inbox and I reply within 24 hours.">
+      <div className="callout" data-reveal>
         <div>
-          <p className="callout-h">Ready to interview this week.</p>
-          <p className="callout-sub">Available immediately · {profile.hours}</p>
+          <p className="callout-h">Have an idea? Let's make it real.</p>
+          <p className="callout-sub">Open to full-time roles, freelance and collaborations · {profile.hours}</p>
         </div>
         <div className="callout-actions">
           <a className="btn btn-primary" href={profile.tel}>
@@ -73,7 +70,7 @@ export function Contact({ audience }: { audience: Audience }) {
             <Field id="company" label="Company" optional>
               <input id="c-company" autoComplete="organization" maxLength={120} value={form.company} onChange={(e) => set('company', e.target.value)} />
             </Field>
-            <Field id="role" label={roleLabel} optional>
+            <Field id="role" label="Role or project" optional>
               <input id="c-role" maxLength={120} value={form.roleOrProject} onChange={(e) => set('roleOrProject', e.target.value)} />
             </Field>
           </div>
@@ -87,7 +84,7 @@ export function Contact({ audience }: { audience: Audience }) {
                     name="kind"
                     value={k}
                     checked={form.kind === k}
-                    onChange={() => setChosenKind(k)}
+                    onChange={() => setKind(k)}
                   />
                   <span>{k}</span>
                 </label>
@@ -99,7 +96,7 @@ export function Contact({ audience }: { audience: Audience }) {
               id="c-message"
               rows={6}
               maxLength={4000}
-              placeholder="Role or project, timeline, budget range if you have one, and how you would like to talk."
+              placeholder="What are you building or hiring for? Timeline, budget range if you have one, and how you would like to talk."
               value={form.message}
               onChange={(e) => set('message', e.target.value)}
               aria-invalid={!!errors.message || undefined}

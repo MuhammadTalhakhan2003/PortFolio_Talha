@@ -5,7 +5,7 @@ const valid: ContactInput = {
   email: 'ayesha@northwind.io',
   company: 'Northwind',
   roleOrProject: 'Senior Node.js Engineer',
-  kind: 'Interview request',
+  kind: 'Job opportunity',
   message: 'Are you free for a 30-minute call on Tuesday?',
   gotcha: '',
 }
@@ -28,7 +28,7 @@ describe('sendContact', () => {
     const body = JSON.parse(init.body)
     expect(url).toBe('https://formspree.io/f/test')
     expect(init.headers.Accept).toBe('application/json')
-    expect(body._subject).toBe('[Portfolio] Interview request: Ayesha Malik (Northwind)')
+    expect(body._subject).toBe('[Portfolio] Job opportunity: Ayesha Malik (Northwind)')
     expect(body._replyto).toBe('ayesha@northwind.io')
   })
 

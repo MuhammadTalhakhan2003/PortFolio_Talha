@@ -22,10 +22,10 @@ export function FitCheck() {
     <Chapter
       id="fit"
       numeral="V"
-      title="Fit check"
-      note="Paste the requirements from your job post or project brief. Each technology is checked against where I have actually used it. Gaps are listed, not hidden. Nothing you paste leaves your browser."
+      title="Stack check"
+      note="Hiring, or planning a project? Paste the requirements and each technology is checked against where I have actually used it. Gaps are listed, not hidden. Nothing you paste leaves your browser."
     >
-      <div className="fit-layout">
+      <div className="fit-layout" data-reveal>
         <form className="fit-form" onSubmit={onSubmit} noValidate>
           <label htmlFor="jd" className="label">
             Job post or brief {!edited && <span className="hint">An example post is loaded. Replace it with yours.</span>}
