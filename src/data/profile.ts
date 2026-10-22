@@ -29,6 +29,7 @@ export const profile = {
 export const builds = [
   'free tools anyone can use.',
   'AI receptionists that book jobs.',
+  'AI notebooks that cite their sources.',
   'real-time apps that feel instant.',
   'maps that help keep cities safe.',
   'products people love to use.',
@@ -96,6 +97,23 @@ export const featured: Featured[] = [
     poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
   },
   {
+    name: 'Notara',
+    kind: 'AI research notebook · Live',
+    credit: 'Solo build',
+    summary: 'A NotebookLM-style workspace. Upload PDFs, websites, YouTube videos and photos, ask questions and get answers with clickable citations, then turn your sources into podcasts, mind maps, quizzes, flashcards and slide decks you can download.',
+    highlights: [
+      'Cited answers streamed live: each claim links to the exact passage in your sources',
+      'Studio: audio overviews, mind maps, quizzes, flashcards and slides, exported to PDF, Word, PowerPoint, CSV and PNG',
+      'Runs on Groq or Claude, with passage retrieval to fit Groq’s free token limits',
+    ],
+    stack: ['Next.js 15', 'TypeScript', 'Tailwind 4', 'Groq', 'Claude API', 'IndexedDB', 'Vercel'],
+    links: [
+      { label: 'Live app', url: 'https://notara-rose.vercel.app' },
+      { label: 'Code', url: `${GH}/notara` },
+    ],
+    image: { src: asset('images/notara.webp'), width: 1200, height: 750, alt: 'Notara home page in dark mode with the headline “Understand anything you read, with sources you can check.”' },
+  },
+  {
     name: 'Paperly',
     kind: 'Collaborative docs',
     credit: 'Solo build',
@@ -140,7 +158,7 @@ export const employers = ['ForthLogic', 'Chatley.ai', 'TechClan', 'upcover', 'EC
 
 export const metrics = [
   { value: '2+', label: 'years shipping production code' },
-  { value: '4', label: 'products live, from AI agents to PDF tools' },
+  { value: '5', label: 'products live, from AI agents to PDF tools' },
   { value: '61', label: 'free tools in FileFlip' },
   { value: '100K+', label: 'incidents mapped by Hifazat' },
   { value: '30%', label: 'fewer API errors at Internee.pk' },
@@ -212,8 +230,8 @@ export const experience: Role[] = [
 export const services: Service[] = [
   {
     title: 'Products, from zero to live',
-    body: 'Idea, schema, API, interface, tests and deploy. FileFlip and Paperly were built this way, solo, and shipped to real users.',
-    proof: 'FileFlip, Paperly',
+    body: 'Idea, schema, API, interface, tests and deploy. FileFlip, Paperly and Notara were built this way, solo, and shipped to real users.',
+    proof: 'FileFlip, Paperly, Notara',
   },
   {
     title: 'AI agents & automation',

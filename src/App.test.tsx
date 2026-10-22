@@ -64,6 +64,14 @@ describe('App', () => {
     expect(screen.getByRole('link', { name: /Live demo/ })).toHaveAttribute('href', 'https://paperly-ashen.vercel.app')
   })
 
+  it('features Notara with its live app, code link and screenshot', () => {
+    render(<App />)
+    expect(screen.getByRole('link', { name: /Live app/ })).toHaveAttribute('href', 'https://notara-rose.vercel.app')
+    const codes = screen.getAllByRole('link', { name: /^Code/ }).map((l) => l.getAttribute('href'))
+    expect(codes).toContain('https://github.com/MuhammadTalhakhan2003/notara')
+    expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
+  })
+
   it('has one pitch for everyone, with no audience switch', () => {
     render(<App />)
     expect(screen.queryByRole('button', { name: 'Recruiter' })).not.toBeInTheDocument()
