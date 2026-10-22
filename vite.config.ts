@@ -2,9 +2,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// GitHub Pages serves this repo from /PortFolio_Talha/.
+// Use a relative base so the site works both locally and when served from the GitHub Pages repo subdirectory.
 export default defineConfig({
-  base: '/PortFolio_Talha/',
+  base: './',
   plugins: [react()],
   test: {
     environment: 'jsdom',
