@@ -94,7 +94,7 @@ describe('App', () => {
     render(<App />)
     const links = screen.getAllByRole('link', { name: /intro video/i }).filter((l) => l.getAttribute('target') === '_blank')
     expect(links.length).toBeGreaterThanOrEqual(2)
-    for (const l of links) expect(l).toHaveAttribute('href', 'https://www.capcut.com/sv2/ZS9UeFQpb78CJ-kei9b/')
+    for (const l of links) expect(l).toHaveAttribute('href', 'https://www.capcut.com/sv2/ZS9Uv9xabsgK5-wP3nL/')
   })
 
   it('offers one-tap call and WhatsApp links', () => {

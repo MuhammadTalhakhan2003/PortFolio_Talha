@@ -143,7 +143,7 @@ export const featured: Featured[] = [
 
 /** Recorded walkthrough. CapCut blocks embedding, so it opens in a new tab; set `embed` to a YouTube embed URL to play it inline instead. */
 export const introVideo: IntroVideo = {
-  url: 'https://www.capcut.com/sv2/ZS9UeFQpb78CJ-kei9b/',
+  url: 'https://www.capcut.com/sv2/ZS9Uv9xabsgK5-wP3nL/',
   title: 'See my AI apps in action',
   blurb: 'A short recorded walkthrough: who I am, the AI products I build, and live demos of Hifazat and Chatley.ai, narrated end to end.',
   chapters: [
