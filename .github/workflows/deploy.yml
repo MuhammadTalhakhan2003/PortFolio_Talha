@@ -44,5 +44,18 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # GitHub sometimes delivers push events late; never let an older commit overwrite a newer deploy.
+      - id: fresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest=$(gh api "repos/${{ github.repository }}/commits/main" --jq .sha)
+          if [ "$latest" = "${{ github.sha }}" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Skipping deploy: ${{ github.sha }} is no longer the latest commit on main ($latest)."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
       - id: deployment
+        if: steps.fresh.outputs.ok == 'true'
         uses: actions/deploy-pages@v4
