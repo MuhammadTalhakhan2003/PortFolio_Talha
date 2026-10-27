@@ -1,4 +1,4 @@
-import { builds, employers, experience, introVideo, launch, lede, metrics, profile } from '../data/profile'
+import { builds, employers, experience, introVideo, launch, lede, metrics, newest, profile } from '../data/profile'
 import { useTypewriter } from '../hooks/useMotion'
 import { formatDuration, monthsBetween } from '../lib/duration'
 import { QuickContact } from './QuickContact'
@@ -21,9 +21,9 @@ export function Hero() {
     <section className="title-page" id="top" aria-labelledby="name">
       <div className="title-grid">
         <div className="title-text">
-          <a className="launch-pill" href="#fileflip">
+          <a className="launch-pill" href={newest.anchor}>
             <span className="launch-new">New</span>
-            Just launched: {launch.name}, {launch.stats[0].value} free PDF &amp; image tools
+            Just launched: {newest.name}, {newest.blurb}
             <span aria-hidden="true">→</span>
           </a>
           <p className="eyebrow">{profile.eyebrow}</p>
