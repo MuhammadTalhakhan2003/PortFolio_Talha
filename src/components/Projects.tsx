@@ -39,7 +39,7 @@ export function Projects() {
 
 function FeaturedRow({ f, flip }: { f: Featured; flip: boolean }) {
   return (
-    <article className={`feat${flip ? ' feat-flip' : ''}`} data-reveal>
+    <article className={`feat${flip ? ' feat-flip' : ''}`} id={f.name.split(' ')[0].toLowerCase()} data-reveal>
       <a className="feat-media" href={f.links[0].url} target="_blank" rel="noopener" tabIndex={-1}>
         {f.image ? (
           <img src={f.image.src} width={f.image.width} height={f.image.height} alt={f.image.alt} loading="lazy" />

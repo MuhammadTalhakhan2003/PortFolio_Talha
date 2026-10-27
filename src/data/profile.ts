@@ -30,13 +30,14 @@ export const builds = [
   'free tools anyone can use.',
   'AI receptionists that book jobs.',
   'AI notebooks that cite their sources.',
+  'AI that finds the jobs you fit.',
   'real-time apps that feel instant.',
   'maps that help keep cities safe.',
   'products people love to use.',
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Hirova, an AI job finder that matches your resume to live jobs, alongside FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -85,6 +86,13 @@ export const launch: Launch = {
   },
 }
 
+/** Hero "Just launched" pill: points at the newest product's row in Selected work. */
+export const newest = {
+  name: 'Hirova',
+  blurb: 'AI that matches your resume to live jobs',
+  anchor: '#hirova',
+}
+
 export const featured: Featured[] = [
   {
     name: 'Chatley.ai',
@@ -95,6 +103,20 @@ export const featured: Featured[] = [
     stack: ['Node.js', 'Express', 'MongoDB', 'WebSockets', 'LLMs'],
     links: [{ label: 'Visit chatley.ai', url: 'https://chatley.ai' }],
     poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
+  },
+  {
+    name: 'Hirova',
+    kind: 'AI job finder · Live',
+    credit: 'Solo build',
+    summary: 'Upload a resume and Hirova reads it, pulls live listings from trusted job boards, ranks every job by how well it fits you and explains why. Select your matches, tap Go, and each application is prepared with its own cover letter and tracked.',
+    highlights: [
+      'Groq reads the resume into skills, seniority and target roles, then re-ranks the top matches with a plain-English reason for each',
+      'Live jobs from Remotive, Jobicy, Arbeitnow, The Muse and JSearch (LinkedIn, Indeed, Glassdoor), de-duplicated and scam-filtered',
+      'Free and Pro plans, an application tracker and an installable PWA that works on phone, tablet and desktop',
+    ],
+    stack: ['React', 'Vite', 'Netlify Functions', 'Groq', 'RapidAPI', 'PWA'],
+    links: [{ label: 'Open Hirova', url: 'https://gohired.netlify.app' }],
+    image: { src: asset('images/hirova.webp'), width: 1200, height: 750, alt: 'Hirova home page in dark mode with the headline “Upload once. Hit Go. Get hired.” and a resume upload box' },
   },
   {
     name: 'Notara',
@@ -158,7 +180,7 @@ export const employers = ['ForthLogic', 'Chatley.ai', 'TechClan', 'upcover', 'EC
 
 export const metrics = [
   { value: '2+', label: 'years shipping production code' },
-  { value: '5', label: 'products live, from AI agents to PDF tools' },
+  { value: '6', label: 'products live, from AI agents to job matching' },
   { value: '61', label: 'free tools in FileFlip' },
   { value: '100K+', label: 'incidents mapped by Hifazat' },
   { value: '30%', label: 'fewer API errors at Internee.pk' },
@@ -230,13 +252,13 @@ export const experience: Role[] = [
 export const services: Service[] = [
   {
     title: 'Products, from zero to live',
-    body: 'Idea, schema, API, interface, tests and deploy. FileFlip, Paperly and Notara were built this way, solo, and shipped to real users.',
-    proof: 'FileFlip, Paperly, Notara',
+    body: 'Idea, schema, API, interface, tests and deploy. FileFlip, Hirova, Paperly and Notara were built this way, solo, and shipped to real users.',
+    proof: 'FileFlip, Hirova, Paperly, Notara',
   },
   {
     title: 'AI agents & automation',
-    body: 'Agents that answer, qualify, summarize and book, wired into the tools a business already runs on.',
-    proof: 'Chatley.ai, FileFlip AI tools',
+    body: 'Agents that answer, qualify, summarize, match and book, wired into the tools a business already runs on.',
+    proof: 'Chatley.ai, Hirova, FileFlip AI tools',
   },
   {
     title: 'APIs & integrations',
