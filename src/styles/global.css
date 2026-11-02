@@ -748,3 +748,15 @@ fieldset.field { border: 0; padding: 0; margin: 0 0 8px; }
   .hb { flex: 1; justify-content: center; min-height: 46px; }
   .colophon { padding-bottom: 120px; }
 }
+
+/* ---------- Finishing touches ---------- */
+/* A brass hairline inside each featured frame, like a mounted plate. */
+.feat-media::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brass) 38%, transparent), inset 0 1px 0 rgb(255 255 255 / .06);
+}
+::selection { background: var(--brass); color: var(--paper); }
+@media (prefers-reduced-motion: no-preference) {
+  .project { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+  .project:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+}

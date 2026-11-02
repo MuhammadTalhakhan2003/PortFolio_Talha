@@ -30,6 +30,7 @@ export const builds = [
   'free tools anyone can use.',
   'AI receptionists that book jobs.',
   'AI notebooks that cite their sources.',
+  'AI that cuts long videos into shorts.',
   'AI that finds the jobs you fit.',
   'real-time apps that feel instant.',
   'maps that help keep cities safe.',
@@ -37,7 +38,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Hirova, an AI job finder that matches your resume to live jobs, alongside FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Mesmer, an AI clipper that turns long videos into captioned shorts, alongside Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -88,9 +89,9 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Hirova',
-  blurb: 'AI that matches your resume to live jobs',
-  anchor: '#hirova',
+  name: 'Mesmer',
+  blurb: 'AI that cuts long videos into captioned shorts',
+  anchor: '#mesmer',
 }
 
 export const featured: Featured[] = [
@@ -103,6 +104,20 @@ export const featured: Featured[] = [
     stack: ['Node.js', 'Express', 'MongoDB', 'WebSockets', 'LLMs'],
     links: [{ label: 'Visit chatley.ai', url: 'https://chatley.ai' }],
     poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
+  },
+  {
+    name: 'Mesmer',
+    kind: 'AI video clipper · New',
+    credit: 'Solo build',
+    summary: 'Paste a YouTube, Facebook or Instagram link and Mesmer finds the strongest moments in a long video, scores each one out of 10, and cuts them into vertical 9:16 shorts with captions burned in. Best clip first, ready to download and post.',
+    highlights: [
+      'Groq reads the transcript, picks the hooks and returns a virality score and best-fit platform (TikTok, Reels or Shorts) for every clip',
+      'No captions on the video? Whisper on Groq transcribes the audio so AI picking still works',
+      'yt-dlp downloads from most sites and FFmpeg frames each clip at 1080×1920 with blur-fit or fill-crop and bold subtitles, packaged in a Dockerfile',
+    ],
+    stack: ['Next.js 16', 'TypeScript', 'Tailwind 4', 'Groq', 'Whisper', 'yt-dlp', 'FFmpeg', 'Docker'],
+    links: [{ label: 'Open Mesmer', url: 'https://mesmer-kappa.vercel.app' }],
+    image: { src: asset('images/mesmer.webp'), width: 1200, height: 700, alt: 'Mesmer home page with the headline “Make them watch twice.” and a list of clips scored 9.6, 9.1, 8.8 and 8.4 for TikTok, Reels and Shorts' },
   },
   {
     name: 'Hirova',
