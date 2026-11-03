@@ -760,3 +760,68 @@ fieldset.field { border: 0; padding: 0; margin: 0 0 8px; }
   .project { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
   .project:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
 }
+
+/* ---------- Refinements: quiet details that make it feel printed, not rendered ----------
+   Everything here uses the theme tokens above, so all four covers inherit it.
+   Remove this block to return to the previous look. */
+
+/* Typography: better kerning and ligatures, balanced line endings, engraved small caps. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--brass) 55%, var(--paper)) var(--paper);
+}
+body {
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+p, li { text-wrap: pretty; }
+h1 { letter-spacing: -0.022em; }
+.meta, .eyebrow { letter-spacing: 0.11em; }
+
+/* Paper stock: a barely-there grain over the cover so flat colour feels tactile. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .05; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+[data-theme="terminal"] body::before { display: none; }
+
+/* Chapter breaks: a hollow brass diamond set into the hairline, like a printer's ornament. */
+.chapter { position: relative; }
+.chapter::after {
+  content: ""; position: absolute; left: 50%; bottom: -5px; width: 9px; height: 9px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--paper); border: 1px solid var(--brass);
+}
+
+/* Selected work: numbered plates, with a matte that opens up when you look closer. */
+.featured { counter-reset: plate; }
+.feat { counter-increment: plate; }
+.feat-text .meta::before {
+  content: "No. " counter(plate, decimal-leading-zero) "\00a0\00a0\2014\00a0\00a0";
+  color: var(--ink); font-weight: 600;
+}
+.feat-media {
+  outline: 1px solid color-mix(in srgb, var(--brass) 26%, transparent);
+  outline-offset: 9px;
+  transition: outline-offset .5s cubic-bezier(.2,.7,.2,1), outline-color .4s, box-shadow .4s;
+}
+.feat:hover .feat-media { outline-offset: 13px; outline-color: color-mix(in srgb, var(--brass) 55%, transparent); }
+
+/* Interactions: underlines that draw in, pressed buttons, tags that warm up. */
+.links-inline a, .chapter-note a, .feat-text p:not(.feat-links) a {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size .35s cubic-bezier(.2,.7,.2,1);
+}
+.links-inline a:hover, .chapter-note a:hover, .feat-text p:not(.feat-links) a:hover { background-size: 100% 1px; }
+.btn:active { transform: translateY(0) scale(.985); }
+.btn-primary { box-shadow: inset 0 1px 0 rgb(255 255 255 / .14), 0 10px 24px -12px color-mix(in srgb, var(--accent) 85%, transparent); }
+.stack li { transition: border-color .2s, color .2s; }
+.stack li:hover { border-color: var(--brass); color: var(--brass); }
+
+@media (max-width: 720px) {
+  .feat-media { outline-offset: 6px; }
+  .feat:hover .feat-media { outline-offset: 6px; }
+}

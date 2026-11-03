@@ -72,6 +72,20 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
+  it('features Pocketsplit as the newest launch, with a live link and screenshot', () => {
+    render(<App />)
+    expect(screen.getByRole('link', { name: /Just launched: Pocketsplit/ })).toHaveAttribute('href', '#pocketsplit')
+    const row = document.getElementById('pocketsplit') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'Pocketsplit' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Open Pocketsplit/ })).toHaveAttribute('href', 'https://pocketsplit-chi.vercel.app')
+    expect(within(row).getByAltText(/Pocketsplit on a laptop and a phone/)).toBeInTheDocument()
+    // the newest solo build leads, ahead of Mesmer
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('pocketsplit')).toBeGreaterThan(-1)
+    expect(order.indexOf('pocketsplit')).toBeLessThan(order.indexOf('mesmer'))
+  })
+
   it('has one pitch for everyone, with no audience switch', () => {
     render(<App />)
     expect(screen.queryByRole('button', { name: 'Recruiter' })).not.toBeInTheDocument()
