@@ -28,6 +28,7 @@ export const profile = {
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
   'free tools anyone can use.',
+  'trip apps that settle the bill fairly.',
   'AI receptionists that book jobs.',
   'AI notebooks that cite their sources.',
   'AI that cuts long videos into shorts.',
@@ -38,7 +39,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Mesmer, an AI clipper that turns long videos into captioned shorts, alongside Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, alongside Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -89,9 +90,9 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Mesmer',
-  blurb: 'AI that cuts long videos into captioned shorts',
-  anchor: '#mesmer',
+  name: 'Pocketsplit',
+  blurb: 'split trip costs with friends and settle up fairly',
+  anchor: '#pocketsplit',
 }
 
 export const featured: Featured[] = [
@@ -106,8 +107,22 @@ export const featured: Featured[] = [
     poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
   },
   {
+    name: 'Pocketsplit',
+    kind: 'Trip expense splitter · New',
+    credit: 'Solo build',
+    summary: 'Split trip costs with friends and see the fewest payments that settle everyone up. Anyone with the trip code can join, no account needed, and the trip ends as a polaroid recap you can download or share.',
+    highlights: [
+      'Magic Add turns “jeep 9000 bilal ne diya” into an expense, parsing English and Roman Urdu into amount, payer, split and category with a live preview',
+      'Fewest-payments settle-up with undo, unequal splits, trip budgets, 8 currencies and WhatsApp reminders carrying JazzCash or Easypaisa details',
+      'Live sync between friends’ phones, a weighted “Who pays next?” wheel, and a recap exported as a PNG. Responsive from 320px phones to 4K screens',
+    ],
+    stack: ['Django REST', 'PostgreSQL', 'React', 'Vite', 'Tailwind 4', 'Motion', 'Clerk', 'Vercel'],
+    links: [{ label: 'Open Pocketsplit', url: 'https://pocketsplit-chi.vercel.app' }],
+    image: { src: asset('images/pocketsplit.webp'), width: 1200, height: 750, alt: 'Pocketsplit on a laptop and a phone: a trip page with a PKR 60,000 budget and live feed, next to a polaroid trip recap showing PKR 45,200 spent' },
+  },
+  {
     name: 'Mesmer',
-    kind: 'AI video clipper · New',
+    kind: 'AI video clipper · Live',
     credit: 'Solo build',
     summary: 'Paste a YouTube, Facebook or Instagram link and Mesmer finds the strongest moments in a long video, scores each one out of 10, and cuts them into vertical 9:16 shorts with captions burned in. Best clip first, ready to download and post.',
     highlights: [
