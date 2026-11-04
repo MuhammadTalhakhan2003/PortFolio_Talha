@@ -1,6 +1,6 @@
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import type { Theme } from '../hooks/useTheme'
-import { profile } from '../data/profile'
+import { profile, recommendations } from '../data/profile'
 import { SearchIcon } from './Icons'
 import { ThemePicker } from './ThemePicker'
 
@@ -12,6 +12,7 @@ export const SECTIONS = [
   { id: 'services', label: 'Services' },
   { id: 'skills', label: 'Skills' },
   { id: 'fit', label: 'Stack check' },
+  ...(recommendations.length ? [{ id: 'voices', label: 'Recommendations' }] : []),
   { id: 'contact', label: 'Contact' },
 ]
 const IDS = SECTIONS.map((s) => s.id)

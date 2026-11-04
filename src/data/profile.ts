@@ -1,4 +1,4 @@
-import type { Education, Featured, IntroVideo, Launch, Link, Project, Role, Service } from '../types'
+import type { Education, Featured, IntroVideo, Launch, Link, Project, RecommendationGroup, Role, Service } from '../types'
 
 const base = import.meta.env.BASE_URL
 export const asset = (path: string) => `${base}${path}`
@@ -220,6 +220,17 @@ export const introVideo: IntroVideo = {
     { label: 'Chatley.ai walkthrough', note: 'AI receptionist that answers, qualifies and books' },
   ],
 }
+
+/**
+ * Real recommendations only. Copy them from LinkedIn (Profile → Recommendations → Received), word for word,
+ * with the recommender's permission to reuse them. The "What people say" section stays hidden while this list is empty.
+ *
+ * Example shape (do not publish placeholders):
+ * { org: 'ForthLogic', kind: 'Professional · Software Engineering', items: [
+ *   { name: 'Full Name', headline: 'Their LinkedIn headline', relation: 'Direct manager', text: 'The recommendation, verbatim.', url: 'https://www.linkedin.com/in/…' },
+ * ] }
+ */
+export const recommendations: RecommendationGroup[] = []
 
 export const employers = ['ForthLogic', 'Chatley.ai', 'TechClan', 'upcover', 'ECOM Specialist', 'Internee.pk']
 
