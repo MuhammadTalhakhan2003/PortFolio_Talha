@@ -82,6 +82,26 @@ export interface Education {
   capstone?: Link
 }
 
+/** One recommendation, e.g. copied from LinkedIn. */
+export interface Recommendation {
+  name: string
+  /** The recommender's own headline, e.g. "Senior Software Engineer · AI Generalist". */
+  headline: string
+  text: string
+  /** How you know them, e.g. "Direct manager", "Team colleague", "Professor". */
+  relation: string
+  /** Optional link to the original recommendation. */
+  url?: string
+}
+
+/** Recommendations grouped by where you worked or studied. */
+export interface RecommendationGroup {
+  org: string
+  /** e.g. "Professional · Software Engineering" or "Academic · CS Department". */
+  kind: string
+  items: Recommendation[]
+}
+
 export interface Service {
   title: string
   body: string

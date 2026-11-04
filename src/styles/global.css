@@ -825,3 +825,52 @@ body::before {
   .feat-media { outline-offset: 6px; }
   .feat:hover .feat-media { outline-offset: 6px; }
 }
+
+/* ---------- Recommendations: what people say ---------- */
+.rec-group + .rec-group { margin-top: 48px; }
+.rec-group-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.rec-group-head h3 { font-size: var(--step-2); }
+.rec-group-head .meta { margin-top: 4px; color: var(--brass); }
+.rec-count { font: 500 0.75rem var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 4px 12px; border: 1px solid var(--rule); border-radius: 999px; color: var(--muted); white-space: nowrap; }
+.rec-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.rec { padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.rec-who { display: flex; gap: 12px; align-items: center; }
+.rec-avatar { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--rule); font: 600 0.9rem var(--mono); }
+.rec-name { font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+.rec-role { margin-top: 2px; color: var(--muted); font-size: 0.875rem; line-height: 1.35; overflow-wrap: anywhere; }
+.rec-text { margin: 0; padding-left: 14px; border-left: 2px solid var(--brass); color: color-mix(in srgb, var(--ink) 88%, var(--muted)); overflow-wrap: anywhere; }
+.rec-text.is-clamped p { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.rec-more { align-self: flex-start; min-height: 44px; margin-top: -10px; padding: 0 2px; background: none; border: 0; color: var(--accent); font: 600 0.9rem var(--body); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.rec-tag { margin-top: auto; font: 500 0.78rem var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.rec-tag span { color: var(--brass); }
+.rec-link { font-weight: 500; font-size: 0.9rem; }
+
+/* ---------- Mobile polish: comfortable taps, legible text, no iOS zoom ---------- */
+@media (max-width: 720px), (pointer: coarse) {
+  .btn, .btn.small { min-height: 44px; }
+  .kbd-btn, .theme-toggle { width: 44px; height: 44px; min-height: 44px; }
+  .monogram { display: inline-flex; align-items: center; min-height: 44px; }
+  .links a, .colophon-meta a, .degree-link, .links-inline a, .rec-link, .product a, .direct-list a { display: inline-flex; align-items: center; min-height: 44px; }
+  .copy { min-height: 44px; min-width: 56px; padding: 0 14px; }
+  .stack li, .degree-status, .entry-dates .current, .reel-titles span, .copy, .palette-foot, .hirebar-text span, .rec-count, .launch-new, .fit-list small, .browser-url { font-size: 0.8125rem; }
+  input, textarea, select { font-size: 16px; }
+}
+@media (max-width: 720px) {
+  .rec { padding: 20px; }
+  .rec-grid { grid-template-columns: 1fr; }
+  .rec-group-head { align-items: flex-start; }
+  .colophon { padding-bottom: calc(120px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ---------- Mobile hero: compact launch card, smaller portrait so the name shows above the fold ---------- */
+@media (max-width: 720px) {
+  .launch-pill { display: flex; flex-wrap: nowrap; align-items: flex-start; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 16px; line-height: 1.4; font-size: 0.9rem; }
+  .launch-new { flex: none; margin-top: 1px; }
+  .launch-pill > span:last-child { margin-left: auto; flex: none; padding-top: 1px; }
+  .title-side { gap: 18px; }
+  .title-side .portrait { max-width: 150px; margin-left: 30px; }
+  .portrait .seal { left: -34px; bottom: -22px; }
+  .seal svg { width: 84px; height: 84px; }
+  .title-page h1 { margin-top: 6px; }
+  .builds { margin-top: 12px; }
+}
