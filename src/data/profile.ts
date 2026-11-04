@@ -28,6 +28,7 @@ export const profile = {
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
   'free tools anyone can use.',
+  'job applications that cite your real experience.',
   'trip apps that settle the bill fairly.',
   'AI receptionists that book jobs.',
   'AI notebooks that cite their sources.',
@@ -39,7 +40,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, alongside Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being CareerPilot, an AI job-application copilot that writes from your own CV with citations, alongside Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -90,9 +91,9 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Pocketsplit',
-  blurb: 'split trip costs with friends and settle up fairly',
-  anchor: '#pocketsplit',
+  name: 'CareerPilot',
+  blurb: 'an AI job copilot that cites your own CV',
+  anchor: '#careerpilot',
 }
 
 export const featured: Featured[] = [
@@ -107,8 +108,22 @@ export const featured: Featured[] = [
     poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
   },
   {
+    name: 'CareerPilot',
+    kind: 'AI job-application copilot · New',
+    credit: 'Solo build',
+    summary: 'Upload your CV once, paste any job post, and CareerPilot scores the match and writes a cover letter, tailored CV bullets, outreach drafts and interview prep. Every line is cited from your own documents, so the AI never invents experience.',
+    highlights: [
+      'RAG over your CV and projects: the job description pulls the most relevant passages and Groq writes only from them, with [n] citations back to the source',
+      'Match score, skill gaps, an ATS keyword check, LinkedIn and cold-email drafts, and a Word export of the cover letter',
+      'Ask-my-CV chat, a mock interview that grades your answers and a job tracker. Private per-browser sessions and rate limiting keep it safe to run in public',
+    ],
+    stack: ['FastAPI', 'Python', 'Groq', 'RAG', 'ChromaDB', 'BM25', 'JavaScript', 'Vercel'],
+    links: [{ label: 'Open CareerPilot', url: 'https://careerpilot-rag.vercel.app' }],
+    image: { src: asset('images/careerpilot.webp'), width: 1200, height: 750, alt: 'CareerPilot results page in dark mode with a lime match-score ring reading 85 out of 100, a verdict, and matched skills with cited evidence' },
+  },
+  {
     name: 'Pocketsplit',
-    kind: 'Trip expense splitter · New',
+    kind: 'Trip expense splitter',
     credit: 'Solo build',
     summary: 'Split trip costs with friends and see the fewest payments that settle everyone up. Anyone with the trip code can join, no account needed, and the trip ends as a polaroid recap you can download or share.',
     highlights: [

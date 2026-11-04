@@ -72,9 +72,22 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
-  it('features Pocketsplit as the newest launch, with a live link and screenshot', () => {
+  it('features CareerPilot as the newest launch, with a live link and screenshot', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: /Just launched: Pocketsplit/ })).toHaveAttribute('href', '#pocketsplit')
+    expect(screen.getByRole('link', { name: /Just launched: CareerPilot/ })).toHaveAttribute('href', '#careerpilot')
+    const row = document.getElementById('careerpilot') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'CareerPilot' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Open CareerPilot/ })).toHaveAttribute('href', 'https://careerpilot-rag.vercel.app')
+    expect(within(row).getByAltText(/CareerPilot results page/)).toBeInTheDocument()
+    // the newest build leads the list, ahead of Pocketsplit
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('careerpilot')).toBeGreaterThan(-1)
+    expect(order.indexOf('careerpilot')).toBeLessThan(order.indexOf('pocketsplit'))
+  })
+
+  it('features Pocketsplit with a live link and screenshot', () => {
+    render(<App />)
     const row = document.getElementById('pocketsplit') as HTMLElement
     expect(row).not.toBeNull()
     expect(within(row).getByRole('heading', { level: 3, name: 'Pocketsplit' })).toBeInTheDocument()
