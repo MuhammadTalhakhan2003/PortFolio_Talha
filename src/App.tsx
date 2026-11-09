@@ -13,6 +13,7 @@ import { Education } from './components/Education'
 import { Services } from './components/Services'
 import { Skills } from './components/Skills'
 import { FitCheck } from './components/FitCheck'
+import { Recommendations } from './components/Recommendations'
 import { Contact } from './components/Contact'
 import { HireBar } from './components/HireBar'
 import { CommandPalette } from './components/CommandPalette'
@@ -65,6 +66,7 @@ export default function App() {
         <Services />
         <Skills />
         <FitCheck />
+        <Recommendations />
         <Contact />
       </main>
       <HireBar />

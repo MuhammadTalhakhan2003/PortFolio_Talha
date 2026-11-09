@@ -1,4 +1,4 @@
-import type { Education, Featured, IntroVideo, Launch, Link, Project, Role, Service } from '../types'
+import type { Education, Featured, IntroVideo, Launch, Link, Project, RecommendationGroup, Role, Service } from '../types'
 
 const base = import.meta.env.BASE_URL
 export const asset = (path: string) => `${base}${path}`
@@ -28,6 +28,7 @@ export const profile = {
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
   'free tools anyone can use.',
+  'design editors that run in the browser.',
   'job applications that cite your real experience.',
   'trip apps that settle the bill fairly.',
   'AI receptionists that book jobs.',
@@ -40,7 +41,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being CareerPilot, an AI job-application copilot that writes from your own CV with citations, alongside Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Bretlify, a browser-based design editor with AI layouts and live collaboration, alongside CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -91,9 +92,9 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'CareerPilot',
-  blurb: 'an AI job copilot that cites your own CV',
-  anchor: '#careerpilot',
+  name: 'Bretlify',
+  blurb: 'a design editor in your browser, with AI and live collaboration',
+  anchor: '#bretlify',
 }
 
 export const featured: Featured[] = [
@@ -108,8 +109,25 @@ export const featured: Featured[] = [
     poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
   },
   {
+    name: 'Bretlify',
+    kind: 'Browser design editor · New',
+    credit: 'Solo build',
+    summary: 'A Canva-style graphic design editor that runs in the browser. Pick a template or describe a design and get an editable layout, then edit it with shapes, text, photos, filters and a brush. Share a link and edit together in real time with live cursors.',
+    highlights: [
+      'Canvas editor on Konva with layers, crop, filters, brush and eraser, PNG/JPG export at full resolution, and undo/redo that merges slider drags into a single step',
+      'Magic Design: Groq structured output turns a prompt into a validated, fully editable layout, plus an AI copywriter. Background removal runs on-device in WASM',
+      'Live collaboration on Liveblocks with per-layer sync, live cursors and shared selections. Clerk accounts, autosave to Neon Postgres and image uploads to Vercel Blob',
+    ],
+    stack: ['Next.js', 'TypeScript', 'Konva', 'Zustand', 'Liveblocks', 'Groq', 'Postgres', 'Vercel'],
+    links: [
+      { label: 'Open Bretlify', url: 'https://bretlify.vercel.app' },
+      { label: 'Code', url: `${GH}/bretlify` },
+    ],
+    image: { src: asset('images/bretlify.webp'), width: 1200, height: 750, alt: 'Bretlify editor with a pink Summer Sale template on the canvas, the headline selected, a layers panel on the left and text properties on the right' },
+  },
+  {
     name: 'CareerPilot',
-    kind: 'AI job-application copilot · New',
+    kind: 'AI job-application copilot',
     credit: 'Solo build',
     summary: 'Upload your CV once, paste any job post, and CareerPilot scores the match and writes a cover letter, tailored CV bullets, outreach drafts and interview prep. Every line is cited from your own documents, so the AI never invents experience.',
     highlights: [
@@ -220,6 +238,17 @@ export const introVideo: IntroVideo = {
     { label: 'Chatley.ai walkthrough', note: 'AI receptionist that answers, qualifies and books' },
   ],
 }
+
+/**
+ * Real recommendations only. Copy them from LinkedIn (Profile → Recommendations → Received), word for word,
+ * with the recommender's permission to reuse them. The "What people say" section stays hidden while this list is empty.
+ *
+ * Example shape (do not publish placeholders):
+ * { org: 'ForthLogic', kind: 'Professional · Software Engineering', items: [
+ *   { name: 'Full Name', headline: 'Their LinkedIn headline', relation: 'Direct manager', text: 'The recommendation, verbatim.', url: 'https://www.linkedin.com/in/…' },
+ * ] }
+ */
+export const recommendations: RecommendationGroup[] = []
 
 export const employers = ['ForthLogic', 'Chatley.ai', 'TechClan', 'upcover', 'ECOM Specialist', 'Internee.pk']
 

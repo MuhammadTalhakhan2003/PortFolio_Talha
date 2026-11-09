@@ -72,9 +72,23 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
-  it('features CareerPilot as the newest launch, with a live link and screenshot', () => {
+  it('features Bretlify as the newest launch, with a live link, code and screenshot', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: /Just launched: CareerPilot/ })).toHaveAttribute('href', '#careerpilot')
+    expect(screen.getByRole('link', { name: /Just launched: Bretlify/ })).toHaveAttribute('href', '#bretlify')
+    const row = document.getElementById('bretlify') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'Bretlify' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Open Bretlify/ })).toHaveAttribute('href', 'https://bretlify.vercel.app')
+    expect(within(row).getByRole('link', { name: /^Code/ })).toHaveAttribute('href', 'https://github.com/MuhammadTalhakhan2003/bretlify')
+    expect(within(row).getByAltText(/Bretlify editor/)).toBeInTheDocument()
+    // the newest build leads the list, ahead of CareerPilot
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('bretlify')).toBeGreaterThan(-1)
+    expect(order.indexOf('bretlify')).toBeLessThan(order.indexOf('careerpilot'))
+  })
+
+  it('features CareerPilot with a live link and screenshot', () => {
+    render(<App />)
     const row = document.getElementById('careerpilot') as HTMLElement
     expect(row).not.toBeNull()
     expect(within(row).getByRole('heading', { level: 3, name: 'CareerPilot' })).toBeInTheDocument()
