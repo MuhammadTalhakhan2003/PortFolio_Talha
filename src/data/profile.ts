@@ -234,6 +234,7 @@ export const featured: Featured[] = [
     highlights: ['Kernel density estimation predicts crime hotspots on the map', 'Votes, comments and a reputation system from Newcomer to Champion', 'JWT with rotating refresh tokens and citizen and admin roles'],
     stack: ['Flutter', 'Django REST', 'PostGIS', 'Redis', 'scikit-learn'],
     links: [
+      { label: 'Open Hifazat', url: 'https://hifazat-eosin.vercel.app' },
       { label: 'Code', url: `${GH}/Hifazat-FYP` },
       { label: 'Watch demo', url: 'https://www.youtube.com/watch?v=kRctvhmBFyc' },
     ],

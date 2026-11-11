@@ -64,6 +64,11 @@ describe('App', () => {
     expect(screen.getByRole('link', { name: /Live demo/ })).toHaveAttribute('href', 'https://paperly-ashen.vercel.app')
   })
 
+  it('links the live Hifazat app', () => {
+    render(<App />)
+    expect(screen.getByRole('link', { name: /Open Hifazat/ })).toHaveAttribute('href', 'https://hifazat-eosin.vercel.app')
+  })
+
   it('features Notara with its live app, code link and screenshot', () => {
     render(<App />)
     expect(screen.getByRole('link', { name: /Live app/ })).toHaveAttribute('href', 'https://notara-rose.vercel.app')
