@@ -72,9 +72,22 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
-  it('features Bretlify as the newest launch, with a live link, code and screenshot', () => {
+  it('features Qasid as the newest launch, with a live link and screenshot', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: /Just launched: Bretlify/ })).toHaveAttribute('href', '#bretlify')
+    expect(screen.getByRole('link', { name: /Just launched: Qasid/ })).toHaveAttribute('href', '#qasid')
+    const row = document.getElementById('qasid') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'Qasid' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Open Qasid/ })).toHaveAttribute('href', 'https://qasid-ai.netlify.app')
+    expect(within(row).getByAltText(/Qasid landing page/)).toBeInTheDocument()
+    // the newest build leads the list, ahead of Bretlify
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('qasid')).toBeGreaterThan(-1)
+    expect(order.indexOf('qasid')).toBeLessThan(order.indexOf('bretlify'))
+  })
+
+  it('features Bretlify with a live link, code and screenshot', () => {
+    render(<App />)
     const row = document.getElementById('bretlify') as HTMLElement
     expect(row).not.toBeNull()
     expect(within(row).getByRole('heading', { level: 3, name: 'Bretlify' })).toBeInTheDocument()
