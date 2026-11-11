@@ -28,6 +28,7 @@ export const profile = {
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
   'free tools anyone can use.',
+  'AI that sells on WhatsApp while you sleep.',
   'design editors that run in the browser.',
   'job applications that cite your real experience.',
   'trip apps that settle the bill fairly.',
@@ -41,7 +42,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Bretlify, a browser-based design editor with AI layouts and live collaboration, alongside CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, alongside Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -92,9 +93,9 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Bretlify',
-  blurb: 'a design editor in your browser, with AI and live collaboration',
-  anchor: '#bretlify',
+  name: 'Qasid',
+  blurb: 'an AI salesperson that runs your WhatsApp',
+  anchor: '#qasid',
 }
 
 export const featured: Featured[] = [
@@ -107,6 +108,20 @@ export const featured: Featured[] = [
     stack: ['Node.js', 'Express', 'MongoDB', 'WebSockets', 'LLMs'],
     links: [{ label: 'Visit chatley.ai', url: 'https://chatley.ai' }],
     poster: { title: 'Chatley.ai', lines: ['“Hi, thanks for calling. How can I help?”', 'Lead qualified · Appointment booked · CRM synced'] },
+  },
+  {
+    name: 'Qasid',
+    kind: 'AI WhatsApp salesperson · New',
+    credit: 'Solo build',
+    summary: 'An AI agent that runs a small business’s WhatsApp. It answers every customer in Urdu, Roman Urdu or English, takes orders, books appointments and shares payment options, then hands the chat to the owner when a person is needed.',
+    highlights: [
+      'WhatsApp Cloud API webhook with signature verification, auto-replies and a handover pause so the owner can take over a conversation',
+      'Agent studio: train it on your catalog, prices, tone and handover rules, then test it in a live playground. Runs on Groq, with the Vercel AI Gateway as fallback',
+      'Owner dashboard with KPIs, a weekly chart, handovers, orders and an inbox to switch any chat between AI and human',
+    ],
+    stack: ['Next.js 16', 'TypeScript', 'Tailwind 4', 'Motion', 'AI SDK', 'Groq', 'WhatsApp Cloud API', 'Netlify'],
+    links: [{ label: 'Open Qasid', url: 'https://qasid-ai.netlify.app' }],
+    image: { src: asset('images/qasid.webp'), width: 1200, height: 750, alt: 'Qasid landing page in dark mode with the headline “Your best salesperson never sleeps.” next to a phone showing a WhatsApp chat for Sweet Bakes Lahore' },
   },
   {
     name: 'Bretlify',
