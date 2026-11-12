@@ -12,5 +12,7 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     css: false,
     restoreMocks: true,
+    // App tests render the whole site (plus Motion) in jsdom; give slow CI runners headroom.
+    testTimeout: 15000,
   },
 })

@@ -1,5 +1,6 @@
 import { asset, launch } from '../data/profile'
 import { GitHubIcon } from './Icons'
+import { CountUp } from './Motion'
 import { Stack } from './Stack'
 
 /** Product launch spotlight for FileFlip. The hero screenshot follows the site theme. */
@@ -41,7 +42,9 @@ export function Launch({ dark }: { dark: boolean }) {
       <ul className="launch-stats" aria-label={`${l.name} in numbers`} data-reveal>
         {l.stats.map((s) => (
           <li key={s.label}>
-            <strong>{s.value}</strong>
+            <strong>
+              <CountUp value={s.value} />
+            </strong>
             <span>{s.label}</span>
           </li>
         ))}
