@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useTheme } from './hooks/useTheme'
-import { useReveal, useSpotlight } from './hooks/useMotion'
+import { useReveal, useSpotlight, useTilt } from './hooks/useMotion'
+import { ScrollProgress } from './components/Motion'
 import { links, profile } from './data/profile'
 import { Masthead } from './components/Masthead'
 import { Hero } from './components/Hero'
@@ -25,6 +26,7 @@ export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false)
   useReveal()
   useSpotlight()
+  useTilt()
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -54,6 +56,7 @@ export default function App() {
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
+      <ScrollProgress />
       <Masthead theme={theme} onTheme={setTheme} onOpenPalette={() => setPaletteOpen(true)} />
       <main id="main">
         <Hero />
@@ -75,6 +78,7 @@ export default function App() {
         <p className="sign-off">
           Let's build something <em>people love.</em>
         </p>
+        <p className="sign-joke">Currently managing a team of AI agents that never ask for a raise. 🐝</p>
         <ul className="links">
           {links.map((l) => (
             <li key={l.url}>

@@ -2,29 +2,34 @@
    that can be re-bound in four covers: Paper, Midnight, Terminal and Mughal. */
 
 /* ---------- Themes ---------- */
+/* Daylight: cloud white, graphite ink and a honey accent (sunshine yellow for fills). */
 :root {
-  --paper: #f6f4ef;
+  --paper: #f2f4f1;
   --paper-raised: #ffffff;
-  --ink: #141b26;
-  --muted: #5a6270;
-  --rule: #dfdbd2;
-  --accent: #1e3a5f;
-  --accent-ink: #f6f4ef;
-  --accent-soft: #e6ebf2;
-  --brass: #94692a;
-  --brass-soft: #f3eadb;
-  --live: #2f8a5b;
-  --warn: #9a4a1f;
+  --ink: #1c1d20;
+  --muted: #5e605c;
+  --rule: #e0e2dd;
+  --accent: #1c1d20;
+  --accent-ink: #f2f4f1;
+  --accent-soft: #eceee9;
+  --brass: #8f5d00;
+  --brass-soft: #fff3cc;
+  --sun: #ffc928;
+  --live: #1f8a4c;
+  --warn: #b24a1f;
   --wa: #1f9d55;
-  --glow: rgb(148 105 42 / .14);
-  --shadow: 0 1px 2px rgb(20 27 38 / .05), 0 10px 30px -12px rgb(20 27 38 / .18);
-  --shadow-lift: 0 2px 4px rgb(20 27 38 / .06), 0 22px 44px -18px rgb(20 27 38 / .32);
+  --glow: rgb(255 201 40 / .22);
+  --shadow: 0 1px 2px rgb(28 29 32 / .05), 0 10px 30px -12px rgb(28 29 32 / .16);
+  --shadow-lift: 0 2px 4px rgb(28 29 32 / .06), 0 26px 50px -20px rgb(28 29 32 / .3);
   --pattern: none;
-  --stage: linear-gradient(135deg, #0f1a2c, #1e3a5f);
+  --stage: linear-gradient(135deg, #141518, #2a2410);
+  --aurora-a: rgb(255 201 40 / .30);
+  --aurora-b: rgb(141 185 240 / .26);
 
-  --display: "Libre Caslon Display", "Libre Caslon Text", Georgia, "Times New Roman", serif;
-  --body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display: "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+  --serif: "Instrument Serif", "Libre Caslon Display", Georgia, serif;
+  --body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --step--1: 0.8125rem;
   --step-0: 1rem;
@@ -40,23 +45,25 @@
   color-scheme: light;
 }
 
-/* Midnight: the OS dark default, and an explicit choice. */
+/* Noir: deep graphite with sunshine yellow. The OS dark default, and an explicit choice. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --paper: #0f141b; --paper-raised: #161d27; --ink: #ece8df; --muted: #9ea7b3; --rule: #28313d;
-    --accent: #a9c4e8; --accent-ink: #0f141b; --accent-soft: #1a2433; --brass: #d9b46c; --brass-soft: #2a2316;
-    --live: #5fcf95; --warn: #e59a6e; --glow: rgb(217 180 108 / .12);
-    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 12px 30px -14px rgb(0 0 0 / .6);
-    --shadow-lift: 0 2px 4px rgb(0 0 0 / .35), 0 24px 48px -18px rgb(0 0 0 / .7);
+    --paper: #0e0f11; --paper-raised: #16171a; --ink: #f2f4f1; --muted: #9a9c97; --rule: #26282c;
+    --accent: #ffc928; --accent-ink: #1c1d20; --accent-soft: #1f1d14; --brass: #ffc928; --brass-soft: #221e10;
+    --sun: #ffc928; --live: #7ee2a0; --warn: #ff8a6b; --glow: rgb(255 201 40 / .12);
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 30px -14px rgb(0 0 0 / .7);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / .45), 0 28px 56px -20px rgb(0 0 0 / .8);
+    --aurora-a: rgb(255 201 40 / .16); --aurora-b: rgb(141 185 240 / .12);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0f141b; --paper-raised: #161d27; --ink: #ece8df; --muted: #9ea7b3; --rule: #28313d;
-  --accent: #a9c4e8; --accent-ink: #0f141b; --accent-soft: #1a2433; --brass: #d9b46c; --brass-soft: #2a2316;
-  --live: #5fcf95; --warn: #e59a6e; --glow: rgb(217 180 108 / .12);
-  --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 12px 30px -14px rgb(0 0 0 / .6);
-  --shadow-lift: 0 2px 4px rgb(0 0 0 / .35), 0 24px 48px -18px rgb(0 0 0 / .7);
+  --paper: #0e0f11; --paper-raised: #16171a; --ink: #f2f4f1; --muted: #9a9c97; --rule: #26282c;
+  --accent: #ffc928; --accent-ink: #1c1d20; --accent-soft: #1f1d14; --brass: #ffc928; --brass-soft: #221e10;
+  --sun: #ffc928; --live: #7ee2a0; --warn: #ff8a6b; --glow: rgb(255 201 40 / .12);
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 30px -14px rgb(0 0 0 / .7);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / .45), 0 28px 56px -20px rgb(0 0 0 / .8);
+  --aurora-a: rgb(255 201 40 / .16); --aurora-b: rgb(141 185 240 / .12);
   color-scheme: dark;
 }
 
@@ -68,6 +75,7 @@
   --shadow: 0 0 0 1px rgb(61 255 139 / .06), 0 12px 30px -14px rgb(0 0 0 / .8);
   --shadow-lift: 0 0 0 1px rgb(61 255 139 / .18), 0 0 32px -6px rgb(61 255 139 / .25);
   --stage: linear-gradient(135deg, #04140a, #0c2a16);
+  --sun: #3dff8b; --aurora-a: rgb(61 255 139 / .12); --aurora-b: rgb(255 201 74 / .06); --serif: var(--mono);
   --display: var(--mono);
   --body: var(--mono);
   --radius: 2px;
@@ -83,6 +91,7 @@
   --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 12px 30px -14px rgb(0 0 0 / .6);
   --shadow-lift: 0 2px 4px rgb(0 0 0 / .35), 0 24px 48px -18px rgb(0 0 0 / .75), 0 0 0 1px rgb(229 189 98 / .25);
   --stage: linear-gradient(135deg, #082019, #164a3c);
+  --sun: #e5bd62; --aurora-a: rgb(229 189 98 / .16); --aurora-b: rgb(127 224 168 / .10);
   --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23e5bd62' stroke-opacity='.075'%3E%3Crect x='18' y='18' width='28' height='28'/%3E%3Crect x='18' y='18' width='28' height='28' transform='rotate(45 32 32)'/%3E%3Ccircle cx='32' cy='32' r='5'/%3E%3Cpath d='M0 0l18 18M64 0L46 18M0 64l18-18M64 64L46 46'/%3E%3C/g%3E%3C/svg%3E");
   --radius: 10px;
   --radius-lg: 22px;
@@ -180,8 +189,8 @@ main { max-width: 1160px; margin: 0 auto; padding-inline: var(--gutter); }
 .theme-menu strong { display: block; font-size: 0.92rem; }
 .theme-menu small { display: block; color: var(--muted); font-size: 0.78rem; }
 .swatch { width: 30px; height: 30px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .15); }
-.swatch-light { background: conic-gradient(#f6f4ef 0 50%, #1e3a5f 0 75%, #94692a 0); }
-.swatch-dark { background: conic-gradient(#0f141b 0 50%, #a9c4e8 0 75%, #d9b46c 0); }
+.swatch-light { background: conic-gradient(#f2f4f1 0 50%, #1c1d20 0 75%, #ffc928 0); }
+.swatch-dark { background: conic-gradient(#0e0f11 0 50%, #ffc928 0 75%, #f2f4f1 0); }
 .swatch-terminal { background: conic-gradient(#060a07 0 50%, #3dff8b 0 75%, #ffc94a 0); }
 .swatch-mughal { background: conic-gradient(#0b2621 0 50%, #e5bd62 0 75%, #7fe0a8 0); }
 
@@ -873,4 +882,166 @@ body::before {
   .seal svg { width: 84px; height: 84px; }
   .title-page h1 { margin-top: 6px; }
   .builds { margin-top: 12px; }
+}
+
+/* =====================================================================
+   Studio layer (2026 redesign): modern grotesk type with serif accents,
+   floating glass nav, aurora + grid hero, gradient rings, shimmer buttons,
+   glowing card borders, blur-in reveals and 3D-tilted project frames.
+   Built on the theme tokens above, so all four themes inherit it.
+   ===================================================================== */
+
+/* ---- Type ---- */
+h1, h2, h3 { font-weight: 500; letter-spacing: -0.035em; }
+h1 em, h2 em, .sign-off em, .launch-tagline, .typed, .monogram span {
+  font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em;
+}
+.bw { display: inline-block; }
+.title-page h1 { font-size: clamp(3rem, 8.6vw, 6.6rem); line-height: .94; letter-spacing: -0.055em; }
+.title-page h1 em {
+  padding-right: .08em;
+  background: linear-gradient(100deg, var(--brass) 10%, var(--sun) 45%, var(--brass) 80%);
+  background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: sheen 6s linear infinite;
+}
+.builds { font: 400 clamp(1.3rem, 2.6vw, 1.85rem)/1.3 var(--display); letter-spacing: -0.02em; }
+.typed { font-size: 1.14em; color: var(--brass); }
+.chapter-head h2 { font-size: clamp(2.1rem, 4.6vw, 3.2rem); }
+.chapter-no { font-family: var(--mono); color: var(--brass); }
+::selection { background: var(--sun); color: #1c1d20; }
+html { scroll-padding-top: 92px; }
+
+/* ---- Scroll progress ---- */
+.scroll-progress {
+  position: fixed; inset: 0 0 auto; height: 3px; z-index: 40; transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--sun), var(--brass)); box-shadow: 0 0 14px var(--glow);
+}
+
+/* ---- Floating glass masthead ---- */
+.masthead { top: 12px; background: none; border: 0; backdrop-filter: none; padding-inline: 12px; }
+.masthead-inner {
+  max-width: 1180px; padding: 8px 8px 8px 20px; border-radius: 999px;
+  background: color-mix(in srgb, var(--paper-raised) 70%, transparent);
+  backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid color-mix(in srgb, var(--rule) 85%, transparent); box-shadow: var(--shadow);
+}
+.monogram { font: 600 1.12rem var(--display); letter-spacing: -0.03em; }
+.monogram span { color: var(--brass); font-size: 1.12em; }
+.toc a::after { height: 2px; border-radius: 2px; background: var(--sun); }
+
+/* ---- Hero: drifting aurora over a fading grid ---- */
+.title-page { padding-top: clamp(56px, 9vw, 112px); }
+.title-page::before {
+  inset: -120px calc(50% - 50vw) 0;
+  background:
+    radial-gradient(38% 46% at 86% 12%, var(--aurora-a), transparent 70%),
+    radial-gradient(34% 42% at 4% 18%, var(--aurora-b), transparent 70%);
+  filter: blur(8px); animation: aurora 20s ease-in-out infinite alternate;
+}
+.title-page::after {
+  content: ""; position: absolute; z-index: -1; inset: -120px calc(50% - 50vw) 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 62% 55% at 50% 28%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 62% 55% at 50% 28%, #000 20%, transparent 75%);
+}
+@keyframes aurora {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-2.5%, 3%, 0) scale(1.07); }
+  100% { transform: translate3d(2%, -2%, 0) scale(1.03); }
+}
+
+/* ---- Animated gradient rings (pill + portrait) ---- */
+@property --ang { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@keyframes spin-ring { to { --ang: 360deg; } }
+.launch-pill {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--paper-raised), var(--paper-raised)) padding-box,
+    conic-gradient(from var(--ang), var(--rule) 0 55%, var(--sun) 75%, var(--rule) 95%) border-box;
+  animation: spin-ring 4.5s linear infinite;
+}
+.launch-new { background: var(--sun); color: #1c1d20; animation: none; }
+.portrait::before {
+  content: ""; position: absolute; inset: -3px; z-index: 0; border-radius: calc(var(--radius-lg) + 3px);
+  background: conic-gradient(from var(--ang), var(--sun), transparent 28%, var(--aurora-b) 50%, transparent 72%, var(--sun));
+  animation: spin-ring 7s linear infinite;
+}
+.portrait::after {
+  content: ""; position: absolute; inset: 8% 6% -6%; z-index: -1; border-radius: 50%;
+  background: var(--glow); filter: blur(40px);
+}
+.portrait img { position: relative; z-index: 1; box-shadow: var(--shadow-lift); }
+.portrait .seal { z-index: 2; }
+[data-theme="mughal"] .portrait::before { display: none; }
+
+/* ---- Buttons: shimmer sweep and a warm glow ---- */
+.btn-primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn-primary::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -45%; width: 35%; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / .45), transparent);
+  transform: skewX(-18deg); animation: shimmer 3.4s ease-in-out infinite;
+}
+@keyframes shimmer { 0% { left: -45%; } 55%, 100% { left: 135%; } }
+.btn-primary:hover { box-shadow: 0 14px 36px -12px var(--glow), 0 0 0 4px color-mix(in srgb, var(--sun) 22%, transparent); }
+.btn { font-weight: 600; letter-spacing: -0.01em; }
+
+/* ---- Cards: a glowing border that follows the pointer ---- */
+.spot::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), var(--sun), transparent 65%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .3s;
+}
+.spot:hover::after { opacity: .85; }
+
+/* ---- Selected work: 3D tilt toward the pointer, with a soft glare ---- */
+.feat-media {
+  transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .6s cubic-bezier(.2,.7,.2,1), outline-offset .5s cubic-bezier(.2,.7,.2,1), outline-color .4s, box-shadow .4s;
+  outline-color: color-mix(in srgb, var(--sun) 30%, transparent);
+}
+.feat-media:hover { transition-duration: .15s, .5s, .4s, .4s; box-shadow: var(--shadow-lift), 0 30px 80px -30px var(--glow); }
+.feat-media::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(520px circle at var(--gx, 50%) var(--gy, 0%), rgb(255 255 255 / .16), transparent 45%);
+}
+.feat-media:hover::before { opacity: 1; }
+.feat:hover .feat-media { outline-color: color-mix(in srgb, var(--sun) 60%, transparent); }
+.feat-text .meta { color: var(--brass); }
+
+/* ---- Figures and stats ---- */
+.figures { border-top: 0; position: relative; }
+.figures::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, var(--sun), transparent 85%); }
+.figures strong, .launch-stats strong { font-family: var(--display); font-weight: 500; letter-spacing: -0.04em; color: var(--ink); }
+.launch-stats li { border-top-color: var(--sun); }
+
+/* ---- Ticker ---- */
+.ticker li { font-family: var(--display); font-weight: 500; letter-spacing: -0.02em; }
+.ticker li:nth-child(3n + 1) { font-family: var(--serif); font-weight: 400; }
+.ticker li::after { color: var(--sun); }
+
+/* ---- Reveal: rise out of a blur ---- */
+.js-reveal [data-reveal] {
+  filter: blur(8px);
+  transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1), filter .9s cubic-bezier(.16,1,.3,1);
+}
+.js-reveal [data-reveal].is-in { filter: none; }
+
+/* ---- Footer ---- */
+.sign-off { font-weight: 500; letter-spacing: -0.045em; }
+.sign-joke { margin-top: 18px; max-width: 46ch; color: var(--muted); font-size: var(--step-1); }
+
+@media (max-width: 720px) {
+  .masthead { top: 8px; padding-inline: 8px; }
+  .masthead-inner { padding: 6px 6px 6px 16px; }
+  .title-page h1 { font-size: clamp(2.7rem, 13vw, 3.6rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .title-page::before, .launch-pill, .portrait::before, .btn-primary::after, .title-page h1 em { animation: none !important; }
+  .js-reveal [data-reveal] { filter: none; }
+  .feat-media { transform: none; }
 }

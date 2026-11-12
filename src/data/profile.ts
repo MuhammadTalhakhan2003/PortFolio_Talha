@@ -27,6 +27,7 @@ export const profile = {
 
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
+  'AI teams that plan, delegate and review their own work.',
   'free tools anyone can use.',
   'AI that sells on WhatsApp while you sleep.',
   'design editors that run in the browser.',
@@ -42,7 +43,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, alongside Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, alongside Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -93,12 +94,29 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Qasid',
-  blurb: 'an AI salesperson that runs your WhatsApp',
-  anchor: '#qasid',
+  name: 'Hivewright',
+  blurb: 'a society of AI agents that plan, delegate and review',
+  anchor: '#hivewright',
 }
 
 export const featured: Featured[] = [
+  {
+    name: 'Hivewright',
+    kind: 'Multi-agent AI runtime · New',
+    credit: 'Solo build',
+    summary: 'One request becomes a coordinated team of AI specialists. An Orchestrator plans the work, specialists run in parallel and share a memory board, spawn new experts mid-run when they hit a gap, and a Reviewer sends weak work back before the final answer. Every message, memory write and token streams live to the dashboard.',
+    highlights: [
+      'Dependency-aware parallel execution, dynamic specialist spawning and a reviewer revision loop, orchestrated with FastAPI and asyncio',
+      'Stateless by design: each society runs inside one streaming request over Server-Sent Events, so it deploys free on Render with the web app on Vercel',
+      'Per-request token budgeting keeps a whole team inside Groq’s free 8k tokens a minute, with Free and Pro plans and bring-your-own-key',
+    ],
+    stack: ['FastAPI', 'Python', 'asyncio', 'SSE', 'React', 'TypeScript', 'Tailwind 4', 'Motion', 'Groq'],
+    links: [
+      { label: 'Open Hivewright', url: 'https://hivewright.vercel.app' },
+      { label: 'Code', url: `${GH}/hivewright` },
+    ],
+    image: { src: asset('images/hivewright.webp'), width: 1200, height: 750, alt: 'Hivewright live run planning a fintech launch: an Orchestrator above five specialist agents in a hierarchy graph, live stats, and a shared memory board of findings' },
+  },
   {
     name: 'Chatley.ai',
     kind: 'AI receptionist · In production',
@@ -348,7 +366,7 @@ export const services: Service[] = [
   {
     title: 'AI agents & automation',
     body: 'Agents that answer, qualify, summarize, match and book, wired into the tools a business already runs on.',
-    proof: 'Chatley.ai, Hirova, FileFlip AI tools',
+    proof: 'Hivewright, Chatley.ai, Qasid, Hirova',
   },
   {
     title: 'APIs & integrations',
@@ -410,7 +428,7 @@ export const skills: { group: string; items: string[] }[] = [
   { group: 'Frontend & mobile', items: ['React', 'Next.js', 'Tailwind CSS', 'Flutter', 'HTML & CSS'] },
   { group: 'Data', items: ['MongoDB', 'PostgreSQL', 'PostGIS', 'Redis', 'Prisma', 'SQLite / Turso'] },
   { group: 'Real-time & integrations', items: ['WebSockets', 'Socket.io', 'Webhooks', 'GoHighLevel', 'Cal.com', 'Calendly', 'Google Calendar'] },
-  { group: 'AI', items: ['AI agents', 'LLM integration', 'Claude API', 'Sentiment analysis', 'OCR'] },
+  { group: 'AI', items: ['AI agents', 'Multi-agent orchestration', 'LLM integration', 'RAG', 'Groq', 'Claude API', 'Sentiment analysis', 'OCR'] },
   { group: 'Security', items: ['JWT', 'OAuth', 'RBAC', 'Rate limiting', 'Input validation'] },
   { group: 'Practice', items: ['Git', 'Docker', 'CI/CD', 'Vercel', 'Agile', 'Automated testing'] },
 ]

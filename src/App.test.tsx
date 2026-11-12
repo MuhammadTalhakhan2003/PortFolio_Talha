@@ -77,9 +77,23 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
-  it('features Qasid as the newest launch, with a live link and screenshot', () => {
+  it('features Hivewright as the newest launch, with live, code and screenshot', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: /Just launched: Qasid/ })).toHaveAttribute('href', '#qasid')
+    expect(screen.getByRole('link', { name: /Just launched: Hivewright/ })).toHaveAttribute('href', '#hivewright')
+    const row = document.getElementById('hivewright') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'Hivewright' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Open Hivewright/ })).toHaveAttribute('href', 'https://hivewright.vercel.app')
+    expect(within(row).getByRole('link', { name: /^Code/ })).toHaveAttribute('href', 'https://github.com/MuhammadTalhakhan2003/hivewright')
+    expect(within(row).getByAltText(/Hivewright live run/)).toBeInTheDocument()
+    // the newest build leads the list, ahead of Qasid
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('hivewright')).toBe(0)
+    expect(order.indexOf('hivewright')).toBeLessThan(order.indexOf('qasid'))
+  })
+
+  it('features Qasid with a live link and screenshot', () => {
+    render(<App />)
     const row = document.getElementById('qasid') as HTMLElement
     expect(row).not.toBeNull()
     expect(within(row).getByRole('heading', { level: 3, name: 'Qasid' })).toBeInTheDocument()
