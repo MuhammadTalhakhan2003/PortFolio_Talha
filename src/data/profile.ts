@@ -27,6 +27,7 @@ export const profile = {
 
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
+  'CI that tests any repo with zero config.',
   'AI teams that plan, delegate and review their own work.',
   'free tools anyone can use.',
   'AI that sells on WhatsApp while you sleep.',
@@ -43,7 +44,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, alongside Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Prova, a self-hosted CI platform that builds any repository with zero config and uses AI to explain why a build broke, alongside Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -94,12 +95,26 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Hivewright',
-  blurb: 'a society of AI agents that plan, delegate and review',
-  anchor: '#hivewright',
+  name: 'Prova',
+  blurb: 'CI that builds any repo with zero config',
+  anchor: '#prova',
 }
 
 export const featured: Featured[] = [
+  {
+    name: 'Prova',
+    kind: 'Self-hosted CI platform · New',
+    credit: 'Solo build',
+    summary: 'Point Prova at a repository and it clones, builds and tests it, with no config file needed. It detects Node.js, Python, Go, Ruby, Rust and Makefile projects, splits monorepos into parallel jobs and streams every log live. When a build breaks, AI quotes the error line, explains the cause and suggests the fix.',
+    highlights: [
+      'Zero-config detection writes the pipeline itself: it built my Hivewright monorepo, a FastAPI backend and a React frontend, as two parallel green jobs with no CI file in the repo',
+      'A build compiler turns prova.yml into a job matrix with stages and branch conditions, and compiles every job into a plain bash script you can read before it runs',
+      'Travis CI’s architecture in one Node.js service: a GitHub webhook listener with HMAC checks, a job hub with cancel and restart, Docker or local runners, live logs over SSE and Groq failure analysis',
+    ],
+    stack: ['Node.js', 'TypeScript', 'Express', 'SQLite', 'Docker', 'SSE', 'React', 'Tailwind 4', 'Groq', 'Vercel', 'Render'],
+    links: [{ label: 'Open Prova', url: 'https://prova-ci.vercel.app' }],
+    image: { src: asset('images/prova.webp'), width: 1200, height: 750, alt: 'Prova build page for the Hivewright monorepo: a zero-config banner, backend Python and frontend Node.js jobs both passed, and the generated prova.yml' },
+  },
   {
     name: 'Hivewright',
     kind: 'Multi-agent AI runtime · New',
@@ -360,8 +375,8 @@ export const experience: Role[] = [
 export const services: Service[] = [
   {
     title: 'Products, from zero to live',
-    body: 'Idea, schema, API, interface, tests and deploy. FileFlip, Hirova, Paperly and Notara were built this way, solo, and shipped to real users.',
-    proof: 'FileFlip, Hirova, Paperly, Notara',
+    body: 'Idea, schema, API, interface, tests and deploy. Prova, FileFlip, Hirova, Paperly and Notara were built this way, solo, and shipped to real users.',
+    proof: 'Prova, FileFlip, Hirova, Paperly, Notara',
   },
   {
     title: 'AI agents & automation',
