@@ -77,18 +77,31 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
-  it('features Hivewright as the newest launch, with live, code and screenshot', () => {
+  it('features Prova as the newest launch, with a live link and screenshot', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: /Just launched: Hivewright/ })).toHaveAttribute('href', '#hivewright')
+    expect(screen.getByRole('link', { name: /Just launched: Prova/ })).toHaveAttribute('href', '#prova')
+    const row = document.getElementById('prova') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'Prova' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Open Prova/ })).toHaveAttribute('href', 'https://prova-ci.vercel.app')
+    expect(within(row).getByAltText(/Prova build page/)).toBeInTheDocument()
+    // the newest build leads the list, ahead of Hivewright
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('prova')).toBe(0)
+    expect(order.indexOf('prova')).toBeLessThan(order.indexOf('hivewright'))
+  })
+
+  it('features Hivewright with live, code and screenshot', () => {
+    render(<App />)
     const row = document.getElementById('hivewright') as HTMLElement
     expect(row).not.toBeNull()
     expect(within(row).getByRole('heading', { level: 3, name: 'Hivewright' })).toBeInTheDocument()
     expect(within(row).getByRole('link', { name: /Open Hivewright/ })).toHaveAttribute('href', 'https://hivewright.vercel.app')
     expect(within(row).getByRole('link', { name: /^Code/ })).toHaveAttribute('href', 'https://github.com/MuhammadTalhakhan2003/hivewright')
     expect(within(row).getByAltText(/Hivewright live run/)).toBeInTheDocument()
-    // the newest build leads the list, ahead of Qasid
+    // newer builds come first: Hivewright sits right after Prova, ahead of Qasid
     const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
-    expect(order.indexOf('hivewright')).toBe(0)
+    expect(order.indexOf('hivewright')).toBe(1)
     expect(order.indexOf('hivewright')).toBeLessThan(order.indexOf('qasid'))
   })
 
