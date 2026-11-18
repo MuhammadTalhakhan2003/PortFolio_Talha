@@ -27,6 +27,7 @@ export const profile = {
 
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
+  '3D games that race through Karachi.',
   'lead lists that rank who to call first.',
   'CI that tests any repo with zero config.',
   'AI teams that plan, delegate and review their own work.',
@@ -45,7 +46,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being SaaSquatch Signal, a lead-intelligence tool that turns a raw lead list into a ranked, verified call sheet with AI-written openers, alongside Prova, a self-hosted CI platform that builds any repository with zero config and uses AI to explain why a build broke, Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Rikshaw Rush, a 3D Karachi street racer built with Three.js and Blender that runs right in the browser, and SaaSquatch Signal, a lead-intelligence tool that turns a raw lead list into a ranked, verified call sheet with AI-written openers, alongside Prova, a self-hosted CI platform that builds any repository with zero config and uses AI to explain why a build broke, Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -96,14 +97,34 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'SaaSquatch Signal',
-  blurb: 'lead lists ranked into a call sheet',
-  anchor: '#saasquatch',
+  name: 'Rikshaw Rush',
+  blurb: 'a 3D Karachi rickshaw racer in your browser',
+  anchor: '#rikshaw',
 }
 
 export const featured: Featured[] = [
   {
+    name: 'Rikshaw Rush',
+    category: 'games',
+    kind: '3D browser game · New',
+    credit: 'Solo build',
+    summary: 'A 3D endless runner through Karachi that runs right in the browser. Drive a decorated auto-rickshaw across Burns Road, Sea View, Kemari Harbour, Shahrah-e-Faisal and Mazar-e-Quaid. Dodge traffic, cows and wedding baraats, jump speed breakers and open manholes, carry passengers against the clock and race an AI rival, all in Karachi’s own zubaan. Installable, works offline and saves to the cloud.',
+    highlights: [
+      'Procedural world with zero texture files: streets, buildings, shop signs and wall posters are built and painted on canvas at runtime, bent over the horizon by a custom GLSL “curved world” shader',
+      'Fair procedural spawner: traffic moves as a fraction of your speed, so every obstacle has a fixed arrival point and the generator can always guarantee an open lane',
+      'Synthesised two-stroke engine with gear shifts and backfire, day/night cycle with rain and dust storms, and hero vehicles modelled in Blender with a Python build script',
+    ],
+    stack: ['Three.js', 'WebGL', 'GLSL', 'Web Audio', 'Blender', 'Vite', 'Clerk', 'PWA', 'Vercel'],
+    links: [
+      { label: 'Play Rikshaw Rush', url: 'https://rikshaw-rush.vercel.app' },
+      { label: 'Code', url: `${GH}/rikshaw-rush` },
+      { label: 'Watch demo', url: 'https://lnkd.in/p/dwJ8JBTJ' },
+    ],
+    image: { src: asset('images/rikshaw-rush.webp'), width: 1200, height: 675, alt: 'Rikshaw Rush: a decorated green rickshaw speeding down a neon-lit Shahrah-e-Faisal at night in a 3D browser game' },
+  },
+  {
     name: 'SaaSquatch Signal',
+    category: 'ai',
     kind: 'Lead intelligence · New',
     credit: 'Solo build',
     summary: 'Paste a raw lead list and get back a ranked call sheet. Signal removes duplicates and dead domains, reads each company’s own website for emails, phones, owners, founding year and tech stack, verifies every email against its mail server, and scores each lead on reachability, acquisition fit and digital gap, with every point explained. The top leads get an AI brief and a personalised opener, and the list exports straight into HubSpot or Salesforce.',
@@ -122,6 +143,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Prova',
+    category: 'tools',
     kind: 'Self-hosted CI platform · New',
     credit: 'Solo build',
     summary: 'Point Prova at a repository and it clones, builds and tests it, with no config file needed. It detects Node.js, Python, Go, Ruby, Rust and Makefile projects, splits monorepos into parallel jobs and streams every log live. When a build breaks, AI quotes the error line, explains the cause and suggests the fix.',
@@ -136,6 +158,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Hivewright',
+    category: 'ai',
     kind: 'Multi-agent AI runtime · New',
     credit: 'Solo build',
     summary: 'One request becomes a coordinated team of AI specialists. An Orchestrator plans the work, specialists run in parallel and share a memory board, spawn new experts mid-run when they hit a gap, and a Reviewer sends weak work back before the final answer. Every message, memory write and token streams live to the dashboard.',
@@ -153,6 +176,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Chatley.ai',
+    category: 'ai',
     kind: 'AI receptionist · In production',
     credit: 'Team build · ForthLogic',
     summary: 'An AI voice and chat receptionist for small businesses. It answers calls and chats, qualifies the lead and books the appointment straight into the calendar. I build its backend at ForthLogic.',
@@ -163,6 +187,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Qasid',
+    category: 'ai',
     kind: 'AI WhatsApp salesperson · New',
     credit: 'Solo build',
     summary: 'An AI agent that runs a small business’s WhatsApp. It answers every customer in Urdu, Roman Urdu or English, takes orders, books appointments and shares payment options, then hands the chat to the owner when a person is needed.',
@@ -177,6 +202,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Bretlify',
+    category: 'apps',
     kind: 'Browser design editor · New',
     credit: 'Solo build',
     summary: 'A Canva-style graphic design editor that runs in the browser. Pick a template or describe a design and get an editable layout, then edit it with shapes, text, photos, filters and a brush. Share a link and edit together in real time with live cursors.',
@@ -194,6 +220,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'CareerPilot',
+    category: 'ai',
     kind: 'AI job-application copilot',
     credit: 'Solo build',
     summary: 'Upload your CV once, paste any job post, and CareerPilot scores the match and writes a cover letter, tailored CV bullets, outreach drafts and interview prep. Every line is cited from your own documents, so the AI never invents experience.',
@@ -208,6 +235,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Pocketsplit',
+    category: 'apps',
     kind: 'Trip expense splitter',
     credit: 'Solo build',
     summary: 'Split trip costs with friends and see the fewest payments that settle everyone up. Anyone with the trip code can join, no account needed, and the trip ends as a polaroid recap you can download or share.',
@@ -222,6 +250,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Mesmer',
+    category: 'ai',
     kind: 'AI video clipper · Live',
     credit: 'Solo build',
     summary: 'Paste a YouTube, Facebook or Instagram link and Mesmer finds the strongest moments in a long video, scores each one out of 10, and cuts them into vertical 9:16 shorts with captions burned in. Best clip first, ready to download and post.',
@@ -236,6 +265,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Hirova',
+    category: 'ai',
     kind: 'AI job finder · Live',
     credit: 'Solo build',
     summary: 'Upload a resume and Hirova reads it, pulls live listings from trusted job boards, ranks every job by how well it fits you and explains why. Select your matches, tap Go, and each application is prepared with its own cover letter and tracked.',
@@ -250,6 +280,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Notara',
+    category: 'ai',
     kind: 'AI research notebook · Live',
     credit: 'Solo build',
     summary: 'A NotebookLM-style workspace. Upload PDFs, websites, YouTube videos and photos, ask questions and get answers with clickable citations, then turn your sources into podcasts, mind maps, quizzes, flashcards and slide decks you can download.',
@@ -267,6 +298,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Paperly',
+    category: 'apps',
     kind: 'Collaborative docs',
     credit: 'Solo build',
     summary: 'A lightweight Google Docs. Write rich text with autosave, import .docx and Markdown, share with teammates as editor or viewer, and export to PDF.',
@@ -280,6 +312,7 @@ export const featured: Featured[] = [
   },
   {
     name: 'Hifazat حفاظت',
+    category: 'apps',
     kind: 'Community safety app',
     credit: 'Final year project',
     summary: 'Citizens across Pakistan report incidents, the community verifies them, and the app turns 100,498 historical incidents across 109 cities into live heatmaps and predicted hotspots.',

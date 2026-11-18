@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { useTheme } from './hooks/useTheme'
 import { useReveal, useSpotlight, useTilt } from './hooks/useMotion'
 import { ScrollProgress } from './components/Motion'
@@ -18,8 +18,18 @@ import { Recommendations } from './components/Recommendations'
 import { Contact } from './components/Contact'
 import { HireBar } from './components/HireBar'
 import { CommandPalette } from './components/CommandPalette'
+import { Dock } from './components/watermelon/Dock'
+import { GitHubIcon, LinkedInIcon, MailIcon, MediumIcon, XIcon, YouTubeIcon } from './components/Icons'
 
 const YEAR = new Date().getFullYear()
+
+const SOCIAL: Record<string, ReactNode> = {
+  GitHub: <GitHubIcon />,
+  LinkedIn: <LinkedInIcon />,
+  YouTube: <YouTubeIcon />,
+  Medium: <MediumIcon />,
+  X: <XIcon />,
+}
 
 export default function App() {
   const { theme, setTheme, cycle } = useTheme()
@@ -61,7 +71,7 @@ export default function App() {
       <main id="main">
         <Hero />
         <Ticker />
-        <Launch dark={theme !== 'light'} />
+        <Launch dark={theme !== 'light' && theme !== 'classic'} />
         <Projects />
         <IntroVideo />
         <Experience />
@@ -79,19 +89,19 @@ export default function App() {
           Let's build something <em>people love.</em>
         </p>
         <p className="sign-joke">Currently managing a team of AI agents that never ask for a raise. 🐝</p>
-        <ul className="links">
-          {links.map((l) => (
-            <li key={l.url}>
-              <a href={l.url} target="_blank" rel="noopener">{l.label} ↗</a>
-            </li>
-          ))}
-        </ul>
+        <Dock
+          className="colophon-dock"
+          items={[
+            ...links.map((l) => ({ id: l.label, label: l.label, href: l.url, external: true, icon: SOCIAL[l.label] })),
+            { id: 'email', label: 'Say hello', href: profile.mailHire, icon: <MailIcon /> },
+          ]}
+        />
         <div className="colophon-meta">
           <p>
             Press <kbd>⌘K</kbd> to explore from the keyboard, <kbd>T</kbd> to change theme. Built with React, TypeScript and Vite.
           </p>
           <p>
-            <a href={profile.resume} target="_blank" rel="noopener">Résumé (PDF) ↗</a> · © {YEAR} Muhammad Talha Khan · Made in Lahore
+            <a href={profile.resume} target="_blank" rel="noopener">Résumé (PDF) ↗</a> · © {YEAR} Muhammad Talha Khan · Made in Pakistan
           </p>
         </div>
       </footer>

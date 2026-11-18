@@ -189,6 +189,7 @@ main { max-width: 1160px; margin: 0 auto; padding-inline: var(--gutter); }
 .theme-menu strong { display: block; font-size: 0.92rem; }
 .theme-menu small { display: block; color: var(--muted); font-size: 0.78rem; }
 .swatch { width: 30px; height: 30px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .15); }
+.swatch-classic { background: conic-gradient(#f3ead8 0 50%, #6e1f1f 0 75%, #a2731a 0); }
 .swatch-light { background: conic-gradient(#f2f4f1 0 50%, #1c1d20 0 75%, #ffc928 0); }
 .swatch-dark { background: conic-gradient(#0e0f11 0 50%, #ffc928 0 75%, #f2f4f1 0); }
 .swatch-terminal { background: conic-gradient(#060a07 0 50%, #3dff8b 0 75%, #ffc94a 0); }
@@ -1045,3 +1046,91 @@ html { scroll-padding-top: 92px; }
   .js-reveal [data-reveal] { filter: none; }
   .feat-media { transform: none; }
 }
+
+/* ==========================================================================
+   Classic — the default cover. Ivory parchment, iron-gall ink, oxblood and
+   gold leaf; Cormorant and EB Garamond; fleurons, a drop cap and gilt frames.
+   ========================================================================== */
+:root[data-theme="classic"] {
+  --paper: #f3ead8; --paper-raised: #fbf6eb; --ink: #2a1d14; --muted: #6f5b48; --rule: #dcc9a6;
+  --accent: #6e1f1f; --accent-ink: #fbf6eb; --accent-soft: #efe2c6; --brass: #a2731a; --brass-soft: #f2e2b8;
+  --sun: #c9971c; --live: #2f6b3a; --warn: #9a3412; --wa: #1f7a45; --glow: rgb(162 115 26 / .16);
+  --shadow: 0 1px 1px rgb(60 38 18 / .06), 0 12px 28px -16px rgb(60 38 18 / .32);
+  --shadow-lift: 0 2px 3px rgb(60 38 18 / .08), 0 28px 50px -22px rgb(60 38 18 / .42);
+  --stage: linear-gradient(135deg, #2a1d14, #55301c);
+  --aurora-a: rgb(162 115 26 / .2); --aurora-b: rgb(110 31 31 / .1);
+  --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .24 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --body: "EB Garamond", Georgia, "Times New Roman", serif;
+  --radius: 3px;
+  --radius-lg: 6px;
+  color-scheme: light;
+}
+[data-theme="classic"] body { font-size: 1.09rem; line-height: 1.65; background-attachment: fixed; }
+[data-theme="classic"] body::before {
+  opacity: 1; mix-blend-mode: normal;
+  background-image: radial-gradient(ellipse at center, transparent 58%, rgb(120 80 30 / .12) 100%);
+}
+[data-theme="classic"] h1, [data-theme="classic"] h2, [data-theme="classic"] h3 { font-weight: 600; letter-spacing: 0; }
+[data-theme="classic"] :is(.eyebrow, .label, .meta, dt) { font-family: var(--body); font-variant: small-caps; text-transform: lowercase; letter-spacing: .14em; color: var(--brass); }
+
+/* title page */
+[data-theme="classic"] .title-page h1 { font-weight: 600; letter-spacing: -0.01em; line-height: .95; }
+[data-theme="classic"] .title-page h1 em { color: var(--accent); font-style: italic; }
+[data-theme="classic"] .lede::first-letter {
+  float: left; font: 600 4.1em/.8 var(--display); color: var(--accent); margin: .08em .1em 0 0;
+  padding: .06em .08em 0; border: 1px solid var(--brass); box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px var(--brass);
+}
+[data-theme="classic"] .portrait img {
+  border-radius: 50% / 46%;
+  box-shadow: 0 0 0 1px var(--brass), 0 0 0 7px var(--paper-raised), 0 0 0 8px var(--brass), var(--shadow-lift);
+}
+[data-theme="classic"] .portrait::before { display: none; }
+[data-theme="classic"] .figures { border-top: 0; border-image: linear-gradient(90deg, transparent, var(--brass) 12%, var(--brass) 88%, transparent) 1; border-top: 1px solid; }
+[data-theme="classic"] .figures strong { font-weight: 600; color: var(--accent); }
+[data-theme="classic"] .launch-pill { border-color: var(--brass); background: var(--paper-raised); }
+
+/* buttons: gilt hairline inside an oxblood plate */
+[data-theme="classic"] .btn { border-radius: 2px; font-family: var(--body); font-variant: small-caps; text-transform: lowercase; letter-spacing: .08em; font-size: 1.05rem; }
+[data-theme="classic"] .btn-primary { box-shadow: inset 0 0 0 1px rgb(242 226 184 / .55), inset 0 0 0 3px var(--accent), 0 10px 24px -14px rgb(110 31 31 / .7); }
+
+/* chapters: roman numerals in a gilt seal, a fleuron under every title */
+[data-theme="classic"] .chapter-no {
+  display: grid; place-items: center; width: 64px; height: 64px; padding: 0; border-radius: 50%;
+  font: 600 1.4rem/1 var(--display); color: var(--accent);
+  border: 1px solid var(--brass); box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--brass);
+}
+[data-theme="classic"] .chapter-no::after { display: none; }
+[data-theme="classic"] .chapter-head h2::after {
+  content: "❦"; display: block; margin-top: 12px; font-size: 1.1rem; color: var(--brass); letter-spacing: 0;
+  background: linear-gradient(90deg, var(--brass), transparent) left 50% / 0 1px no-repeat;
+}
+[data-theme="classic"] .chapter { border-bottom: 0; background: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent) bottom / 100% 1px no-repeat; }
+
+/* gilt frames on work */
+[data-theme="classic"] .feat-media { border-radius: 2px; box-shadow: 0 0 0 1px var(--brass), 0 0 0 6px var(--paper-raised), 0 0 0 7px var(--rule), var(--shadow-lift); }
+[data-theme="classic"] .project { border-radius: 2px; }
+[data-theme="classic"] .project img { border-radius: 1px; border-color: var(--brass); }
+[data-theme="classic"] .feat-text h3 { font-size: clamp(2rem, 3.6vw, 2.6rem); }
+[data-theme="classic"] :is(.stack li, .tags li) { font-family: var(--body); font-style: italic; border-radius: 2px; background: var(--paper-raised); }
+
+/* colophon */
+[data-theme="classic"] .colophon { text-align: center; }
+[data-theme="classic"] .sign-off { margin-inline: auto; font-weight: 600; }
+[data-theme="classic"] .sign-off::before { content: "❧"; display: block; font-size: 2rem; color: var(--brass); margin-bottom: 12px; }
+
+/* ---------- Watermelon UI pieces (all themes) ---------- */
+.work-filter { display: flex; justify-content: center; margin: -8px 0 40px; }
+.feat[hidden] { display: none !important; }
+.colophon-dock { margin: 28px auto 8px; }
+.colophon .colophon-dock { display: inline-flex; }
+.wm-dock svg { width: 20px; height: 20px; }
+.wm-tabs button { font-family: var(--body); }
+[data-theme="classic"] .wm-tabs button span { font-variant: small-caps; text-transform: lowercase; letter-spacing: .06em; font-size: 1rem; }
+@media (max-width: 720px) {
+  .work-filter { margin-bottom: 28px; }
+  .wm-tabs { border-radius: 18px !important; justify-content: center; }
+}
+.colophon .sign-joke { max-width: 46ch; margin-inline: auto; text-align: center; }
+.colophon .sign-off { text-wrap: balance; }

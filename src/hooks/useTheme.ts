@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { readStored, writeStored } from '../lib/storage'
 
 export const THEMES = [
+  { id: 'classic', label: 'Classic', note: 'Ivory parchment, ink and gold leaf' },
   { id: 'light', label: 'Daylight', note: 'Cloud white, graphite and honey' },
   { id: 'dark', label: 'Noir', note: 'Deep graphite and sunshine yellow' },
   { id: 'terminal', label: 'Terminal', note: 'Phosphor green on black' },
@@ -25,7 +26,8 @@ export function useTheme() {
     const fromUrl = new URLSearchParams(window.location.search).get('theme')
     if (isTheme(fromUrl)) return fromUrl
     const saved = readStored('theme')
-    return isTheme(saved) ? saved : null
+    // First visit: open on the Classic cover rather than following the OS.
+    return isTheme(saved) ? saved : 'classic'
   })
 
   useEffect(() => {

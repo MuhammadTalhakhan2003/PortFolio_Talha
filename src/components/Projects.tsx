@@ -1,15 +1,34 @@
+import { useState } from 'react'
 import { featured, projects } from '../data/profile'
-import type { Featured } from '../types'
+import type { Category, Featured } from '../types'
 import { Chapter } from './Chapter'
 import { Stack } from './Stack'
+import { ContinuousTabs } from './watermelon/ContinuousTabs'
+
+const FILTERS: { id: 'all' | Category; label: string }[] = [
+  { id: 'all', label: 'All work' },
+  { id: 'ai', label: 'AI products' },
+  { id: 'apps', label: 'Web apps' },
+  { id: 'tools', label: 'Dev tools' },
+  { id: 'games', label: 'Games & 3D' },
+]
 
 export function Projects() {
+  const [filter, setFilter] = useState<'all' | Category>('all')
+  const tabs = FILTERS.map((f) => ({ ...f, count: f.id === 'all' ? featured.length : featured.filter((x) => x.category === f.id).length })).filter((t) => t.count > 0)
+  let shown = 0
   return (
     <Chapter id="work" numeral="I" title="Selected work" note="Products I have built and shipped, from AI agents in production to my own apps. Live links and source code included.">
+      <div className="work-filter">
+        <ContinuousTabs label="Filter selected work" tabs={tabs} active={filter} onChange={(id) => setFilter(id as 'all' | Category)} />
+      </div>
       <div className="featured">
-        {featured.map((f, i) => (
-          <FeaturedRow key={f.name} f={f} flip={i % 2 === 1} />
-        ))}
+        {featured.map((f) => {
+          // Rows stay mounted (just hidden) so the scroll-reveal observer keeps tracking them.
+          const match = filter === 'all' || f.category === filter
+          const flip = match && shown++ % 2 === 1
+          return <FeaturedRow key={f.name} f={f} flip={flip} hidden={!match} />
+        })}
       </div>
 
       <div className="workshop">
@@ -37,9 +56,9 @@ export function Projects() {
   )
 }
 
-function FeaturedRow({ f, flip }: { f: Featured; flip: boolean }) {
+function FeaturedRow({ f, flip, hidden }: { f: Featured; flip: boolean; hidden: boolean }) {
   return (
-    <article className={`feat${flip ? ' feat-flip' : ''}`} id={f.name.split(' ')[0].toLowerCase()} data-reveal>
+    <article className={`feat${flip ? ' feat-flip' : ''}`} id={f.name.split(' ')[0].toLowerCase()} data-reveal hidden={hidden}>
       <a className="feat-media" href={f.links[0].url} target="_blank" rel="noopener" tabIndex={-1}>
         {f.image ? (
           <img src={f.image.src} width={f.image.width} height={f.image.height} alt={f.image.alt} loading="lazy" />

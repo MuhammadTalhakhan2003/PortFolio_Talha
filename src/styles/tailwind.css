@@ -1,0 +1,6 @@
+/* Tailwind utilities for the Watermelon UI components, without Preflight,
+   so the hand-written design system in global.css stays in charge. */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../components/watermelon";

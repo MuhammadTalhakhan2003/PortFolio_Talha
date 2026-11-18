@@ -4,6 +4,7 @@ import { formatDuration, monthsBetween } from '../lib/duration'
 import { BlurWords, CountUp } from './Motion'
 import { QuickContact } from './QuickContact'
 import { Seal } from './Seal'
+import { ShimmerLink } from './watermelon/ShimmerLink'
 
 export function Hero() {
   const typed = useTypewriter(builds)
@@ -40,9 +41,9 @@ export function Hero() {
           </p>
           <p className="lede">{lede}</p>
           <div className="actions">
-            <a className="btn btn-primary" href={featured[0].links[0].url} target="_blank" rel="noopener">
-              See {featured[0].name} live ↗
-            </a>
+            <ShimmerLink className="btn btn-primary" href={featured[0].links[0].url} target="_blank" rel="noopener">
+              {featured[0].links[0].label} ↗
+            </ShimmerLink>
             <a className="btn" href="#work">
               See my work
             </a>
