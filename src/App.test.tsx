@@ -77,17 +77,32 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
-  it('features Prova as the newest launch, with a live link and screenshot', () => {
+  it('features SaaSquatch Signal as the newest launch, with live, code, demo and screenshot', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: /Just launched: Prova/ })).toHaveAttribute('href', '#prova')
+    expect(screen.getByRole('link', { name: /Just launched: SaaSquatch Signal/ })).toHaveAttribute('href', '#saasquatch')
+    const row = document.getElementById('saasquatch') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'SaaSquatch Signal' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Open Signal/ })).toHaveAttribute('href', 'https://saasquatch-signal.onrender.com')
+    expect(within(row).getByRole('link', { name: /^Code/ })).toHaveAttribute('href', 'https://github.com/MuhammadTalhakhan2003/saasquatch-signal')
+    expect(within(row).getByRole('link', { name: /Watch demo/ })).toHaveAttribute('href', expect.stringContaining('loom.com'))
+    expect(within(row).getByAltText(/SaaSquatch Signal results/)).toBeInTheDocument()
+    // the newest build leads the list, ahead of Prova
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('saasquatch')).toBe(0)
+    expect(order.indexOf('saasquatch')).toBeLessThan(order.indexOf('prova'))
+  })
+
+  it('features Prova with a live link and screenshot', () => {
+    render(<App />)
     const row = document.getElementById('prova') as HTMLElement
     expect(row).not.toBeNull()
     expect(within(row).getByRole('heading', { level: 3, name: 'Prova' })).toBeInTheDocument()
     expect(within(row).getByRole('link', { name: /Open Prova/ })).toHaveAttribute('href', 'https://prova-ci.vercel.app')
     expect(within(row).getByAltText(/Prova build page/)).toBeInTheDocument()
-    // the newest build leads the list, ahead of Hivewright
+    // Prova sits right after SaaSquatch Signal, ahead of Hivewright
     const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
-    expect(order.indexOf('prova')).toBe(0)
+    expect(order.indexOf('prova')).toBe(1)
     expect(order.indexOf('prova')).toBeLessThan(order.indexOf('hivewright'))
   })
 
@@ -101,7 +116,7 @@ describe('App', () => {
     expect(within(row).getByAltText(/Hivewright live run/)).toBeInTheDocument()
     // newer builds come first: Hivewright sits right after Prova, ahead of Qasid
     const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
-    expect(order.indexOf('hivewright')).toBe(1)
+    expect(order.indexOf('hivewright')).toBe(2)
     expect(order.indexOf('hivewright')).toBeLessThan(order.indexOf('qasid'))
   })
 
