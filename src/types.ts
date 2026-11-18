@@ -34,9 +34,13 @@ export interface Project {
   image?: Shot
 }
 
+export type Category = 'ai' | 'apps' | 'tools' | 'games'
+
 /** Headline project shown as a large alternating row. */
 export interface Featured {
   name: string
+  /** Filter tab the project appears under in Selected work. */
+  category: Category
   kind: string
   credit: string
   summary: string

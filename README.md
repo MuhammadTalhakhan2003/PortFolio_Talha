@@ -8,7 +8,7 @@ Portfolio of **Muhammad Talha Khan**, Full Stack Software Engineer (Node.js · M
 
 Featuring **[FileFlip](https://fileflip-gules.vercel.app/)**, a free toolkit of 61 PDF and image tools ([code](https://github.com/MuhammadTalhakhan2003/fileflip)), plus [Paperly](https://github.com/MuhammadTalhakhan2003/Paperly), [Hifazat](https://github.com/MuhammadTalhakhan2003/Hifazat-FYP) and Chatley.ai.
 
-Open it in a specific theme: `?theme=light`, `?theme=dark`, `?theme=terminal` or `?theme=mughal`.
+Open it in a specific theme: `?theme=classic` (default), `?theme=light`, `?theme=dark`, `?theme=terminal` or `?theme=mughal`.
 
 ---|---|
 | Recruiters | https://muhammadtalhakhan2003.github.io/PortFolio_Talha/ |
@@ -21,7 +21,7 @@ Open it in a specific theme: `?theme=light`, `?theme=dark`, `?theme=terminal` or
 
 | Area | Choice |
 |---|---|
-| UI | React 19, TypeScript (strict) |
+| UI | React 19, TypeScript (strict), Motion, and a few [Watermelon UI](https://ui.watermelon.sh) components (continuous tabs, dock, shimmer button) adapted to the theme tokens, styled with Tailwind v4 utilities (no preflight) |
 | Build | Vite |
 | Tests | Vitest, Testing Library, jsdom (unit and component tests) |
 | Lint | oxlint |
@@ -30,7 +30,7 @@ Open it in a specific theme: `?theme=light`, `?theme=dark`, `?theme=terminal` or
 
 ## Features
 
-- **Four themes.** Paper, Midnight, Terminal and Mughal (emerald and gold, with a jaali lattice). Switching grows the new theme out of the click with the View Transitions API. `?theme=` links preset one.
+- **Five themes.** Classic (ivory parchment, ink and gold leaf, with a drop cap and gilt frames), Paper, Midnight, Terminal and Mughal (emerald and gold, with a jaali lattice). Switching grows the new theme out of the click with the View Transitions API. `?theme=` links preset one.
 - **Command menu.** ⌘K / Ctrl+K (or `/`) to jump to a section, switch theme, open a project or copy contact details. `T` cycles themes.
 - **Product launch spotlight** for FileFlip, with a theme-matched screenshot, stats, features and links to the live app and the source.
 - **Stack check.** Paste a job post or project brief and every technology in it is checked against where Talha has used it. Gaps are listed, not hidden. Runs entirely in the browser.
