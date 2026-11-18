@@ -27,6 +27,7 @@ export const profile = {
 
 /** Words the hero headline cycles through: "I build …". */
 export const builds = [
+  'lead lists that rank who to call first.',
   'CI that tests any repo with zero config.',
   'AI teams that plan, delegate and review their own work.',
   'free tools anyone can use.',
@@ -44,7 +45,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Prova, a self-hosted CI platform that builds any repository with zero config and uses AI to explain why a build broke, alongside Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being SaaSquatch Signal, a lead-intelligence tool that turns a raw lead list into a ranked, verified call sheet with AI-written openers, alongside Prova, a self-hosted CI platform that builds any repository with zero config and uses AI to explain why a build broke, Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -95,12 +96,30 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Prova',
-  blurb: 'CI that builds any repo with zero config',
-  anchor: '#prova',
+  name: 'SaaSquatch Signal',
+  blurb: 'lead lists ranked into a call sheet',
+  anchor: '#saasquatch',
 }
 
 export const featured: Featured[] = [
+  {
+    name: 'SaaSquatch Signal',
+    kind: 'Lead intelligence · New',
+    credit: 'Solo build',
+    summary: 'Paste a raw lead list and get back a ranked call sheet. Signal removes duplicates and dead domains, reads each company’s own website for emails, phones, owners, founding year and tech stack, verifies every email against its mail server, and scores each lead on reachability, acquisition fit and digital gap, with every point explained. The top leads get an AI brief and a personalised opener, and the list exports straight into HubSpot or Salesforce.',
+    highlights: [
+      'Polite async crawler: robots.txt respected, retries with backoff, apex and www fallback, CAPTCHA walls flagged and never bypassed, and a SQLite page cache',
+      'Explainable scoring with acquisition and sales playbooks, so a 90-year-old national franchise ranks below family-run regional operators',
+      'Groq or Claude writes briefs only for the top-ranked, fully readable leads, with schema-checked output and a heuristic fallback when the model or rate limit fails',
+    ],
+    stack: ['Python', 'FastAPI', 'httpx', 'asyncio', 'SQLite', 'dnspython', 'Groq', 'Docker', 'Render'],
+    links: [
+      { label: 'Open Signal', url: 'https://saasquatch-signal.onrender.com' },
+      { label: 'Code', url: `${GH}/saasquatch-signal` },
+      { label: 'Watch demo', url: 'https://www.loom.com/share/8fb699772d474e9e9b895dadba40885f' },
+    ],
+    image: { src: asset('images/saasquatch-signal.webp'), width: 1200, height: 750, alt: 'SaaSquatch Signal results: eight leads processed with two duplicates merged, a ranked table with tier badges, scores, verified contacts, founding years and signals such as Recurring revenue and Franchise / enterprise' },
+  },
   {
     name: 'Prova',
     kind: 'Self-hosted CI platform · New',
@@ -381,7 +400,7 @@ export const services: Service[] = [
   {
     title: 'AI agents & automation',
     body: 'Agents that answer, qualify, summarize, match and book, wired into the tools a business already runs on.',
-    proof: 'Hivewright, Chatley.ai, Qasid, Hirova',
+    proof: 'SaaSquatch Signal, Hivewright, Chatley.ai, Qasid',
   },
   {
     title: 'APIs & integrations',
