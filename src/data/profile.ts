@@ -46,7 +46,7 @@ export const builds = [
 ]
 
 export const lede =
-  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Rikshaw Rush, a 3D Karachi street racer built with Three.js and Blender that runs right in the browser, and SaaSquatch Signal, a lead-intelligence tool that turns a raw lead list into a ranked, verified call sheet with AI-written openers, alongside Prova, a self-hosted CI platform that builds any repository with zero config and uses AI to explain why a build broke, Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
+  'I take ideas from a blank page to a live product: the API, the database, the real-time layer and the interface people touch. By day I build AI agents for Chatley.ai. By night I ship my own products, the newest being Lahore Rush, a 3D 125 bike runner through 37 real places of Lahore and the sequel to my Karachi street racer Rikshaw Rush, both built with Three.js and Blender and running right in the browser, and SaaSquatch Signal, a lead-intelligence tool that turns a raw lead list into a ranked, verified call sheet with AI-written openers, alongside Prova, a self-hosted CI platform that builds any repository with zero config and uses AI to explain why a build broke, Hivewright, a multi-agent AI runtime where a team of specialist agents plans, delegates and reviews its own work live, Qasid, an AI salesperson that answers WhatsApp customers in Urdu, Roman Urdu and English, Bretlify, a browser-based design editor with AI layouts and live collaboration, CareerPilot, an AI job-application copilot that writes from your own CV with citations, Pocketsplit, a live trip-expense splitter with a shareable polaroid recap, Mesmer, an AI video clipper, Hirova, an AI job finder, and FileFlip, a free toolkit of 61 PDF and image tools with no sign-up.'
 
 export const links: Link[] = [
   { label: 'GitHub', url: GH },
@@ -97,16 +97,34 @@ export const launch: Launch = {
 
 /** Hero "Just launched" pill: points at the newest product's row in Selected work. */
 export const newest = {
-  name: 'Rikshaw Rush',
-  blurb: 'a 3D Karachi rickshaw racer in your browser',
-  anchor: '#rikshaw',
+  name: 'Lahore Rush',
+  blurb: 'a 3D 125 bike runner through Lahore, in your browser',
+  anchor: '#lahore',
 }
 
 export const featured: Featured[] = [
   {
-    name: 'Rikshaw Rush',
+    name: 'Lahore Rush',
     category: 'games',
     kind: '3D browser game · New',
+    credit: 'Solo build',
+    summary: 'The sequel to Rikshaw Rush: an endless 3D runner on a 125 through 37 real places of Lahore, from Delhi Gate and Gawalmandi to Anarkali, Minar-e-Pakistan, Canal Road and MM Alam Road, in a shuffled route where no place repeats until you have seen them all. Pull wheelies and backflips, loot Basant kites, ride the Canal Road underpasses under the Orange Line, run Ammi’s errands, and decide whether to stop for the traffic warden’s challan or outrun the police 125. Subah to raat, all in Lahori Punjabi.',
+    highlights: [
+      'Hero models built by a Python script in Blender: the 125 with spoked wheels, finned engine and a rider in shalwar kameez, plus Minar-e-Pakistan, Badshahi Masjid, a tonga and stray dogs and cats with trotting legs',
+      'Synthesised single-cylinder engine: every exhaust pulse is scheduled in real time at rpm/120, with a 4-speed box (throttle cut, clutch, gear clunk, downshift blip) and kick-start, with no audio files',
+      'Speed cameras issue an e-challan for half the run’s earnings, or udhaar when your pocket is empty; skip it and a police 125 chases you with siren and lights',
+    ],
+    stack: ['Three.js', 'WebGL', 'GLSL', 'Web Audio', 'Blender', 'Python', 'Vite', 'PWA', 'Vercel'],
+    links: [
+      { label: 'Play Lahore Rush', url: 'https://lahore-rush.vercel.app' },
+      { label: 'Code', url: `${GH}/lahore-rush` },
+    ],
+    image: { src: asset('images/lahore-rush.webp'), width: 1200, height: 675, alt: 'Lahore Rush: a rider on a red 125 with its headlight on, riding down neon-lit MM Alam Road at night, beside the game’s Mughal-arch emblem and title' },
+  },
+  {
+    name: 'Rikshaw Rush',
+    category: 'games',
+    kind: '3D browser game',
     credit: 'Solo build',
     summary: 'A 3D endless runner through Karachi that runs right in the browser. Drive a decorated auto-rickshaw across Burns Road, Sea View, Kemari Harbour, Shahrah-e-Faisal and Mazar-e-Quaid. Dodge traffic, cows and wedding baraats, jump speed breakers and open manholes, carry passengers against the clock and race an AI rival, all in Karachi’s own zubaan. Installable, works offline and saves to the cloud.',
     highlights: [

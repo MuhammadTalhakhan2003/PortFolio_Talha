@@ -77,9 +77,23 @@ describe('App', () => {
     expect(screen.getByAltText(/Notara home page in dark mode/)).toBeInTheDocument()
   })
 
-  it('features Rikshaw Rush as the newest launch, with play, code, demo and screenshot', () => {
+  it('features Lahore Rush as the newest launch, with play, code and screenshot', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: /Just launched: Rikshaw Rush/ })).toHaveAttribute('href', '#rikshaw')
+    expect(screen.getByRole('link', { name: /Just launched: Lahore Rush/ })).toHaveAttribute('href', '#lahore')
+    const row = document.getElementById('lahore') as HTMLElement
+    expect(row).not.toBeNull()
+    expect(within(row).getByRole('heading', { level: 3, name: 'Lahore Rush' })).toBeInTheDocument()
+    expect(within(row).getByRole('link', { name: /Play Lahore Rush/ })).toHaveAttribute('href', 'https://lahore-rush.vercel.app')
+    expect(within(row).getByRole('link', { name: /^Code/ })).toHaveAttribute('href', 'https://github.com/MuhammadTalhakhan2003/lahore-rush')
+    expect(within(row).getByAltText(/Lahore Rush: a rider on a red 125/)).toBeInTheDocument()
+    // the newest build leads the list, ahead of its prequel Rikshaw Rush
+    const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
+    expect(order.indexOf('lahore')).toBe(0)
+    expect(order.indexOf('lahore')).toBeLessThan(order.indexOf('rikshaw'))
+  })
+
+  it('features Rikshaw Rush right after its sequel, with play, code, demo and screenshot', () => {
+    render(<App />)
     const row = document.getElementById('rikshaw') as HTMLElement
     expect(row).not.toBeNull()
     expect(within(row).getByRole('heading', { level: 3, name: 'Rikshaw Rush' })).toBeInTheDocument()
@@ -87,9 +101,9 @@ describe('App', () => {
     expect(within(row).getByRole('link', { name: /^Code/ })).toHaveAttribute('href', 'https://github.com/MuhammadTalhakhan2003/rikshaw-rush')
     expect(within(row).getByRole('link', { name: /Watch demo/ })).toHaveAttribute('href', 'https://lnkd.in/p/dwJ8JBTJ')
     expect(within(row).getByAltText(/Rikshaw Rush: a decorated green rickshaw/)).toBeInTheDocument()
-    // the newest build leads the list, ahead of SaaSquatch Signal
+    // Rikshaw Rush follows Lahore Rush, ahead of SaaSquatch Signal
     const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
-    expect(order.indexOf('rikshaw')).toBe(0)
+    expect(order.indexOf('rikshaw')).toBe(1)
     expect(order.indexOf('rikshaw')).toBeLessThan(order.indexOf('saasquatch'))
   })
 
@@ -104,7 +118,7 @@ describe('App', () => {
     expect(within(row).getByAltText(/SaaSquatch Signal results/)).toBeInTheDocument()
     // SaaSquatch Signal follows Rikshaw Rush, ahead of Prova
     const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
-    expect(order.indexOf('saasquatch')).toBe(1)
+    expect(order.indexOf('saasquatch')).toBe(2)
     expect(order.indexOf('saasquatch')).toBeLessThan(order.indexOf('prova'))
   })
 
@@ -117,7 +131,7 @@ describe('App', () => {
     expect(within(row).getByAltText(/Prova build page/)).toBeInTheDocument()
     // Prova sits right after SaaSquatch Signal, ahead of Hivewright
     const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
-    expect(order.indexOf('prova')).toBe(2)
+    expect(order.indexOf('prova')).toBe(3)
     expect(order.indexOf('prova')).toBeLessThan(order.indexOf('hivewright'))
   })
 
@@ -131,7 +145,7 @@ describe('App', () => {
     expect(within(row).getByAltText(/Hivewright live run/)).toBeInTheDocument()
     // newer builds come first: Hivewright sits right after Prova, ahead of Qasid
     const order = Array.from(document.querySelectorAll('.feat')).map((el) => el.id)
-    expect(order.indexOf('hivewright')).toBe(3)
+    expect(order.indexOf('hivewright')).toBe(4)
     expect(order.indexOf('hivewright')).toBeLessThan(order.indexOf('qasid'))
   })
 
